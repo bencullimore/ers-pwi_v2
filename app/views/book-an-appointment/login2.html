@@ -4,55 +4,39 @@
 {% block content %}
 
 <main id="content" role="main">
-
-	<h1 class="heading-xlarge" style="padding-bottom:20px;">Welcome to the NHS e-Referral Service</h1>
-
-    <div class="text">
-
-
-        
-        <div style="background-color:#EFEFEF;padding:20px;">
-            
-            
-        
- 
-<!-- Name -->
-<div class="form-item-wrapper" >
-  <fieldset>
-    <div class="form-group" style="margin-bottom: 10px !important;">
-      <label class="form-label-bold" for="first-name" style="margin-bottom: 5px !important;">
-         Reference Number
-      </label>
-      <input type="text" id="first-name" class="form-control" style="margin-top: 0px !important;">
-    </div>
-    <div class="form-group" style="margin-bottom: 10px !important;">
-      <label class="form-label-bold" for="first-name" style="margin-bottom: 5px !important;">
-        Year of Birth
-      </label>
-      <input type="text" id="last-name" class="form-control"  style="margin-top: 0px !important;">
-    </div>
-    <div class="form-group">
-      <label class="form-label-bold" for="first-name" style="margin-bottom: 5px !important;">
-        Password
-      </label>
-      <input type="text" id="first-name" class="form-control" style="margin-top: 0px !important;">
-    </div>
-      
-  </fieldset>
-</div>
-
-        
-            <div>
-              <p>
-        <a class="button button-get-started" href="/book-an-appointment/home-screen">Log In</a>
-      </p>
-            </div>
-            
-
-        </div>
-        
-        
-    </div>
+  <h1 class="heading-xlarge" style="padding-bottom:20px;">Welcome to the NHS e-Referral Service</h1>
+  <div class="text">
+    <form style="background-color:#EFEFEF;padding:20px;" action="/book-an-appointment/home-screen">
+      <!-- Name -->
+      <div class="form-item-wrapper" >
+        <fieldset>
+          <div class="form-group" style="margin-bottom: 10px !important;">
+            <label class="form-label-bold" for="reference" style="margin-bottom: 5px !important;">
+              Reference Number
+            </label>
+            <input type="text" id="reference" name="reference" class="form-control" style="margin-top: 0px !important;">
+          </div>
+          <div class="form-group" style="margin-bottom: 10px !important;">
+            <label class="form-label-bold" for="year" style="margin-bottom: 5px !important;">
+              Year of Birth
+            </label>
+            <input type="text" id="year" name="year" class="form-control"  style="margin-top: 0px !important;">
+          </div>
+          <div class="form-group">
+            <label class="form-label-bold" for="password" style="margin-bottom: 5px !important;">
+              Password
+            </label>
+            <input type="text" id="password" name="password" class="form-control" style="margin-top: 0px !important;">
+          </div>
+        </fieldset>
+      </div>
+      <div>
+        <p>
+          <input type="submit" class="button button-get-started">Log In</a>
+        </p>
+      </div>
+    </form>
+  </div>
 </main>
 
 {% endblock %}
