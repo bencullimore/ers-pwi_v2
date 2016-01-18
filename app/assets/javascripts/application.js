@@ -93,6 +93,50 @@ $(document).ready(function(){
   });
   // END: Filter Appointment
 
+  // Edit the patients data
+  // edit the HTML as it should be done - Not happy about doing it this way, but heyho.
+  // Phone - Home
+  var phone_home_edit = $('.checkdetailsbox > div:eq(1) > div:eq(0) p').html().split('&nbsp;');
+  var phone_home = phone_home_edit[0].split(' ');
+  localStorage.setItem('phone_home', phone_home[1]+' '+phone_home[2]); // Set localStorage
+  $('.checkdetailsbox > div:eq(1) > div:eq(0) p').html(phone_home[0]+' <span id="phone_home">'+localStorage.getItem('phone_home')+'</span>&nbsp;&nbsp;'+phone_home_edit[3]);
+  // Phone - Mobile
+  var phone_mobile_edit = $('.checkdetailsbox > div:eq(1) > div:eq(1) p').html().split('&nbsp;');
+  var phone_mobile = phone_mobile_edit[0].split(' ');
+  localStorage.setItem('phone_mobile', phone_mobile[1]+' '+phone_mobile[2]); // Set localStorage
+  $('.checkdetailsbox > div:eq(1) > div:eq(1) p').html(phone_mobile[0]+' <span id="phone_mobile">'+localStorage.getItem('phone_mobile')+'</span>&nbsp;&nbsp;'+phone_mobile_edit[3]);
+  // Email
+  var email = $('.checkdetailsbox > div:eq(2) > div:eq(0) p').html().split('&nbsp;');
+  localStorage.setItem('email', email[0]); // Set localStorage
+  $('.checkdetailsbox > div:eq(2) > div:eq(0) p').html('<span id="email">'+localStorage.getItem('email')+'</span>&nbsp;&nbsp;'+email[3]);
+
+  // Modal
+  // Phone - Mobile
+  $('input#telhome').val(localStorage.getItem('phone_home'));
+  $('#telhome .button').click(function(){
+    localStorage.setItem('phone_home',$('input#telhome').val());
+    $('.checkdetailsbox > div:eq(1) > div:eq(0) p #phone_home').text(localStorage.getItem('phone_home'));
+  })
+  // Phone - Mobile
+  $('input#telmob').val(localStorage.getItem('phone_mobile'));
+  $('#telmob .button').click(function(){
+    localStorage.setItem('phone_mobile',$('input#telmob').val());
+    $('.checkdetailsbox > div:eq(1) > div:eq(1) p #phone_mobile').text(localStorage.getItem('phone_mobile'));
+  })
+  // email
+  $('input#email').val(localStorage.getItem('email'));
+  $('#useremail .button').click(function(){
+    localStorage.setItem('email',$('input#email').val());
+    $('.checkdetailsbox > div:eq(2) > div:eq(0) p #email').text(localStorage.getItem('email'));
+  })
+  $('.checkdetailsbox > div:eq(5) > div a').click(function(e){
+    e.preventDefault();
+    $(this).parent().parent().fadeOut('fast',function(){
+      $(this).remove();
+    })
+  })
+
+  // END: Edit the patients data
 });
 
 
