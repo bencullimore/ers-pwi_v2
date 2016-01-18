@@ -71,40 +71,27 @@ module.exports = {
       res.redirect('/type-2-diabetes' + req.params[0]);
     });
 
-      
-      
     // add your routes here
-
     // e-RS route
-      
-      app.get('home-screen', function(req, res) {
-    res.render('home-screen', {title:"Welcome"});
-});
-      
-      app.get('check-details', function(req, res) {
-    res.render('check-details', {title:"Check your Details"});
-});
-      app.get('login2', function(req, res) {
-    res.render('login2', {title:"Login"});
-});
-      
-      app.get('select-your-clinic', function(req, res) {
-    res.render('select-your-clinic', {title:"select your clinic"});
-});
-      
-      app.get('select-appointment', function(req, res) {
-    res.render('select-appointment', {title:"select appointment"});
-});
-      
-      
-      app.get('confirmation', function(req, res) {
-    res.render('confirmation', {title:"confirmation"});
-});
-      
-      
-      
-      
-      
+    app.get('home-screen', function(req, res) {
+      console.log(req);
+      res.render('home-screen', {title:"Welcome"});
+    });
+    app.get('check-details', function(req, res) {
+      res.render('check-details', {title:"Check your Details"});
+    });
+    app.get('login2', function(req, res) {
+      res.render('login2', {title:"Login"});
+    });
+    app.get('select-your-clinic', function(req, res) {
+      res.render('select-your-clinic', {title:"select your clinic"});
+    });
+    app.get('select-appointment', function(req, res) {
+      res.render('select-appointment', {title:"select appointment"});
+    });
+    app.get('confirmation', function(req, res) {
+      res.render('confirmation', {title:"confirmation"});
+    });
 
     // Change or cancel appointment fork:
     app.get('/change-or-cancel-an-appointment/path-handler', function(req, res) {
@@ -236,16 +223,12 @@ module.exports = {
       );
     });
 
-    app.get('/book-an-appointment/:service_slug?/home-screen', function(req, res) {
-      var service_slug = req.params.service_slug,
-          offramp = req.session.service_booking_offramp &&
-                    req.session.service_booking_offramp[service_slug];
-
-      if (offramp) {
-        delete req.session.service_booking_offramp[service_slug];
-      }
-
-      res.render('book-an-appointment/home-screen');
+    app.get('/book-an-appointment/home-screen', function(req, res) {
+      res.render('book-an-appointment/home-screen',
+      {
+        tobook: app.locals.tobook,
+        booked: app.locals.booked
+      });
     });
 
     app.get('/book-an-appointment/:service_slug?/next-available-appointment', function(req, res) {

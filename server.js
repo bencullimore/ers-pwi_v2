@@ -65,23 +65,21 @@ app.use(function(req, res, next){
 db.load(app);
 
 // routes (found in app/routes.js)
-
 routes.bind(app);
 
 // auto render any view that exists
-
 app.get(/^\/([^.]+)$/, function (req, res) {
 
-	var path = (req.params[0]);
+  var path = (req.params[0]);
 
-	res.render(path, function(err, html) {
-		if (err) {
-			console.log(err);
-			res.send(404);
-		} else {
-			res.end(html);
-		}
-	});
+  res.render(path, function(err, html) {
+    if (err) {
+      console.log(err);
+      res.send(404);
+    } else {
+      res.end(html);
+    }
+  });
 
 });
 

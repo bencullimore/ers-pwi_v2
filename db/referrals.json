@@ -1,0 +1,19 @@
+{
+  "tobook" : [
+    {
+      "service": "Respiratory",
+      "consultant": "Dr V Smith"
+    },
+    {
+      "service": "Cardiology",
+      "consultant": "Dr S Mills"
+    }
+  ],
+  "booked" : [
+    {
+      "service": "Musculoskeletal",
+      "datetime": "2015-11-25 14:00",
+      "location": "General Cardiology - SLH Bradford"
+    }
+  ]
+}

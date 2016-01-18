@@ -5,167 +5,87 @@
 {% block content %}
 
 <main id="content" role="main">
-
-	<h1 class="heading-xlarge">Hello Matthew Smith</h1>
-
-    <div class="text">
-    
-        
-      <p class="lede">Referrals to Book</p>
-        
-        
-        
-<!---Referral 1 START--->
-        
-        <div class="bookbox" style="margin-bottom:20px;">
-            <div class="bookboxtext">
-                <h1 style="font-size: 20px;">Referral to Cardiology Service</h1>
-                <p>Referred by: Dr S Mills</p>
+  <h1 class="heading-xlarge">Hello Matthew Smith</h1>
+  <div class="text">
+    <p class="lede">{{ tobook.length }} Referrals to Book</p>
+    <!---Referrals to book START--->
+    {% for ref in tobook %}
+    <div class="bookbox" style="margin-bottom:20px;">
+      <div class="bookboxtext">
+        <h1 style="font-size: 20px;">Referral to {{ ref.service }} Service</h1>
+        <p>Referred by: {{ ref.consultant }}</p>
+      </div>
+      <div style="text-align:center;">
+        <div class="container-fluid" style="padding: 0px;">
+          <div class="row-fluid" style="padding:0 0 0 0;">
+            <div class="span6">
+              <p><a class=" button button-cancel" href="find-new-appointment" style="color:#fff">Cancel Referral</a></p>
             </div>
-            
-            <div style="text-align:center;">
-                <div class="container-fluid" style="padding: 0px;">
-                    <div class="row-fluid" style="padding:0 0 0 0;">
-                        <div class="span6">
-                            <p><a class=" button button-cancel" href="find-new-appointment" style="color:#fff">Cancel Referral</a>
-                            </p>
-                        </div>
-                        <div class="span6">
-                            <p><a class="button button-book" href="check-details" style="color:#fff">Book Appointment</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="span6">
+              <p><a class="button button-book" href="check-details" style="color:#fff">Book Appointment</a></p>
             </div>
+          </div>
         </div>
-        
-<!---Referral 1 END--->
-        
-<!---Referral 2 START--->
-        
-        <div class="bookbox" style="margin-bottom:20px;">
-            <div class="bookboxtext">
-                <h1 style="font-size: 20px;">Referral to Respiratory Service </h1>
-                <p>Referred by: Dr V Smith</p>
-            </div>
-            
-            <div style="text-align:center;">
-                <div class="container-fluid" style="padding: 0px;">
-                    <div class="row-fluid" style="padding:0 0 0 0;">
-                        <div class="span6">
-                            <p><a class=" button button-cancel" href="find-new-appointment" style="color:#fff">Cancel Referral</a>
-                            </p>
-                        </div>
-                        <div class="span6">
-                            <p><a class="button button-book" href="check-details" style="color:#fff">Book Appointment</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-<!---Referral 2 END--->
-        
-      <p class="lede">Referrals Booked</p>
-        
-        
-        
-<!---Referrals Booked 1 START--->
-        
-        <div class="bookbox" style="margin-bottom:20px;">
-            <div class="bookboxtext">
-                <h1 style="font-size: 20px;">Referral to Musculoskeletal Service</h1>
-                <!--ACCORDION START-->
-    
-<!--WAITING TIME-->
-    
-    <dl class="accordion" style="">
-
-
-        
-<!--CLINIC DAY-->
-        
-        <dt style="margin-left: 0px !important;">
-            <a style="">More info</a>
-        </dt>
-        <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;">
-            <div class="checkdetailsbox" style="padding-left: 0px !important; padding-right: 0px !important;">
-                
-                
-                <div style="border-bottom:1px #dee0e2 solid;">
-                 <p><strong>Date:</strong> Wednesday 25th November 2015</p>               
-                </div>
-                <div style="border-bottom:1px #dee0e2 solid;padding-top:1rem;">
-                 <p><strong>Time:</strong> 14:00</p>               
-                </div>
-                <div style="padding-top:1rem;">
-                 <p><strong>Service:</strong> General Cardiology - SLH-Bradford</p>               
-                </div>
-                
-            </div>
-        </dd>
-        
-        
-
-        
-
-        
-
-        
-
-        
-        
-
-        
-
-        
-    </dl>    
-        
-
-
-    
-    
-    <!--ACCORDION END-->
-    
-            </div>
-            
-            <div style="text-align:center;">
-                <div class="container-fluid" style="padding: 0px;">
-                    <div class="row-fluid" style="padding:0 0 0 0;">
-                        <div class="span6">
-                            <p><a class=" button button-cancel" href="find-new-appointment" style="color:#fff">Cancel Referral</a>
-                            </p>
-                        </div>
-                        <div class="span6">
-                            <p><a class="button button-change" href="check-details" style="color:#231f20;">Change Appointment</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-<!---Referral 1 END--->
-        
-        
-        
+      </div>
     </div>
-    
+    {% endfor %}
+    <!---Referrals to book END--->
 
-        <script>
-        $(document).ready(function() {    
-           $('.accordion > dd').hide();
-           $('.accordion > dt > a').click(function(){
-                   $(this).parent().next().slideToggle()
-                          .siblings('.hide').slideUp();
-                   return false;
-           });
-            $('.close').click(function(){
-                $('.accordion .hide').slideUp();
-            });
-        });
-    </script>
+    <p class="lede">Referrals Booked</p>
+    <!---Referrals Booked START--->
+    {% for refs in booked %}
+    <div class="bookbox" style="margin-bottom:20px;">
+      <div class="bookboxtext">
+        <h1 style="font-size: 20px;">Referral to {{ refs.service }} Service</h1>
+        <dl class="accordion" style="">
+          <dt style="margin-left: 0px !important;">
+            <a href="#" style="">More info</a>
+          </dt>
+          <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;">
+            <div class="checkdetailsbox" style="padding-left: 0px !important; padding-right: 0px !important;">
+              <div style="border-bottom:1px #dee0e2 solid;">
+                <p><strong>Date:</strong> {{ refs.datetime|date('l jS F Y') }}</p>
+              </div>
+              <div style="border-bottom:1px #dee0e2 solid;padding-top:1rem;">
+                <p><strong>Time:</strong> {{ refs.datetime|date('H:i') }}</p>
+              </div>
+              <div style="padding-top:1rem;">
+                <p><strong>Service:</strong> {{ refs.location }}</p>
+              </div>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <div style="text-align:center;">
+        <div class="container-fluid" style="padding: 0px;">
+          <div class="row-fluid" style="padding:0 0 0 0;">
+            <div class="span6">
+              <p><a class=" button button-cancel" href="find-new-appointment" style="color:#fff">Cancel Referral</a></p>
+            </div>
+            <div class="span6">
+              <p><a class="button button-change" href="check-details" style="color:#231f20;">Change Appointment</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <!---Referrals booked END--->
+  </div>
+
+  <script>
+  $(document).ready(function() {
+    $('.accordion > dd').hide();
+    $('.accordion > dt > a').click(function(){
+      $(this).parent().next().slideToggle()
+      .siblings('.hide').slideUp();
+      return false;
+    });
+    $('.close').click(function(){
+      $('.accordion .hide').slideUp();
+    });
+  });
+  </script>
 </main>
 
 {% endblock %}
