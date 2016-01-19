@@ -224,10 +224,24 @@ module.exports = {
     });
 
     app.get('/book-an-appointment/home-screen', function(req, res) {
+      var referralViewModel,
+          ref = req.query.reference;
+      // get the referral based on the ref id otherwise choose the first one
+      // for each ref, check the value of the key
+      app.locals.referrals.forEach(function(referral) {
+        if (referral.reference === ref) {
+          referralViewModel = referral;
+        }
+      });
+
+      if (!referralViewModel) {
+        console.log('Using first referral as no reference has been supplied.');
+        referralViewModel = app.locals.referrals[0];
+      }
+
       res.render('book-an-appointment/home-screen',
       {
-        tobook: app.locals.tobook,
-        booked: app.locals.booked
+        referral: referralViewModel
       });
     });
 
