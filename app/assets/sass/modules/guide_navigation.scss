@@ -9,30 +9,31 @@
     @extend %contain-floats;
   }
 
-  ol {
-    margin: 0;
-    padding: 0;
 
-    @include breakpoint(break-1) {
-      float: left;
-      width: 50%;
+    
+    ol {
+    margin-left: 0px;
+    padding-left: 10px;
+
+    //@include breakpoint(break-1) {
+      //float: left;
+      //width: 50%;
     }
   }
 
   li {
     position: relative;
     margin-bottom: 0;
-    padding: 0 24px 4px 22px;
+    padding: 0px 0px 4px 10px;
   }
 
   li:before {
     position: absolute;
-    left: 0;
-    counter-increment: section;
-    content: counter(section) ".";
-    margin-right: 0.5rem;
+    left: 5rem;
+
+margin-right: 0.5rem;
   }
-}
+
 
 .pagination-simple {
   @extend %contain-floats;

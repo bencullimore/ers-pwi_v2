@@ -150,21 +150,21 @@ p {
 
 // Lists.
 ul, ol {
-  list-style-type: none;
-  @include baseline(small, $bodytype, 2, 2, all);
+  //list-style-type: none;
+  //@include baseline(small, $bodytype, 2, 2, all);
 
   li {
-    -webkit-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
-    -moz-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
-    -ms-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
-    -o-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
-    font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
-    margin-left: 0;
-    margin-bottom: 0.75rem;
+    //-webkit-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+    //-moz-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+    //-ms-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+    //-o-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+    //font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+    //margin-left: 0;
+    //margin-bottom: 0.75rem;
 
     ol, ul {
-      padding-top: 1rem;
-      margin-bottom: 1rem;
+      //padding-top: 1rem;
+      //margin-bottom: 1rem;
     }
   }
 }
@@ -174,22 +174,22 @@ ul, ol {
   list-style-type: decimal;
   margin-left: 1.5rem;
   li {
-    margin-bottom: 1rem;
+    //margin-bottom: 1rem;
   }
 }
 
 .list-bullet {
   list-style-type: disc;
-  margin-left: 1.5rem;
+  //margin-left: 1.5rem;
   li {
-    margin-bottom: 1rem;
+    //margin-bottom: 1rem;
   }
 }
 
 .inline {
   li {
-    display: inline-block;
-    margin-right: 2rem;
+    //display: inline-block;
+    //margin-right: 2rem;
   }
 }
 
