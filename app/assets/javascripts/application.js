@@ -1,3 +1,9 @@
+// Makes :contains case insesative
+jQuery.expr[':'].contains = function(a, i, m) {
+  return jQuery(a).text().toUpperCase()
+      .indexOf(m[3].toUpperCase()) >= 0;
+};
+
 $(document).ready(function(){
 
   GOVUK.toggle.init();
@@ -25,7 +31,7 @@ $(document).ready(function(){
   // Filter Appointment
 
   // Make Reset Filters button active
-  $('dl.accordion dd input[type="checkbox"]').change(function(){
+  $('dl.accordion dd input[type="checkbox"]').not('#anyday').change(function(){
     $('dl.accordion dd input[type="checkbox"]').not(':checked').length > 0 ?
       $('.cbp-spmenu-right .span6 .close').removeClass('close').addClass('reset-filters') :
       $('.cbp-spmenu-right .span6 .reset-filters').removeClass('reset-filters').addClass('close');
@@ -33,7 +39,8 @@ $(document).ready(function(){
 
   // Reset filter button
   $('.cbp-spmenu-right p > a.button-cancel').on('click', function(){
-    $('dl.accordion dd input[type="checkbox"]').not(':checked').trigger("click");
+    console.log('reset!');
+    $('dl.accordion dd:eq(0) input#anyday').trigger("click");
   });
 
   // Apply filter button
@@ -45,10 +52,28 @@ $(document).ready(function(){
   // Clinic Day
   $('dl.accordion dd:eq(0) input[type="checkbox"]').change(function(){
     var dayOfWeek = $(this).attr('id');
-    this.checked ?
-      $('.main table tr td p:contains('+dayOfWeek+')').parents('tr').removeClass('day-hide').not('.time-hide').show() :
-      $('.main table tr td p:contains('+dayOfWeek+')').parents('tr').addClass('day-hide').hide()
+    if (dayOfWeek == 'anyday') {
+      if ($(this).is(':checked')){
+        $('dl.accordion dd:eq(0) input').not('#anyday').removeAttr("checked");
+        $('.main table tr').show().removeClass('day-hide');
+        $('.cbp-spmenu-right .span6 .reset-filters').removeClass('reset-filters').addClass('close');
+      }
+      else {
+        $('.main table tr').hide();
+        $('.cbp-spmenu-right .span6 .close').removeClass('close').addClass('reset-filters');
+      }
+    }
+    else {
+      $('dl.accordion dd:eq(0) input#anyday').removeAttr("checked");
+      //$('.main table tr').not('.day-hide').hide();
+      this.checked ?
+        $('.main table tr td p:contains('+dayOfWeek+')').parents('tr').addClass('day-hide').show():
+        $('.main table tr td p:contains('+dayOfWeek+')').parents('tr').removeClass('day-hide').not('.time-hide');
 
+      $('.main table tr').not('.day-hide').hide();
+    }
+
+    //$('.main table tr').not('.day-hide').hide();
     $('.main table tr:visible:odd, .main table tr:visible:odd td').css('background-color','transparent');
     $('.main table tr:visible:even, .main table tr:visible:even td').css('background-color','#eff3f5');
   });
@@ -57,12 +82,13 @@ $(document).ready(function(){
   $('dl.accordion dd:eq(1) div:eq(0) input[type="checkbox"]').change(function(){
     $('.main table tr:odd').not(':hidden').css('background-color','#f9f9f9');
     $('.main table tr:even').not(':hidden').css('background-color','transparent');
-    var timeOfDay = $(this).attr('value');
+    var timeOfDay = $(this).attr('id');
     var afternoon = ['12','1','2','3'];
     var evening = ['4','5','6','7','8'];
     var thisCheckbox = $(this);
 
-    if (timeOfDay == 1) { // Morning (All AM)
+    if (timeOfDay == 'morning') { // Morning (All AM)
+      console.log('am');
       this.checked ?
         $('.main table tr td p:contains("am")').parents('tr').removeClass('time-hide').not('.day-hide').show() :
         $('.main table tr td p:contains("am")').parents('tr').addClass('time-hide').hide();
@@ -72,7 +98,7 @@ $(document).ready(function(){
         var hour = $(this).text().split('.');
         var thisPara = $(this);
 
-        if (timeOfDay == 2){ // Afternoon (12-3)
+        if (timeOfDay == 'aft'){ // Afternoon (12-3)
           if ($.inArray(hour[0],afternoon) > -1){
             $(thisCheckbox).is(':checked')?
               $(thisPara).parents('tr').removeClass('time-hide').not('.day-hide').show():
