@@ -2,7 +2,7 @@
 
 This kit is adapted from the [GOV.UK prototyping kit.](https://github.com/alphagov/govuk_prototype_kit).
 
-The kit provides a simple way to make interactive prototypes for NHS.UK alpha. These prototypes can be used to show ideas to people you work with, and to do user research.
+The kit provides a simple way to make interactive prototypes for NHS e-Referral Service. These prototypes can be used to show ideas to people you work with, and to do user research.
 
 It's built on the [Express](http://expressjs.com/) framework and contains code adapted from these GOV.UK resources:
 

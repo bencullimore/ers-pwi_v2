@@ -20,7 +20,7 @@ input[type='radio']{
   min-height: 4rem;
   line-height: 2rem;
   margin: 0;
-  padding: 1rem 2rem 1rem 4rem;
+  padding: 1rem 2rem 0rem 4rem;
   background-color: $nhs-grey-4;
 
   // Show click area on hover
@@ -57,9 +57,9 @@ input[type='radio']{
   height: 2.2rem;
   background-color: #fff;
   border: 1px solid $nhs-black;
-  -webkit-box-shadow: inset 0px 0px 0px 2px $nhs-grey-2;
-  -moz-box-shadow: inset 0px 0px 0px 2px $nhs-grey-2;
-  box-shadow: inset 0px 0px 0px 2px $nhs-grey-2;
+  //-webkit-box-shadow: inset 0px 0px 0px 2px $nhs-grey-2;
+  //-moz-box-shadow: inset 0px 0px 0px 2px $nhs-grey-2;
+  //box-shadow: inset 0px 0px 0px 2px $nhs-grey-2;
 }
 
 // Make radios circles not boxes
@@ -67,7 +67,7 @@ input[type='radio']{
   border-radius: 100%;
   outline: 0;
   border: 1px solid $nhs-black;
-  box-shadow: inset 0px 0px 0px 2px $nhs-grey-2;
+  //box-shadow: inset 0px 0px 0px 2px $nhs-grey-2;
 }
 
 // "Minor" styles

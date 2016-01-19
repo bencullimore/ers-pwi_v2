@@ -58,9 +58,9 @@ padding: 0.5rem 1rem 0rem 1rem;
   font-weight: bold;
     background:$nhs-blue;
   //padding-right: 3rem;
-  //background-image: url("/public/images/icon-button-start.svg");
-  //background-repeat: no-repeat;
-  //background-position: 95% 55%;
+  background-image: url("/public/images/icon-button-start.svg");
+  background-repeat: no-repeat;
+  background-position: 95% 55%;
         //width: 100% ;
     padding-top:1.5rem;
     padding-bottom:2rem;
@@ -246,77 +246,6 @@ background-position: 92% 50%;
   &:visited{
     background-color: $nhs-white;
   }
-}
-
-input[type=checkbox]:not(old),
-input[type=radio   ]:not(old){
-  width     : 2em;
-  margin    : 0;
-  padding   : 0;
-  font-size : 1em;
-  opacity   : 0;
-}
-
-input[type=checkbox]:not(old) + label,
-input[type=radio   ]:not(old) + label{
-  display      : inline-block;
-  //margin-left  : -2em;
-  line-height  : 1.5em;
-}
-
-input[type=checkbox]:not(old) + label > span,
-input[type=radio   ]:not(old) + label > span{
-  display          : inline-block;
-  width            : 0.875em;
-  height           : 0.875em;
-  margin           : 0.25em 0.5em 0.25em 0.25em;
-  border           : 0.0625em solid rgb(192,192,192);
-  border-radius    : 0.25em;
-  background       : rgb(224,224,224);
-  background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
-  background-image :     -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
-  background-image :      -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
-  background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
-  background-image :         linear-gradient(rgb(240,240,240),rgb(224,224,224));
-  vertical-align   : bottom;
-}
-
-input[type=checkbox]:not(old):checked + label > span,
-input[type=radio   ]:not(old):checked + label > span{
-  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
-  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
-  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
-  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
-  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
-}
-
-input[type=checkbox]:not(old):checked + label > span:before{
-  content     : '•';
-  display     : block;
-  width       : 0.2em;
-  color       : $nhs-blue;
-  font-size   : 1.8em;
-  line-height : 0.6em;
-    //padding-bottom: 10px;
-  text-align  : center;
-  //text-shadow : 0 0 0 0em $nhs-blue;
-  font-weight : bold;
-}
-
-input[type=radio]:not(old):checked +  label > span > span{
-  display          : block;
-  width            : 0.5em;
-  height           : 0.5em;
-    padding:0.2em;
-  //margin           : 0.125em;
-  //border           : 0.0625em $nhs-blue;
-  border-radius    : 0.125em;
-  background       : $nhs-blue;
-  //background-image :    -moz-linear-gradient(rgb(179,217,140),rgb(153,204,102));
-  //background-image :     -ms-linear-gradient(rgb(179,217,140),rgb(153,204,102));
-  //background-image :      -o-linear-gradient(rgb(179,217,140),rgb(153,204,102));
-  //background-image : -webkit-linear-gradient(rgb(179,217,140),rgb(153,204,102));
-  //background-image :         linear-gradient(rgb(179,217,140),rgb(153,204,102));
 }
 
 

@@ -1,5 +1,6 @@
 {% extends 'templates/nhs_transaction_layout.html' %}
 {% import 'includes/form_macros.html' as form_macros %}
+{% import 'includes/ui_element_macros.html' as ui_element_macros %}
 
 {% block afterHeader %}
   {% include "includes/service-headers/book-an-appointment.html" %}
@@ -15,7 +16,7 @@
             
             
 <!--SLIDE OUT FILTER START-->
-            <header role="banner" id="global-header" style="background-color:#00A19B;">
+            <header role="banner" id="global-header" style="background-color:#00A19B;padding-top: 10px !important; padding-bottom: 10px !important;margin-left: 0px !important; margin-right: 0px !important;">
               <div class="header-container">
                   <div class="container-fluid" style="padding: 0px;">
                         <div class="row-fluid">
@@ -41,7 +42,7 @@
  <div class="container-fluid" style="padding:10px;">
       <div class="row-fluid" style="padding:0 0 0 0;">
         <div class="span6">
-                        <p class="close">
+                        <p class="close" >
             <a class="button button-cancel" style="color:#fff;padding-top:1rem;">Reset filters</a>
           </p>
         </div>
@@ -66,24 +67,59 @@
         <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
             <a style="text-decoration:none;color:#000;">Waiting Time</a>
         </dt>
+        
+        
+        
         <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
             <div>
-              <div style="padding-bottom:2rem;">
-                <input id="100Days" type="checkbox" name="checkbox" value="1" checked="checked">
-                  <label for="100Days"><span><span></span></span>1 – 100 Days</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="150Days" type="checkbox" name="checkbox" value="2" checked="checked">
-                  <label for="150Days"><span><span></span></span>101 – 150 Days</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="200Days" type="checkbox" name="checkbox" value="2" checked="checked">
-                  <label for="200Days"><span><span></span></span>151 – 200 Days</label>
-              </div>
-              <div>
-                <input id="250Days" type="checkbox" name="checkbox" checked="checked" value="3">
-                  <label for="250Days"><span><span></span></span>201 – 250 Days</label>
-              </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="any" name="minor">
+          <label class="form-control-radio minor" for="any">
+            Any
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="30days" name="minor">
+          <label class="form-control-radio minor" for="30days" style="font-weight: normal;">
+            Up to 30 days
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="60days" name="minor">
+          <label class="form-control-radio minor" for="60days" style="font-weight: normal;">
+            Up to 60 days
+          </label>
+        </div>
+      </div>
+
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="100days" name="minor">
+          <label class="form-control-radio minor" for="100days" style="font-weight: normal;">
+            Up to 100 days
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="150days" name="minor">
+          <label class="form-control-radio minor" for="150days" style="font-weight: normal;">
+            Up to 150+ days
+          </label>
+        </div>
+      </div>
+                
+
+                
             </div>
         </dd>
         
@@ -94,34 +130,83 @@
         </dt>
         <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
             <div>
-              <div style="padding-bottom:2rem;">
-                <input id="Monday" type="checkbox" name="checkbox" checked="checked" value="1" >
-                  <label for="Monday"><span><span></span></span>Monday</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Tuesday" type="checkbox" name="checkbox" checked="checked" value="2">
-                  <label for="Tuesday"><span><span></span></span>Tuesday</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Wednesday" type="checkbox" name="checkbox" checked="checked" value="3">
-                  <label for="Wednesday"><span><span></span></span>Wednesday</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Thursday" type="checkbox" name="checkbox" checked="checked" value="4">
-                  <label for="Thursday"><span><span></span></span>Thursday</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Friday" type="checkbox" name="checkbox" checked="checked" value="5">
-                  <label for="Friday"><span><span></span></span>Friday</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Saturday" type="checkbox" name="checkbox" checked="checked" value="6">
-                  <label for="Saturday"><span><span></span></span>Saturday</label>
-              </div>
-                <div>
-                <input id="Sunday" type="checkbox" name="checkbox" checked="checked" value="7">
-                  <label for="Sunday"><span><span></span></span>Sunday</label>
-              </div>
+              
+                
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="anyday" name="minor">
+          <label class="form-control-checkbox minor" for="anyday">
+            Any
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="monday" name="minor">
+          <label class="form-control-checkbox minor" for="monday" style="font-weight: normal;">
+            Monday
+          </label>
+        </div>
+      </div>
+
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="tuesday" name="minor">
+          <label class="form-control-checkbox minor" for="tuesday" style="font-weight: normal;">
+            Tuesday
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="wednesday" name="minor">
+          <label class="form-control-checkbox minor" for="wednesday" style="font-weight: normal;">
+            Wednesday
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="thursday" name="minor">
+          <label class="form-control-checkbox minor" for="thursday" style="font-weight: normal;">
+            Thursday
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="friday" name="minor">
+          <label class="form-control-checkbox minor" for="friday" style="font-weight: normal;">
+            Friday
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="saturday" name="minor">
+          <label class="form-control-checkbox minor" for="saturday" style="font-weight: normal;">
+            Saturday
+          </label>
+        </div>
+      </div>
+                
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="sunday" name="minor">
+          <label class="form-control-checkbox minor" for="sunday" style="font-weight: normal;">
+            Sunday
+          </label>
+        </div>
+      </div> 
+
+    
             </div>
         </dd>
         
@@ -133,18 +218,39 @@
         </dt>
         <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
             <div>
-              <div style="padding-bottom:2rem;">
-                <input id="Morning" type="checkbox" name="checkbox" checked="checked" value="1" checked="checked">
-                  <label for="Morning"><span><span></span></span>Morning (8.00am - 11.59am)</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Afternoon" type="checkbox" name="checkbox" checked="checked" value="2">
-                  <label for="Afternoon"><span><span></span></span>Afternoon (12.00pm - 3.59pm)</label>
-              </div>
-                <div>
-                <input id="Evening" type="checkbox" name="checkbox" checked="checked" value="3">
-                  <label for="Evening"><span><span></span></span>Evening (4.00pm - 8.00pm)</label>
-              </div>
+                
+                
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="morning" name="minor">
+          <label class="form-control-checkbox minor" for="morning" style="font-weight: normal;">
+            Morning (8.00am - 11.59am)
+          </label>
+        </div>
+      </div> 
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="aft" name="minor">
+          <label class="form-control-checkbox minor" for="aft" style="font-weight: normal;">
+            Afternoon (12.00pm - 3.59pm)
+          </label>
+        </div>
+      </div> 
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="eve" name="minor">
+          <label class="form-control-checkbox minor" for="eve" style="font-weight: normal;">
+            Evening (4.00pm - 8.00pm)
+          </label>
+        </div>
+      </div> 
+                
+                
+
+
             </div>
         </dd>
         
@@ -156,54 +262,73 @@
         </dt>
         <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
             <div>
-              <div style="padding-bottom:2rem;">
-                <input id="2miles" type="checkbox" name="checkbox" checked="checked" value="1" checked="checked">
-                  <label for="2miles"><span><span></span></span>2 miles</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="5miles" type="checkbox" name="checkbox" checked="checked" value="2">
-                  <label for="5miles"><span><span></span></span>5 miles</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="10miles" type="checkbox" name="checkbox" checked="checked" value="3">
-                  <label for="10miles"><span><span></span></span>10 miles</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="15miles" type="checkbox" name="checkbox" checked="checked" value="4">
-                  <label for="15miles"><span><span></span></span>15 miles</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="25miles" type="checkbox" name="checkbox" checked="checked" value="5">
-                  <label for="25miles"><span><span></span></span>25 miles</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="50miles" type="checkbox" name="checkbox" checked="checked" value="6">
-                  <label for="50miles"><span><span></span></span>50 miles</label>
-              </div>  
-              <div style="padding-bottom:2rem;">
-                <input id="75miles" type="checkbox" name="checkbox" checked="checked" value="7">
-                  <label for="75miles"><span><span></span></span>75 miles</label>
-              </div> 
-              <div style="padding-bottom:2rem;">
-                <input id="100miles" type="checkbox" name="checkbox" checked="checked" value="8">
-                  <label for="100miles"><span><span></span></span>100 miles</label>
-              </div> 
-              <div style="padding-bottom:2rem;">
-                <input id="150miles" type="checkbox" name="checkbox" checked="checked" value="9">
-                  <label for="150miles"><span><span></span></span>150 miles</label>
-              </div> 
-              <div style="padding-bottom:2rem;">
-                <input id="200miles" type="checkbox" name="checkbox" checked="checked" value="10">
-                  <label for="200miles"><span><span></span></span>200 miles</label>
-              </div> 
-              <div style="padding-bottom:2rem;">
-                <input id="750miles" type="checkbox" name="checkbox" checked="checked" value="11">
-                  <label for="750miles"><span><span></span></span>750 miles</label>
-              </div> 
-                <div>
-                    <input id="1000miles" type="checkbox" name="checkbox" checked="checked" value="3">
-                        <label for="1000miles"><span><span></span></span>1000 miles</label>
-                </div>
+                
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="anydist" name="minor">
+          <label class="form-control-radio minor" for="anydist" checked="checked">
+            Any
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="2miles" name="minor">
+          <label class="form-control-radio minor" for="2miles" style="font-weight: normal;">
+            Up to 2 miles
+          </label>
+        </div>
+      </div>
+
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="5miles" name="minor">
+          <label class="form-control-radio minor" for="5miles" style="font-weight: normal;">
+            Up to 5 miles
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="10miles" name="minor">
+          <label class="form-control-radio minor" for="10miles" style="font-weight: normal;">
+            Up to 10 miles
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="25miles" name="minor">
+          <label class="form-control-radio minor" for="25miles" style="font-weight: normal;">
+            Up to 25 miles
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="50miles" name="minor">
+          <label class="form-control-radio minor" for="50miles" style="font-weight: normal;">
+            Up to 50 miles
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="100miles" name="minor">
+          <label class="form-control-radio minor" for="100miles" style="font-weight: normal;">
+            Up to 100+ miles
+          </label>
+        </div>
+      </div>
+              
+                
+                
             
             </div>
         </dd>
@@ -216,38 +341,87 @@
         </dt>
         <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
             <div>
-              <div style="padding-bottom:2rem;">
-                <input id="Braille" type="checkbox" name="checkbox" checked="checked" value="1" checked="checked">
-                  <label for="Braille"><span><span></span></span>Braille translation service</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Disabledparking" type="checkbox" name="checkbox" checked="checked" value="2">
-                  <label for="Disabledparking"><span><span></span></span>Disabled parking</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="DisabledWC" type="checkbox" name="checkbox" checked="checked" value="3">
-                  <label for="DisabledWC"><span><span></span></span>Disabled WC</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Inductionloop" type="checkbox" name="checkbox" checked="checked" value="4">
-                  <label for="Inductionloop"><span><span></span></span>Induction loop</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="RNIDtypetalk" type="checkbox" name="checkbox" checked="checked" value="5">
-                  <label for="RNIDtypetalk"><span><span></span></span>RNID typetalk</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Signingservice" type="checkbox" name="checkbox" checked="checked" value="6">
-                  <label for="Signingservice"><span><span></span></span>Signing service available</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Wheelchairaccess" type="checkbox" name="checkbox" checked="checked" value="7">
-                  <label for="Wheelchairaccess"><span><span></span></span>Wheelchair access</label>
-              </div>
-                <div>
-                <input id="Stepfree" type="checkbox" name="checkbox" checked="checked" value="8">
-                  <label for="Stepfree"><span><span></span></span>Step free access</label>
-              </div>
+                
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="Braille" name="minor">
+          <label class="form-control-checkbox minor" for="Braille" style="font-weight: normal;">
+            Braille translation service
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="disabledparking" name="minor">
+          <label class="form-control-checkbox minor" for="disabledparking" style="font-weight: normal;">
+            Disabled parking
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="disabledwc" name="minor">
+          <label class="form-control-checkbox minor" for="disabledwc" style="font-weight: normal;">
+            Disabled WC
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="inductionloop" name="minor">
+          <label class="form-control-checkbox minor" for="inductionloop" style="font-weight: normal;">
+            Induction loop
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="rnid" name="minor">
+          <label class="form-control-checkbox minor" for="rnid" style="font-weight: normal;">
+            RNID typetalk
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="signingservice" name="minor">
+          <label class="form-control-checkbox minor" for="signingservice" style="font-weight: normal;">
+            Signing service available
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="wheelchairaccess" name="minor">
+          <label class="form-control-checkbox minor" for="wheelchairaccess" style="font-weight: normal;">
+            Wheelchair access
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="stepfree" name="minor">
+          <label class="form-control-checkbox minor" for="stepfree" style="font-weight: normal;">
+            Step free access
+          </label>
+        </div>
+      </div>
+                
+                
+                
+                
+                
+                
+                
+        
             </div>
         </dd>
         
@@ -259,23 +433,44 @@
         </dt>
         <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
             <div>
-              <div style="padding-bottom:2rem;">
-                <input id="Cafe" type="checkbox" name="checkbox" checked="checked" value="1" checked="checked">
-                  <label for="Cafe"><span><span></span></span>Cafe</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="library" type="checkbox" name="checkbox" checked="checked" value="2">
-                  <label for="library"><span><span></span></span>Patient library</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Pharmacy" type="checkbox" name="checkbox" checked="checked" value="3">
-                  <label for="Pharmacy"><span><span></span></span>Pharmacy</label>
-              </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="Cafe" name="minor">
+          <label class="form-control-checkbox minor" for="Cafe" style="font-weight: normal;">
+            Cafe
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="library" name="minor">
+          <label class="form-control-checkbox minor" for="library" style="font-weight: normal;">
+            Patient library
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="Pharmacy" name="minor">
+          <label class="form-control-checkbox minor" for="Pharmacy" style="font-weight: normal;">
+            Pharmacy
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="Shop" name="minor">
+          <label class="form-control-checkbox minor" for="Shop" style="font-weight: normal;">
+            Shop
+          </label>
+        </div>
+      </div>
+                
 
-                <div>
-                <input id="Shop" type="checkbox" name="checkbox" checked="checked" value="4">
-                  <label for="Shop"><span><span></span></span>Shop</label>
-              </div>
             </div>
         </dd>
         
@@ -287,23 +482,75 @@
         </dt>
         <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
             <div>
-              <div style="padding-bottom:2rem;">
-                <input id="Outstanding" type="checkbox" name="checkbox" checked="checked" value="1" checked="checked">
-                  <label for="Outstanding"><span><span></span></span>Outstanding</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Good" type="checkbox" name="checkbox" checked="checked" value="2">
-                  <label for="Good"><span><span></span></span>Good</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Requiresimprovement" type="checkbox" name="checkbox" checked="checked" value="3">
-                  <label for="Requiresimprovement"><span><span></span></span>Requires improvement</label>
-              </div>
-
-                <div>
-                <input id="Inadequate" type="checkbox" name="checkbox" checked="checked" value="4">
-                  <label for="Inadequate"><span><span></span></span>Inadequate</label>
-              </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="anycqc" name="minor">
+          <label class="form-control-checkbox minor" for="anycqc">
+            Any
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="Outstanding" name="minor">
+          <label class="form-control-checkbox minor" for="Outstanding" style="font-weight: normal;">
+            Outstanding
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="Good" name="minor">
+          <label class="form-control-checkbox minor" for="Good" style="font-weight: normal;">
+            Good
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="Requiresimprovement" name="minor">
+          <label class="form-control-checkbox minor" for="Requiresimprovement" style="font-weight: normal;">
+            Requires improvement
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="Inadequate" name="minor">
+          <label class="form-control-checkbox minor" for="Inadequate" style="font-weight: normal;">
+            Inadequate
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="notrated" name="minor">
+          <label class="form-control-checkbox minor" for="notrated" style="font-weight: normal;">
+            Services not yet rated
+          </label>
+        </div>
+      </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        
             </div>
         </dd>
         
@@ -315,30 +562,78 @@
         </dt>
         <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
             <div>
-              <div style="padding-bottom:2rem;">
-                <input id="5star" type="checkbox" name="checkbox" checked="checked" value="1" checked="checked">
-                  <label for="5star"><span><span></span></span>5 Stars</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="4star" type="checkbox" name="checkbox" checked="checked" value="2">
-                  <label for="4star"><span><span></span></span>4 Stars</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="3star" type="checkbox" name="checkbox" checked="checked" value="3">
-                  <label for="3star"><span><span></span></span>3 Stars</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="2star" type="checkbox" name="checkbox" checked="checked" value="4">
-                  <label for="2star"><span><span></span></span>2 Stars</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="1star" type="checkbox" name="checkbox" checked="checked" value="5">
-                  <label for="1star"><span><span></span></span>1 Star</label>
-              </div>
-                <div>
-                <input id="Unrated" type="checkbox" name="checkbox" checked="checked" value="6">
-                  <label for="Unrated"><span><span></span></span>Unrated</label>
-              </div>
+                
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="anychoices" name="minor">
+          <label class="form-control-checkbox minor" for="anychoices">
+            Any
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="5stars" name="minor">
+          <label class="form-control-checkbox minor" for="5stars" style="font-weight: normal;">
+            5 Stars
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="4stars" name="minor">
+          <label class="form-control-checkbox minor" for="4stars" style="font-weight: normal;">
+            4 Stars
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="3stars" name="minor">
+          <label class="form-control-checkbox minor" for="3stars" style="font-weight: normal;">
+            3 Stars
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="2stars" name="minor">
+          <label class="form-control-checkbox minor" for="2stars" style="font-weight: normal;">
+            2 Stars
+          </label>
+        </div>
+      </div>
+
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="1stars" name="minor">
+          <label class="form-control-checkbox minor" for="1stars" style="font-weight: normal;">
+            1 Star
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="Unrated" name="minor">
+          <label class="form-control-checkbox minor" for="Unrated" style="font-weight: normal;">
+            Unrated
+          </label>
+        </div>
+      </div>
+              
+                
+                
+
+
+
+
+
             </div>
         </dd>
         
@@ -349,18 +644,42 @@
         </dt>
         <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
             <div>
-              <div style="padding-bottom:2rem;">
-                <input id="Car" type="checkbox" name="checkbox" checked="checked" value="1" checked="checked">
-                  <label for="Car"><span><span></span></span>Car Parking</label>
-              </div>
-              <div style="padding-bottom:2rem;">
-                <input id="Cycle" type="checkbox" name="checkbox" checked="checked" value="2">
-                  <label for="Cycle"><span><span></span></span>Cycle parking</label>
-              </div>
-                <div>
-                <input id="Disabled" type="checkbox" name="checkbox" checked="checked" value="3">
-                  <label for="Disabled"><span><span></span></span>Disabled parking</label>
-              </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="carparking" name="minor">
+          <label class="form-control-checkbox minor" for="carparking" style="font-weight: normal;">
+            Car parking
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="cycleparking" name="minor">
+          <label class="form-control-checkbox minor" for="cycleparking" style="font-weight: normal;">
+            Cycle parking
+          </label>
+        </div>
+      </div>
+                
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="checkbox" id="disabledparking2" name="minor">
+          <label class="form-control-checkbox minor" for="disabledparking2" style="font-weight: normal;">
+            Disabled parking
+          </label>
+        </div>
+      </div>
+                
+                
+                
+                
+                
+                
+                
+
+
             </div>
         </dd>
         
@@ -398,11 +717,11 @@
 
 			
 <!--MAP HEADER START-->
-        <header role="banner" id="global-header" style="background-color:#9B004F;">
-            <div class="header-container">
+        <header role="banner" id="global-header">
+            <div class="header-container" style="background-color:#9B004F;padding-top: 10px !important; padding-bottom: 10px !important;margin-left: 0px !important; margin-right: 0px !important;">
 
-                <div class="container-fluid" style="padding: 0px;">
-                    <div class="row-fluid">
+                <div class="container-fluid" >
+                    <div class="row-fluid" >
                         <div class="span8" >
                             <h2 style="color:#fff;font-size:18px;padding-top:15px;">Map Clinics</h2>
                         </div>
@@ -417,7 +736,10 @@
 
 <!--MAP HEADER END-->            
             
-            <div style="padding:10px;">                <p class="lede">Your home address is set at <a href="/">LS2 4GH</a> </p> 
+            
+            <div style="padding:10px;">                
+                <p>The following clinics have been sorted by distance from your home address.</p>
+                <p>Your home address is set at <a href="/">LS2 4GH</a> </p> 
 </div>
                 <img src="{{assetPath}}images/clinic_map copy.png" width="275px" alt="">
             
@@ -431,9 +753,9 @@
                                 </div>
                                 <div class="span8" style="">
                                     <p>                    
-                                    <h1 style="font-size:20px;color:#231f20;">LGI Knee Clinic</h1>
+                                    <h1 style="font-size:20px;line-height: 23px;color:#231f20;">Heart Failure - Cardiology - Leeds TH (Leeds Gen Inf) - RR8</h1>
                     <p style="margin-bottom: 0px !important; padding-bottom: 10px !important;">Leeds General Infirmary, Leeds, LS1 3EX</p>
-                                    <p><strong>1 Mile</strong> from <button type="button" class="button-postcode" data-toggle="modal" data-target="#postcode">LS2 4GH</button></p>
+                                    <p><strong>5 Miles</strong> from <button type="button" class="button-postcode" data-toggle="modal" data-target="#postcode">LS2 4GH</button></p>
                                     </p>
                                 </div>
 
@@ -461,9 +783,9 @@
                                 </div>
                                 <div class="span8" style="">
                                     <p>                    
-                                    <h1 style="font-size:20px;color:#231f20;">Knee &amp; Shoulder Unit</h1>
-                    <p style="margin-bottom: 0px !important; padding-bottom: 10px !important;">Gaworth Infirmary, Garworth, G1 3EX</p>
-                                    <p><strong>5 Miles</strong> from <a href="/">LS2 4GH</a></p>
+                                    <h1 style="font-size:20px;line-height: 23px;color:#231f20;">Cardiology Heart Failure - Harrogate Trust (Harrogate District Hospital) - RCD</h1>
+                    <p style="margin-bottom: 0px !important; padding-bottom: 10px !important;">Lancaster Park Road, Harrogate, North Yorkshire, HG2 7SX</p>
+                                    <p><strong>13 Miles</strong> from <a href="/">LS2 4GH</a></p>
                                     </p>
                                 </div>
 
@@ -492,9 +814,9 @@
                                 </div>
                                 <div class="span8" style="">
                                     <p>                    
-                                    <h1 style="font-size:20px;color:#231f20;">OA Knee - Chapel Allerton Hospital</h1>
-                    <p style="margin-bottom: 0px !important; padding-bottom: 10px !important;">Chapel Allerton Hospital, Chapeltown Road, Leeds, West Yorkshire, LS7 4SA</p>
-                                    <p><strong>7 Miles</strong> from <a href="/">LS2 4GH</a></p>
+                                    <h1 style="font-size:20px;color:#231f20;">General Cardiology - Cardiology - Rotherham Foundation Trust - RFR</h1>
+                    <p style="margin-bottom: 0px !important; padding-bottom: 10px !important;">Moorgate Rd, Rotherham, South Yorkshire S60 2UD</p>
+                                    <p><strong>28 Miles</strong> from <a href="/">LS2 4GH</a></p>
                                     </p>
                                 </div>
 
@@ -523,11 +845,11 @@
 			<header class="clearfix">
 
 			</header>
-			<div class="main">
+			<div class="main" style="padding-top: 20px !important;">
                 
 <!--MAIN CONTENT STARTS HERRRRREEEE-->      
                 
-  <h1 class="heading-large">
+  <h1 class="heading-large" style="padding-top: 0px !important;">
     Select your Clinic
   </h1>
     
@@ -546,34 +868,48 @@
                         <a id="showLeft" class="button button-filter" style="color:#fff" >Filter </a>
                     </p>
             </div>
-            <div class="span4">
+            <div class="span4" >
         <dl class="accordion">
 
         <dt style="margin-left: 0px !important;">
             <a class="button button-sort"  style="text-decoration:none;color:#fff;">Sort</a>
         </dt>
             
-            <div style="width:100%;position:absolute;display: none; left: 0px !important;">
-                    <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
-                        <div>
-                          <div style="padding-bottom:2rem;">
-                            <input id="Appointment" type="radio" name="radio" value="1" checked="checked">
-                              <label for="Appointment"><span>
-                                  <span></span></span>
-                                  Next Appointment (Soonest - Latest)</label>
-                          </div>
-                          <div style="padding-bottom:2rem;">
-                            <input id="Location" type="radio" name="radio" value="2">
-                              <label for="Location"><span>
-                                  <span></span></span>
-                                  Location (Nearest - Furthest)</label>
-                          </div>
-                          <div style="padding-bottom:2rem;">
-                            <input id="CQC" type="radio" name="radio" value="3">
-                              <label for="CQC">
-                                  <span><span></span></span>
-                                  CQC Rating (Outstanding - Inadequate)</label>
-                          </div>
+            <div style="width:100%;position:absolute;display: none; left: 0px !important;" >
+                    <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;" >
+                        <div style="padding-left:20px;">
+                            
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="nextappoint" name="minor">
+          <label class="form-control-radio minor" for="nextappoint" style="font-weight: normal;">
+            Next Appointment (Soonest - Latest)
+          </label>
+        </div>
+      </div>
+                            
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="location" name="minor">
+          <label class="form-control-radio minor" for="location" style="font-weight: normal;">
+            Location (Nearest - Furthest)
+          </label>
+        </div>
+      </div>
+                            
+      <div class="form-item-wrapper">
+        <div class="form-group">
+          <input type="radio" id="cqcrate" name="minor">
+          <label class="form-control-radio minor" for="cqcrate" style="font-weight: normal;">
+            CQC Rating (Outstanding - Inadequate)
+          </label>
+        </div>
+      </div>
+                            
+                            
+
+
+
                         </div>
                     </dd>
 
@@ -613,7 +949,7 @@
                                 <div class="span3" style="padding-top:20px;">
                                     <p><strong>5 Miles</strong><br />
                                         from<br />
-                                    <a href="">LS2 4GH</a>
+                                    LS2 4GH
                                     </p>
                                 </div>
 
@@ -655,7 +991,7 @@
                                 <div class="span3" style="padding-top:20px;">
                                     <p><strong>13 Miles</strong><br />
                                         from<br />
-                                    <a href="">LS2 4GH</a>
+                                    LS2 4GH
                                     </p>
                                 </div>
 
@@ -737,7 +1073,7 @@
                                 <div class="span3" style="padding-top:20px;">
                                     <p><strong>28 Miles</strong><br />
                                         from<br />
-                                    <a href="">LS2 4GH</a>
+                                    LS2 4GH
                                     </p>
                                 </div>
 
