@@ -25,7 +25,7 @@ module.exports = {
     }
 
     function find_matching_appointment(filter_functions) {
-      return find_matching_appointments(filter_functions)[0]
+      return find_matching_appointments(filter_functions)[0];
     }
 
     function getServiceFromSlug(service_slug_param) {
@@ -41,7 +41,7 @@ module.exports = {
       return app.locals.practitioners.filter(function(practitioner) {
         return practitioner.uuid === uuid;
       })[0];
-    };
+    }
 
     function findPractitionersForService(service_slug) {
       var service_to_uuid = {};
@@ -92,12 +92,35 @@ module.exports = {
     app.get('/book-an-appointment/:service_slug?/select-your-clinic', function(req, res) {
       var service = req.params.service_slug.toLowerCase(),
           clinics = app.locals.clinics.filter(function(item) {
+                      // Sort the appointments for each clinic and set the next one
+                      var next_appointment = item.appointments.sort(function(a, b) {
+                        var a_days = parseInt(a.days_in_future),
+                            b_days = parseInt(b.days_in_future);
+                        if (a_days > b_days) {
+                          return 1;
+                        }
+                        if (a_days < b_days) {
+                          return -1;
+                        }
+                        return 0;
+                      })[0];
+                      item.next_appointment = next_appointment;
                       return item.type.toLowerCase() === service;
+                    })
+                    // sort the clinics on the next available appointment
+                    .sort(function(a, b) {
+                      return parseInt(a.next_appointment.days_in_future) > parseInt(b.next_appointment.days_in_future);
                     });
+
       res.render('book-an-appointment/select-your-clinic',
       {
         clinics: clinics
       });
+    });
+
+    app.get('/book-an-appointment/:clinic/select-appointment', function(req, res) {
+      console.log(req.params.clinic);
+      res.render('book-an-appointment/select-appointment');
     });
 
     app.get(/^\/(book-an-appointment\/[^.]+)$/, function (req, res) {
@@ -124,8 +147,8 @@ module.exports = {
 var filterByService = function(service_slug) {
   return function(appointment) {
     return appointment.service === service_slug;
-  }
-}
+  };
+};
 
 var filterFaceToFace = function(appointment) {
   return appointment.appointment_type == 'face to face';
@@ -143,5 +166,5 @@ var filterBefore10 = function(appointment) {
 var filterByPractitionerUuid = function(uuid) {
   return function(appointment) {
     return appointment.practitioner_uuid === uuid;
-  }
-}
+  };
+};
