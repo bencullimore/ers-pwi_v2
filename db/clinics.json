@@ -50,6 +50,30 @@
       "distance_away": "28",
       "cqc_rating": "unknown",
       "booking_instructions": "Please call the number above, service open 09:30 - 17:00, Monday - Friday."
+    },
+    {
+      "type": "respiratory",
+      "name": "Respiratory Medicine - Leeds TH (Leeds Gen Inf) - RR8",
+      "location": "Leeds General Infirmary, Leeds, LS1 3EX",
+      "phone_number": "",
+      "distance_away": "5",
+      "cqc_rating": "imp"
+    },
+    {
+      "type": "respiratory",
+      "name": "Respiratory Medicine - Harrogate Trust (Harrogate District Hospital) - RCD",
+      "location": "Lancaster Park Road, Harrogate, North Yorkshire, HG2 7SX",
+      "phone_number": "",
+      "distance_away": "13",
+      "cqc_rating": "good"
+    },
+    {
+      "type": "respiratory",
+      "name": "Respiratory Medicine - Rotherham Foundation Trust - RFR",
+      "location": "Moorgate Rd, Rotherham, South Yorkshire S60 2UD",
+      "phone_number": "",
+      "distance_away": "28",
+      "cqc_rating": "outstanding"
     }
   ]
 }
