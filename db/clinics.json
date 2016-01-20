@@ -3,77 +3,167 @@
   [
     {
       "type": "cardiology",
+      "id": "1",
       "name": "Heart Failure - Cardiology - Leeds TH (Leeds Gen Inf) - RR8",
       "location": "Leeds General Infirmary, Leeds, LS1 3EX",
       "phone_number": "",
       "distance_away": "5",
-      "cqc_rating": "imp"
+      "cqc_rating": "imp",
+      "appointments":
+      [
+        {
+          "id": "",
+          "days_in_future": "1",
+          "time": "",
+          "referral_for": ""
+        }
+      ]
     },
     {
       "type": "cardiology",
+      "id": "2",
       "name": "Cardiology Heart Failure - Harrogate Trust (Harrogate District Hospital) - RCD",
       "location": "Lancaster Park Road, Harrogate, North Yorkshire, HG2 7SX",
       "phone_number": "",
       "distance_away": "13",
-      "cqc_rating": "good"
+      "cqc_rating": "good",
+      "appointments":
+      [
+        {
+          "id": "",
+          "days_in_future": "10",
+          "time": "",
+          "referral_for": ""
+        }
+      ]
     },
     {
       "type": "cardiology",
+      "id": "3",
       "name": "General Cardiology - Cardiology - Rotherham Foundation Trust - RFR",
       "location": "Moorgate Rd, Rotherham, South Yorkshire S60 2UD",
       "phone_number": "",
       "distance_away": "28",
-      "cqc_rating": "good"
+      "cqc_rating": "good",
+      "appointments":
+      [
+        {
+          "id": "",
+          "days_in_future": "5",
+          "time": "",
+          "referral_for": ""
+        }
+      ]
     },
     {
       "type": "cardiology",
+      "id": "4",
       "name": "General Cardiology - Cardiology - Rotherham Foundation Trust - RFR",
       "location": "Moorgate Rd, Rotherham, South Yorkshire S60 2UD",
       "phone_number": "",
       "distance_away": "28",
-      "cqc_rating": "good"
+      "cqc_rating": "good",
+      "appointments":
+      [
+        {
+          "id": "",
+          "days_in_future": "21",
+          "time": "",
+          "referral_for": ""
+        }
+      ]
     },
     {
       "type": "cardiology",
+      "id": "5",
       "name": "Referral Gateway - Cardiology",
       "location": "Ellen house, Oldham, Lancashire, OL9 6EE",
       "phone_number": "",
       "distance_away": "",
       "telephone_appointment": "true",
-      "cqc_rating": "good"
+      "cqc_rating": "good",
+      "appointments":
+      [
+        {
+          "id": "",
+          "days_in_future": "15",
+          "time": "",
+          "referral_for": ""
+        }
+      ]
     },
     {
       "type": "cardiology",
+      "id": "6",
       "name": "Street Lane Services - Cardiology Diagnosis and Management Clinic",
       "location": "12 Devonshire Avenue, Leeds, LS8 1AY",
       "phone_number": "0113 2371603",
       "distance_away": "28",
       "cqc_rating": "unknown",
+      "appointments":
+      [
+        {
+          "id": "",
+          "days_in_future": "10",
+          "time": "",
+          "referral_for": ""
+        }
+      ],
       "booking_instructions": "Please call the number above, service open 09:30 - 17:00, Monday - Friday."
     },
     {
       "type": "respiratory",
+      "id": "7",
       "name": "Respiratory Medicine - Leeds TH (Leeds Gen Inf) - RR8",
       "location": "Leeds General Infirmary, Leeds, LS1 3EX",
       "phone_number": "",
       "distance_away": "5",
-      "cqc_rating": "imp"
+      "cqc_rating": "imp",
+      "appointments":
+      [
+        {
+          "id": "",
+          "days_in_future": "2",
+          "time": "",
+          "referral_for": ""
+        }
+      ]
     },
     {
       "type": "respiratory",
+      "id": "8",
       "name": "Respiratory Medicine - Harrogate Trust (Harrogate District Hospital) - RCD",
       "location": "Lancaster Park Road, Harrogate, North Yorkshire, HG2 7SX",
       "phone_number": "",
       "distance_away": "13",
-      "cqc_rating": "good"
+      "cqc_rating": "good",
+      "appointments":
+      [
+        {
+          "id": "",
+          "days_in_future": "10",
+          "time": "",
+          "referral_for": ""
+        }
+      ]
     },
     {
       "type": "respiratory",
+      "id": "9",
       "name": "Respiratory Medicine - Rotherham Foundation Trust - RFR",
       "location": "Moorgate Rd, Rotherham, South Yorkshire S60 2UD",
       "phone_number": "",
       "distance_away": "28",
-      "cqc_rating": "outstanding"
+      "cqc_rating": "outstanding",
+      "appointments":
+      [
+        {
+          "id": "",
+          "days_in_future": "14",
+          "time": "",
+          "referral_for": ""
+        }
+      ]
     }
   ]
 }

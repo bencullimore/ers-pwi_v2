@@ -28,7 +28,7 @@
 
         <!--DISPLAY CLINICS START-->
         {% for clinic in clinics %}
-        <div class="clinicresult clickable-row" data-href='/book-an-appointment/select-appointment' >
+        <div class="clinicresult clickable-row" data-href='/book-an-appointment/{{clinic.id}}/select-appointment' >
           <h1 style="font-size:20px;line-height:25px;color:#231f20;">{{ clinic.name }}</h1>
           <p>{{ clinic.location }}</p>
           {% if !clinic.booking_instructions %}
@@ -37,7 +37,7 @@
               <div class="span4 clinicdiarybox">
                 <p style="font-size:12px;line-height:14px;margin-bottom:5px;"> Next Appointment</p>
                 <div class="clinicdiaryboxinner">
-                  <h2 style="font-size:22px;">10</h2> Days
+                  <h2 style="font-size:22px;">{{ clinic.next_appointment.days_in_future }}</h2> Days
                 </div>
               </div>
 
