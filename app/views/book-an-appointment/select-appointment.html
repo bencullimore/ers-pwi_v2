@@ -2,553 +2,202 @@
 {% import 'includes/form_macros.html' as form_macros %}
 
 {% block afterHeader %}
-  {% include "includes/service-headers/book-an-appointment.html" %}
+{% include "includes/service-headers/book-an-appointment.html" %}
 {% endblock %}
 
 {% block content %}
 <main role="main">
-
-	<body class="cbp-spmenu-push">
-
-<!--FILTER MENU START-->
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="overflow:auto;-webkit-box-shadow: 17px -1px 23px -16px rgba(0,0,0,0.49); -moz-box-shadow: 17px -1px 23px -16px rgba(0,0,0,0.49);box-shadow: 17px -1px 23px -16px rgba(0,0,0,0.49);">
-
-
-<!-- HIDDEN SLIDE OUT FILTER START-->
-            <header role="banner" id="global-header" style="background-color:#0072C6;padding-top: 10px !important; padding-bottom: 10px !important;margin-left: 0px !important; margin-right: 0px !important;">
-              <div class="header-container">
-                  <div class="container-fluid" style="padding: 0px;">
-                        <div class="row-fluid">
-                            <div class="span8" >
-                                <h2 style="color:#fff;font-size:18px;padding-top: 10px !important; padding-bottom: 10px !important;">Clinic Information</h2>
-                            </div>
-
-                            <div class="span4">
-                                <button id="showLeftPush" style="background-color:#0072C6;border:0px;"><img src="{{assetPath}}images/x_37x37.svg" width="37px" height ="37px" alt="" style="padding-top: 5px !important;"></button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </header>
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2356.2858222914347!2d-1.5530797840537895!3d53.802197580077106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xa9043b3691991131!2sLeeds+General+Infirmary!5e0!3m2!1sen!2suk!4v1452164173196" width="240" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-
-            <div style="padding:20px;">
-                <h1 style="font-size:2rem;line-height:2.5rem;color:#231f20;">Heart Failure - Cardiology - Leeds TH (Leeds Gen Inf) - RR8</h1>
-                    <p style="margin-bottom: 0px !important; padding-bottom: 10px !important;">Leeds General Infirmary, Leeds, LS1 3EX</p>
-
-                <p><strong>Telephone:</strong> 0113 243 2799<br />
-                <strong>Address:</strong> Great George Street, Leeds, LS1 3EX<br />
-                <strong>Website:</strong> <a style="font-size:1.5rem;" href="http://www.leedsth.nhs.uk">www.leedsth.nhs.uk</a> </p>
-
-                <h1 style="font-size:2rem;line-height:2.5rem;color:#231f20;padding-top:30px;">Quality of service at Leeds General Infirmary Knee Clinic</h1>
-
-                <p>CQC rating: <span style="background-color: #ff9900">Requires Improvement</span><br />
-<a style="font-size:1.5rem;" href="http://www.cqc.org.uk/location/RR801">Read the full report here</a><br />
-NHS Choices user rating: <img src="http://www.nhs.uk/img/find-services/four-star.gif" /> <br />
-                    <a style="font-size:1.5rem;" href="http://www.nhs.uk/services/hospitals/overview/defaultview.aspx?id=2205">Read review here</a></p>
-
-                <h1 style="font-size:2rem;line-height:2.5rem;color:#231f20;padding-top:30px;">Accessibility</h1>
-
-<p>Induction loop<br />
-Disabled parking<br />
-Signing service available<br />
-Wheelchair access
-</p>
-
-
-                <h1 style="font-size:2rem;line-height:2.5rem;color:#231f20;padding-top:30px;">Food &amp; Amenities</h1>
-                <p>Cafe<br />
-Shop<br />
-Parking<br />
-Car Parking <br />
-Disabled Parking
-                </p>
-
-                <h1 style="font-size:2rem;line-height:2.5rem;color:#231f20;padding-top:30px;">PALS (Patient advice and liaison service)</h1>
-
-                <p><strong>Tel:</strong> (0113) 2067168<br />
-                    <strong>Email:</strong> <a style="font-size:1.5rem;" href="mailto:patient.relations@leedsth.nhs.uk">patient.relations@leedsth.nhs.uk</a>
-
-
-                </p>
-
-
-            </div>
-
-
-
-<!-- HIDDEN SLIDE OUT FILTER END-->
-
-
-		</nav>
-<!--FILTER MENU END-->
-
-
-
-<!--FILTER APPOINTMENT HEADER START-->
-
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2" style="overflow:auto;-webkit-box-shadow: -17px 1px 23px -16px rgba(0,0,0,0.49);-moz-box-shadow: -17px 1px 23px -16px rgba(0,0,0,0.49);box-shadow: -17px 1px 23px -16px rgba(0,0,0,0.49);">
-
-
-
-<!--SLIDE OUT MENU CONTENT START-->
-            <header role="banner" id="global-header" style="background-color:#00A19B;">
-              <div class="header-container">
-                  <div class="container-fluid" style="padding: 0px;">
-                        <div class="row-fluid">
-                            <div class="span8" >
-                                <h2 style="color:#fff;font-size:18px;padding-top: 10px !important; padding-bottom: 10px !important;">Filter Appointment</h2>
-                            </div>
-
-                            <div class="span4">
-                                <button id="showRightPush" style="background-color:#00A19B;border:0px;"><img src="{{assetPath}}images/x_37x37.svg" width="37px" height ="37px" alt="" style="padding-top: 5px !important;"></button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </header>
-
-
- <div class="container-fluid" style="padding:10px;">
-      <div class="row-fluid" style="padding:0 0 0 0;">
-        <div class="span6">
-                        <p class="close">
-            <a class="button button-cancel close" style="color:#fff;padding-top:1rem;">Reset filters</a>
-          </p>
-        </div>
-        <div class="span6">
-                        <p>
-            <a class="button button-book" style="color:#fff;padding-top:1rem;" >Apply filters</a>
-          </p>
-        </div>
-
-      </div>
-</div>
-
-
-    <dl class="accordion" style="background-color: #dee0e2;">
-
-<!--CLINIC DAY-->
-
-        <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
-            <a style="text-decoration:none;color:#000;">Clinic Day</a>
-        </dt>
-        <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
-            <div>
-
-
-
- <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="anyday" name="minor" checked="checked">
-          <label class="form-control-checkbox minor" for="anyday">
-            Any
-          </label>
-        </div>
-      </div>
-
-      <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="monday" name="minor">
-          <label class="form-control-checkbox minor" for="monday" style="font-weight: normal;">
-            Monday
-          </label>
-        </div>
-      </div>
-
-      <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="tuesday" name="minor">
-          <label class="form-control-checkbox minor" for="tuesday" style="font-weight: normal;">
-            Tuesday
-          </label>
-        </div>
-      </div>
-
-      <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="wednesday" name="minor">
-          <label class="form-control-checkbox minor" for="wednesday" style="font-weight: normal;">
-            Wednesday
-          </label>
-        </div>
-      </div>
-
-      <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="thursday" name="minor">
-          <label class="form-control-checkbox minor" for="thursday" style="font-weight: normal;">
-            Thursday
-          </label>
-        </div>
-      </div>
-
-      <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="friday" name="minor">
-          <label class="form-control-checkbox minor" for="friday" style="font-weight: normal;">
-            Friday
-          </label>
-        </div>
-      </div>
-
-      <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="saturday" name="minor">
-          <label class="form-control-checkbox minor" for="saturday" style="font-weight: normal;">
-            Saturday
-          </label>
-        </div>
-      </div>
-
-
-      <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="sunday" name="minor">
-          <label class="form-control-checkbox minor" for="sunday" style="font-weight: normal;">
-            Sunday
-          </label>
-        </div>
-      </div>
-
-            </div>
-        </dd>
-
-
-<!--CLINIC TIME-->
-
-        <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
-            <a style="text-decoration:none;color:#000;">Clinic Time</a>
-        </dt>
-        <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
-            <div>
-                    <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="morning" name="minor" checked="checked">
-          <label class="form-control-checkbox minor" for="morning" style="font-weight: normal;">
-            Morning (8.00am - 11.59am)
-          </label>
-        </div>
-      </div>
-
-      <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="aft" name="minor" checked="checked">
-          <label class="form-control-checkbox minor" for="aft" style="font-weight: normal;">
-            Afternoon (12.00pm - 3.59pm)
-          </label>
-        </div>
-      </div>
-
-      <div class="form-item-wrapper">
-        <div class="form-group">
-          <input type="checkbox" id="eve" name="minor" checked="checked">
-          <label class="form-control-checkbox minor" for="eve" style="font-weight: normal;">
-            Evening (4.00pm - 8.00pm)
-          </label>
-        </div>
-      </div>
-            </div>
-        </dd>
-
-
-
-
-    </dl>
-
-
-
-
-
-
-
-
-		</nav>
-
-<!--MAP MENU END-->
-
-
-
-
-
-		<div class="container">
-			<header class="clearfix">
-
-			</header>
-			<div class="main" style="padding-top: 20px;">
-
-<!--MAIN CONTENT STARTS HERRRRREEEE-->
-
-  <h1 class="heading-large" style="padding-top: 0px !important;margin-bottom:10px;">
-    Select your Appointment
-  </h1>
-
+  <body class="cbp-spmenu-push">
+
+    {% include "book-an-appointment/clinic-filters.html" %}
+
+    {% include "book-an-appointment/clinic-map.html" %}
+
+    <div class="container">
+      <header class="clearfix">
+      </header>
+      <div class="main" style="padding-top: 20px;">
+        <!--MAIN CONTENT STARTS HERRRRREEEE-->
+        <h1 class="heading-large" style="padding-top: 0px !important;margin-bottom:10px;">
+          Select your Appointment
+        </h1>
         <div class="bookbox">
-            <h2 style="padding-bottom:0px;font-weight: bold;line-height:28px;"><a style="color:#0072C6;" id="showLeft">Heart Failure - Cardiology - Leeds TH (Leeds Gen Inf) - RR8</a></h2>
-
-            <p>Leeds General Infirmary, Leeds, LS1 3EX</p>
-            <div class="checkdetailsbox" style="padding-bottom: 2px !important; padding-top: 10px !important;">
-                <p><strong>1 Mile</strong> from <button type="button" class="button-postcode" data-toggle="modal" data-target="#postcode">LS2 4GH</button></p>
-            </div>
-
-            <div class="checkdetailsbox" style="padding-bottom: 5px !important; padding-top: 10px !important;">
-
-                <p style="margin-bottom:0px;"><strong>CQC Rating</strong> <span style="background-color:#ff9900;color:#fff;padding-left:5px;padding-right:5px;">Requires Improvement</span></p>
-                            <!--<p style="margin-bottom: 0px !important;"><a href="http://www.cqc.org.uk/content/ratings" style="color:#0072C6;text-decoration: underline;" >More information about CQC Ratings</a></p>-->
-
-            </div>
-
+          <h2 style="padding-bottom:0px;font-weight: bold;line-height:28px;"><a style="color:#0072C6;" id="showRight">{{ clinic.name }}</a></h2>
+          <p>{{ clinic.location }}</p>
+          <div class="checkdetailsbox" style="padding-bottom: 2px !important; padding-top: 10px !important;">
+            <p><strong>{{ clinic.distance_away }} Miles</strong> from <button type="button" class="button-postcode" data-toggle="modal" data-target="#postcode">LS2 4GH</button></p>
+          </div>
+          <div class="checkdetailsbox" style="padding-bottom: 5px !important; padding-top: 10px !important;">
+            <!-- <p style="margin-bottom:0px;"><strong>CQC Rating</strong> <span style="background-color:#ff9900;color:#fff;padding-left:5px;padding-right:5px;">Requires Improvement</span></p> -->
+            <p style="margin-bottom:0px;">CQC Rating <img src="{{assetPath}}images/cqc_req_{{ clinic.cqc_rating }}.svg" /></p>
+          </div>
         </div>
 
-<!--FILTER SORT MAP BUTTONS START-->
+        <!--FILTER SORT MAP BUTTONS START-->
+        <div class="container-fluid" style="padding:15px 0 15px 0;">
+          <div class="row-fluid" style="padding:0 0 0 0;">
+            <div >
+              <p>
+                <a class="button button-filter" id="showLeft" style="color:#fff">Filter</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--FILTER SORT MAP BUTTONS END-->
 
-    <div class="container-fluid" style="padding:15px 0 15px 0;">
-        <div class="row-fluid" style="padding:0 0 0 0;">
+        <table class="table table-striped">
+          <tbody>
+            <tr class='clickable-row' data-href='/book-an-appointment/review-appointment'>
+              <td> <p style="margin: 0rem 0rem 0rem 0rem;">Wednesday <strong>25 November</strong> 2015</p></td>
+              <td> <p>9.00am</p></td>
+              <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
+              </tr>
+              <tr>
+                <td> <p style="margin: 0rem 0rem 0rem 0rem;">Thursday  <strong>3 December</strong> 2015</p></td>
+                <td> <p>12.00pm</p></td>
+                <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
+                </tr>
+                <tr>
+                  <td> <p style="margin: 0rem 0rem 0rem 0rem;">Friday  <strong>18 December</strong> 2015</p></td>
+                  <td> <p>9.00am</p></td>
+                  <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
+                  </tr>
+                  <tr>
+                    <td> <p style="margin: 0rem 0rem 0rem 0rem;">Friday  <strong>18 December</strong> 2015</p></td>
+                    <td> <p>10.00am</p></td>
+                    <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
+                    </tr>
+                    <tr>
+                      <td> <p style="margin: 0rem 0rem 0rem 0rem;">Wednesday  <strong>6 January </strong> 2016</p></td>
+                      <td> <p>9.00am</p></td>
+                      <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
+                      </tr>
+                      <tr>
+                        <td> <p style="margin: 0rem 0rem 0rem 0rem;">Wednesday  <strong>6 January </strong> 2016</p></td>
+                        <td> <p>10.00am</p></td>
+                        <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
+                        </tr>
+                      </tbody>
+                    </table>
 
+                    <section style="visibility: hidden;">
+                      <button id="showLeft">Show/Hide Left Slide Menu</button>
+                      <button id="showRight">Show/Hide Right Slide Menu</button>
+                      <button id="showTop">Show/Hide Top Slide Menu</button>
+                      <button id="showBottom">Show/Hide Bottom Slide Menu</button>
+                    </section>
+                  </div>
+                </div>
 
-
-
-        <!--<div class="span6">
-<dl class="accordion">
-
-        <dt style="margin-left: 0px !important;">
-            <a class="button button-change"  style="text-decoration:none;color:#231f20;">Change<br /> Clinic</a>
-        </dt>
-
-            <div style="width:100%;position:absolute;display: none; left: 0px !important;">
-                    <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;padding-left: 20px !important;">
-                        <div>
-                          <div style="padding-bottom:2rem;">
-                                Cardiology Heart Failure - Harrogate Trust (Harrogate District Hospital) - RCD
-                          </div>
-                          <div style="padding-bottom:2rem;">
-                                Referral Gateway - Cardiology
-                          </div>
-                          <div style="padding-bottom:2rem;">
-                                General Cardiology - Cardiology - Rotherham Foundation Trust - RFR
-                          </div>
-                          <div style="padding-bottom:2rem;">
-                                Street Lane Services - Cardiology Diagnosis and Management Clinic
+                <!-- Modal START -->
+                <div class="container">
+                  <!-- Modal CHANGE POSTCODE START -->
+                  <div class="modal fade" id="postcode" role="dialog">
+                    <div class="modal-dialog">
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Edit home postcode</h4>
+                        </div>
+                        <div class=" " style="padding:20px;">
+                          <div class="form-group" style="margin-bottom: 2rem;">
+                            <input type="postcode" class="form-control" id="postcode" placeholder="Postcode">
                           </div>
                         </div>
-                    </dd>
+                        <div class="modal-footer" style="border-top:0px;">
+                          <button type="button" class="button button-book" data-dismiss="modal">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Modal CHANGE POSTCODE END -->
+                </div>
+                <!-- Modal End-->
+              </main>
 
-            </div>
-                </dl>
+              <script src="/public/javascripts/vendor/modernizr.custom.js"></script>
+              <script src="/public/javascripts/vendor/classie.js"></script>
+              <script>
+              var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+              menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+              menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+              menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+              showLeft = document.getElementById( 'showLeft' ),
+              showRight = document.getElementById( 'showRight' ),
+              showTop = document.getElementById( 'showTop' ),
+              showBottom = document.getElementById( 'showBottom' ),
+              showLeftPush = document.getElementById( 'showLeftPush' ),
+              showRightPush = document.getElementById( 'showRightPush' ),
+              body = document.body;
 
+              showLeft.onclick = function() {
+                classie.toggle( this, 'active' );
+                classie.toggle( menuLeft, 'cbp-spmenu-open' );
+                disableOther( 'showLeft' );
+              };
+              showRight.onclick = function() {
+                classie.toggle( this, 'active' );
+                classie.toggle( menuRight, 'cbp-spmenu-open' );
+                disableOther( 'showRight' );
+              };
+              showTop.onclick = function() {
+                classie.toggle( this, 'active' );
+                classie.toggle( menuTop, 'cbp-spmenu-open' );
+                disableOther( 'showTop' );
+              };
+              showBottom.onclick = function() {
+                classie.toggle( this, 'active' );
+                classie.toggle( menuBottom, 'cbp-spmenu-open' );
+                disableOther( 'showBottom' );
+              };
+              showLeftPush.onclick = function() {
+                classie.toggle( this, 'active' );
+                classie.toggle( body, 'cbp-spmenu-push-toright' );
+                classie.toggle( menuLeft, 'cbp-spmenu-open' );
+                disableOther( 'showLeftPush' );
+              };
+              showRightPush.onclick = function() {
+                classie.toggle( this, 'active' );
+                classie.toggle( body, 'cbp-spmenu-push-toleft' );
+                classie.toggle( menuRight, 'cbp-spmenu-open' );
+                disableOther( 'showRightPush' );
+              };
 
-            </div> -->
+              function disableOther( button ) {
+                if( button !== 'showLeft' ) {
+                  classie.toggle( showLeft, 'disabled' );
+                }
+                if( button !== 'showRight' ) {
+                  classie.toggle( showRight, 'disabled' );
+                }
+                if( button !== 'showTop' ) {
+                  classie.toggle( showTop, 'disabled' );
+                }
+                if( button !== 'showBottom' ) {
+                  classie.toggle( showBottom, 'disabled' );
+                }
+                if( button !== 'showLeftPush' ) {
+                  classie.toggle( showLeftPush, 'disabled' );
+                }
+                if( button !== 'showRightPush' ) {
+                  classie.toggle( showRightPush, 'disabled' );
+                }
+              }
+              </script>
 
-            <div >
-                    <p>
-                        <a class="button button-filter" id="showRight" style="color:#fff">Filter</a>
-                    </p>
-            </div>
+              <script>
+              $(document).ready(function() {
+                $('.accordion > dd').hide();
+                $('.accordion > dt > a').click(function(){
+                  $(this).parent().next().slideToggle()
+                  .siblings('.hide').slideUp();
+                  return false;
+                });
+                $('.close').click(function(){
+                  $('.accordion .hide').slideUp();
+                });
+              });
+              </script>
 
-
-
-        </div>
-    </div>
-<!--FILTER SORT MAP BUTTONS END-->
-
-
-      <table class="table table-striped">
-
-
-        <tbody>
-
-            <tr class='clickable-row' data-href='/book-an-appointment/review-appointment'>
-            <td> <p style="margin: 0rem 0rem 0rem 0rem;">Wednesday <strong>25 November</strong> 2015</p></td>
-            <td> <p>9.00am</p></td>
-            <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-            </tr>
-
-
-            <tr>
-            <td> <p style="margin: 0rem 0rem 0rem 0rem;">Thursday  <strong>3 December</strong> 2015</p></td>
-            <td> <p>12.00pm</p></td>
-            <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-            </tr>
-
-            <tr>
-            <td> <p style="margin: 0rem 0rem 0rem 0rem;">Friday  <strong>18 December</strong> 2015</p></td>
-            <td> <p>9.00am</p></td>
-            <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-            </tr>
-
-            <tr>
-            <td> <p style="margin: 0rem 0rem 0rem 0rem;">Friday  <strong>18 December</strong> 2015</p></td>
-            <td> <p>10.00am</p></td>
-            <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-            </tr>
-
-            <tr>
-            <td> <p style="margin: 0rem 0rem 0rem 0rem;">Wednesday  <strong>6 January </strong> 2016</p></td>
-            <td> <p>9.00am</p></td>
-            <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-            </tr>
-
-            <tr>
-            <td> <p style="margin: 0rem 0rem 0rem 0rem;">Wednesday  <strong>6 January </strong> 2016</p></td>
-            <td> <p>10.00am</p></td>
-            <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-            </tr>
-
-
-
-
-
-
-        </tbody>
-
-</table>
-
-
-
-
-
-
-				<section style="visibility: hidden;">
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
-
-			</div>
-		</div>
-
-
-
-<!-- Modal START -->
-<div class="container">
-
-
-
-
-<!-- Modal CHANGE POSTCODE START -->
-  <div class="modal fade" id="postcode" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit home postcode</h4>
-
-        </div>
-        <div class=" " style="padding:20px;">
-            <div class="form-group" style="margin-bottom: 2rem;">
-    <input type="postcode" class="form-control" id="postcode" placeholder="Postcode">
-  </div>
-        </div>
-        <div class="modal-footer" style="border-top:0px;">
-          <button type="button" class="button button-book" data-dismiss="modal">Save</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-<!-- Modal CHANGE POSTCODE END -->
-
-
-
-</div>
-
-<!-- Modal End-->
-
-
-</main>
-
-<script src="/public/javascripts/vendor/modernizr.custom.js"></script>
-<script src="/public/javascripts/vendor/classie.js"></script>
-<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
-
- <script>
-        $(document).ready(function() {
-           $('.accordion > dd').hide();
-           $('.accordion > dt > a').click(function(){
-                   $(this).parent().next().slideToggle()
-                          .siblings('.hide').slideUp();
-                   return false;
-           });
-            $('.close').click(function(){
-                $('.accordion .hide').slideUp();
-            });
-        });
-    </script>
-
-{% endblock %}
+              {% endblock %}
