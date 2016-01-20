@@ -1,19 +1,45 @@
 {
-  "tobook" : [
+  "referrals":
+  [
     {
-      "service": "Respiratory",
-      "consultant": "Dr V Smith"
+      "reference" : "ref123",
+      "tobook" : [
+        {
+          "service": "Respiratory",
+          "consultant": "Dr V Smith"
+        },
+        {
+          "service": "Cardiology",
+          "consultant": "Dr S Mills"
+        }
+      ],
+      "booked" : [
+        {
+          "service": "Musculoskeletal",
+          "datetime": "2015-11-25 14:00",
+          "location": "General Cardiology - SLH Bradford"
+        }
+      ]
     },
     {
-      "service": "Cardiology",
-      "consultant": "Dr S Mills"
-    }
-  ],
-  "booked" : [
-    {
-      "service": "Musculoskeletal",
-      "datetime": "2015-11-25 14:00",
-      "location": "General Cardiology - SLH Bradford"
+      "reference" : "ref456",
+      "tobook" : [
+        {
+          "service": "Respiratory",
+          "consultant": "Dr A Bethany"
+        },
+        {
+          "service": "Cardiology",
+          "consultant": "Dr C Davis"
+        }
+      ],
+      "booked" : [
+        {
+          "service": "Heart",
+          "datetime": "2016-02-14 12:00",
+          "location": "Somewhere over the rainbow"
+        }
+      ]
     }
   ]
 }
