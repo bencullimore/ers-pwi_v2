@@ -118,9 +118,15 @@ module.exports = {
       });
     });
 
-    app.get('/book-an-appointment/:clinic/select-appointment', function(req, res) {
-      console.log(req.params.clinic);
-      res.render('book-an-appointment/select-appointment');
+    app.get('/book-an-appointment/:clinic_id/select-appointment', function(req, res) {
+      // Based on the clinic_id, get all of the appointments and plonk them into the page
+      var clinic = app.locals.clinics.filter(function(item) {
+        return item.id === req.params.clinic_id;
+      })[0];
+      res.render('book-an-appointment/select-appointment',
+      {
+        clinic: clinic
+      });
     });
 
     app.get(/^\/(book-an-appointment\/[^.]+)$/, function (req, res) {
