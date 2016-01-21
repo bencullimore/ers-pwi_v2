@@ -252,3 +252,21 @@
 .icomoon-printer:before {
   background-image: url('/public/images/icomoon-printer.svg');
 }
+
+.acc-arrow {
+  background:transparent no-repeat right center;
+  background-size: 14px;
+  &.acc-arrow_blue {
+    background-image:url('/public/images/acc-arrow-down-blue.png');
+  }
+  &.acc-arrow_white {
+    background-image:url('/public/images/acc-arrow-down-white.png');
+  }
+  &.button-sort {
+    background-color: #33006F;
+    background-position: 92% 50%;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
