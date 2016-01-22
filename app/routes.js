@@ -132,7 +132,12 @@ function addDateToAppointments(clinic) {
 function addDateToAppointment(appointment) {
   var millis_in_day = 86400000,
                 now = Date.now();
-  appointment.date = new Date(now + appointment.days_in_future * millis_in_day);
+               date = new Date(now + appointment.days_in_future * millis_in_day),
+               time = appointment.time.split(':');
+
+    date.setHours(time[0]);
+    date.setMinutes(time[1]);
+    appointment.date = date;
   return appointment;
 }
 
