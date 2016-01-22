@@ -1,93 +1,36 @@
 {% extends 'templates/nhs_transaction_layout.html' %}
 {% import 'includes/form_macros.html' as form_macros %}
 {% import 'includes/ui_element_macros.html' as ui_element_macros %}
+
 {% block afterHeader %}
   {% include "includes/service-headers/book-an-appointment.html" %}
 {% endblock %}
 
 {% block content %}
-
 <main id="content" role="main" >
+  <h1 class="heading-large" style="padding-top:0px;padding-bottom:10px;">Review your Appointment</h1>
+  <div class="text">
+    <div class="bookbox">
+      <p style="color:#cc0000;padding-bottom:0px;">Please check your appointment details are correct before you finish and book your appointment.</p>
 
-	<h1 class="heading-large" style="padding-top:0px;padding-bottom:10px;">Review your Appointment</h1>
-
-    <div class="text">
-
-        
-        <div class="bookbox">
-                  <p style="color:#cc0000;padding-bottom:0px;">Please check your appointment details are correct before you finish and book your appointment.</p>
-            <div class="checkdetailsbox">
-                <p><strong>Date:</strong> Wednesday 25 November 2015</p>
-            </div>
-            
-            <div class="checkdetailsbox">
-                
-                <p><strong>Time:</strong> 9.00am – 9.30am</p>
-                
-            </div>
-            
-            
-            <div class="checkdetailsbox">
-                
-                <p><strong>Referral for:</strong> Knee Pain</p>
-            </div>
-            
-            <div class="checkdetailsbox">
-
-                <p><strong>Clinic Name:</strong> Heart Failure - Cardiology - Leeds TH (Leeds Gen Inf) - RR8</p>
-
-            </div>
-            
-            <div class="checkdetailsbox">
-
-                <p><strong>Address:</strong> Leeds General Infirmary, Leeds, LS1 3EX</p>
-
-            </div>
-            
-            
-            
-            
-
-            
-            
-        
-            <div class="column-two-thirds">
-
-
+      {% include 'book-an-appointment/appointment-summary.html' %}
     </div>
-        
-
-        </div>
-        
-        
-    </div>
-    
-                <div style="text-align:center;">
-                
-            
-
-
-    <div class="container-fluid" style="padding-top:15px;padding-left:0px;padding-right:0px;">
-  <div class="row-fluid" style="padding:0 0 0 0;">
-    <div class="span6">
-                    <p >
-        <a class=" button button-cancel" href="/book-an-appointment/select-appointment" style="color:#fff">Change Appointment</a>
-      </p>
-    </div>
-    <div class="span6">
-                    <p>
-        <a class="button button-book" href="confirmation" style="color:#fff">Book Appointment</a>
-      </p>
-    </div>
-
   </div>
-</div>
-
-
-
-            
-            </div>
-    
+  <div style="text-align:center;">
+    <div class="container-fluid" style="padding-top:15px;padding-left:0px;padding-right:0px;">
+      <div class="row-fluid" style="padding:0 0 0 0;">
+        <div class="span6">
+          <p>
+            <a class=" button button-cancel" href="/book-an-appointment/{{ clinic.id }}/select-appointment" style="color:#fff">Change Appointment</a>
+          </p>
+        </div>
+        <div class="span6">
+          <p>
+            <a class="button button-book" href="/book-an-appointment/{{ clinic.id }}/confirmation/{{ appointment.id }}" style="color:#fff">Book Appointment</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
-
 {% endblock %}

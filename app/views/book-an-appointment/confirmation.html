@@ -3,105 +3,39 @@
 {% import 'includes/ui_element_macros.html' as ui_element_macros %}
 
 {% block content %}
-
 <main id="content" role="main">
-
-	<h1 class="heading-large" style="padding-top:0px;padding-bottom:10px;">Booking Confirmation</h1>
-    
-
-            <div class="container-fluid" style="background-color:#00953A;margin-bottom:20px;">
-                <div class="row-fluid" style="padding:0 0 0 0;">
-                    <div class="span2 offset1">
-                            <p style="padding:25px 0 25px 0;"> <img src="/public/images/tick.png" width="50px" /></p>
-                    </div>
-                
-                    <div class="span8 offset1">
-                                <h1 class="heading-large" style="color:#fff;"> Your appointment has been booked</h1>
-                    </div>
-
-                </div>
-            </div>
-
-
-    <div class="text">
-
-        
-        <div class="bookbox">
-	<h1 class="heading-large" style="padding-bottom:20px;color:#231f20;">Your Appointment Details</h1>
-                <ul style="padding-bottom:20px;list-style-type: none;">
-      <li style="padding-left: 0px !important;">
-        <a href="#" class="icomoon icomoon-calendar">Add to your calendar</a>
-      </li>
-        <li style="padding-left: 0px !important;">
-        <a href="#" class="icomoon icomoon-location">Show a map</a>
-      </li>
-        <li style="padding-left: 0px !important;">
-        <a href="#" class="icomoon icomoon-phone">Set Text Reminders</a>
-      </li>
-      <!--<li>
-        <a href="#" class="icomoon icomoon-printer">Print this page</a>
-      </li>-->
-    </ul>
-            <div class="checkdetailsbox">
-                <p><strong>Date:</strong> Wednesday 25 November 2015</p>
-            </div>
-            
-            <div class="checkdetailsbox">
-                
-                <p><strong>Time:</strong> 9.00am – 9.30am</p>
-                
-            </div>
-            
-            
-            <div class="checkdetailsbox">
-                
-                <p><strong>Referral for:</strong> Knee Pain</p>
-            </div>
-            
-            <div class="checkdetailsbox">
-
-                <p><strong>Clinic Name:</strong> Heart Failure - Cardiology - Leeds TH (Leeds Gen Inf) - RR8</p>
-
-            </div>
-            
-            <div class="checkdetailsbox">
-
-                <p><strong>Address:</strong> Leeds General Infirmary, Leeds, LS1 3EX</p>
-
-            </div>
-            
-            
-            
-        
-            
-        
-            <div class="column-two-thirds">
-
-
+  <h1 class="heading-large" style="padding-top:0px;padding-bottom:10px;">Booking Confirmation</h1>
+  <div class="container-fluid" style="background-color:#00953A;margin-bottom:20px;">
+    <div class="row-fluid" style="padding:0 0 0 0;">
+      <div class="span2 offset1">
+        <p style="padding:25px 0 25px 0;"> <img src="/public/images/tick.png" width="50px" /></p>
+      </div>
+      <div class="span8 offset1">
+        <h1 class="heading-large" style="color:#fff;"> Your appointment has been booked</h1>
+      </div>
     </div>
-        
-
-        </div>
-        
-            <div style="text-align:center;padding-top:20px;">
-                
-            
-
-
-                    <p>
-        <a class="button " href="home-screen" style="color:#fff">Finish and return to the home screen</a>
+  </div>
+  <div class="text">
+    <div class="bookbox">
+      <h1 class="heading-large" style="padding-bottom:20px;color:#231f20;">Your Appointment Details</h1>
+      <ul style="padding-bottom:20px;list-style-type: none;">
+        <li style="padding-left: 0px !important;">
+          <a href="#" class="icomoon icomoon-calendar">Add to your calendar</a>
+        </li>
+        <li style="padding-left: 0px !important;">
+          <a href="#" class="icomoon icomoon-location">Show a map</a>
+        </li>
+        <li style="padding-left: 0px !important;">
+          <a href="#" class="icomoon icomoon-phone">Set Text Reminders</a>
+        </li>
+      </ul>
+      {% include 'book-an-appointment/appointment-summary.html' %}
+    </div>
+    <div style="text-align:center;padding-top:20px;">
+      <p>
+        <a class="button " href="/book-an-appointment/home-screen" style="color:#fff">Finish and return to the home screen</a>
       </p>
-
-
-
-
-            
-            </div>
-            
-        
-        
-        
     </div>
+  </div>
 </main>
-
 {% endblock %}

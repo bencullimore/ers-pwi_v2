@@ -47,9 +47,9 @@
         <table class="table table-striped">
           <tbody>
             {% for appointment in clinic.appointments %}
-            <tr class='clickable-row' data-href='/book-an-appointment/review-appointment'>
+            <tr class='clickable-row' data-href='/book-an-appointment/{{ clinic.id }}/review-appointment/{{ appointment.id }}'>
               <td> <p style="margin: 0rem 0rem 0rem 0rem;">{{ appointment.date|date('l') }} <strong>{{ appointment.date|date('jS F') }}</strong> {{ appointment.date|date('Y') }}</p></td>
-              <td> <p>9.00am</p></td>
+              <td> <p>{{ appointment.date|date('g:iA') }}</p></td>
               <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
               </tr>
               {% endfor %}
