@@ -160,6 +160,7 @@ $(document).ready(function(){
   })
   // END: Edit the patients data
 
+  // Accordion Arrow
   $('.acc-arrow').click(function(){
     $(this).hasClass('acc-arrow_blue')?
       color = 'blue':
@@ -168,6 +169,18 @@ $(document).ready(function(){
     $(this).hasClass('down')?
       $(this).css('background-image','url(/public/images/acc-arrow-down-'+color+'.png)').removeClass('down'):
       $(this).css('background-image','url(/public/images/acc-arrow-up-'+color+'.png)').addClass('down');
+  })
+  // END: Accordion Arrow
+
+  // Sort Clinics
+  $('.sort input').click(function(){
+    index = $(this).parents('.form-item-wrapper').index()
+    console.log(index);
+    $('.clinicresult').sort(function (a, b) {
+      return $(a).data('sort')[index] - $(b).data('sort')[index];
+    }).each(function (_, container) {
+      $(container).parent().append(container);
+    });
   })
 });
 
