@@ -160,6 +160,16 @@ $(document).ready(function(){
     })
   })
   // END: Edit the patients data
+
+  $('.acc-arrow').click(function(){
+    $(this).hasClass('acc-arrow_blue')?
+      color = 'blue':
+      color = 'white';
+
+    $(this).hasClass('down')?
+      $(this).css('background-image','url(/public/images/acc-arrow-down-'+color+'.png)').removeClass('down'):
+      $(this).css('background-image','url(/public/images/acc-arrow-up-'+color+'.png)').addClass('down');
+  })
 });
 
 jQuery(document).ready(function($) {
