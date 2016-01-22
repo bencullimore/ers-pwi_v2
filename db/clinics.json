@@ -15,7 +15,7 @@
         {
           "id": "1",
           "days_in_future": "1",
-          "time": "",
+          "time": "10:00",
           "referral_for": "Heart failure"
         }
       ]
@@ -34,7 +34,7 @@
         {
           "id": "1",
           "days_in_future": "10",
-          "time": "",
+          "time": "10:00",
           "referral_for": "Heart failure"
         }
       ]
@@ -53,7 +53,7 @@
         {
           "id": "1",
           "days_in_future": "5",
-          "time": "",
+          "time": "10:00",
           "referral_for": "Heart failure"
         }
       ]
@@ -72,7 +72,7 @@
         {
           "id": "1",
           "days_in_future": "21",
-          "time": "",
+          "time": "10:00",
           "referral_for": "Heart failure"
         }
       ]
@@ -92,7 +92,7 @@
         {
           "id": "1",
           "days_in_future": "15",
-          "time": "",
+          "time": "10:00",
           "referral_for": "Heart failure"
         }
       ]
@@ -111,7 +111,7 @@
         {
           "id": "1",
           "days_in_future": "100",
-          "time": "",
+          "time": "10:00",
           "referral_for": "Heart failure"
         }
       ],
@@ -131,7 +131,7 @@
         {
           "id": "1",
           "days_in_future": "2",
-          "time": "",
+          "time": "9:30",
           "referral_for": "Wheezing"
         }
       ]
@@ -150,7 +150,7 @@
         {
           "id": "1",
           "days_in_future": "10",
-          "time": "",
+          "time": "10:00",
           "referral_for": "Difficult breathing"
         }
       ]
@@ -169,7 +169,7 @@
         {
           "id": "1",
           "days_in_future": "14",
-          "time": "",
+          "time": "10:00",
           "referral_for": "Cough"
         }
       ]
