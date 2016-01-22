@@ -121,6 +121,12 @@ module.exports = {
     app.get('/book-an-appointment/:clinic_id/select-appointment', function(req, res) {
       // Based on the clinic_id, get all of the appointments and plonk them into the page
       var clinic = app.locals.clinics.filter(function(item) {
+        // add date to each appointment for the view
+        var millis_in_day = 86400000,
+                      now = Date.now();
+        item.appointments.forEach(function(element) {
+          element.date = new Date(now + element.days_in_future * millis_in_day);
+        });
         return item.id === req.params.clinic_id;
       })[0];
       res.render('book-an-appointment/select-appointment',

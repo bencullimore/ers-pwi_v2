@@ -2,7 +2,7 @@
 {% import 'includes/form_macros.html' as form_macros %}
 
 {% block afterHeader %}
-{% include "includes/service-headers/book-an-appointment.html" %}
+  {% include "includes/service-headers/book-an-appointment.html" %}
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
       <header class="clearfix">
       </header>
       <div class="main" style="padding-top: 20px;">
-        <!--MAIN CONTENT STARTS HERRRRREEEE-->
+        <!-- MAIN CONTENT -->
         <h1 class="heading-large" style="padding-top: 0px !important;margin-bottom:10px;">
           Select your Appointment
         </h1>
@@ -28,12 +28,11 @@
             <p><strong>{{ clinic.distance_away }} Miles</strong> from <button type="button" class="button-postcode" data-toggle="modal" data-target="#postcode">LS2 4GH</button></p>
           </div>
           <div class="checkdetailsbox" style="padding-bottom: 5px !important; padding-top: 10px !important;">
-            <!-- <p style="margin-bottom:0px;"><strong>CQC Rating</strong> <span style="background-color:#ff9900;color:#fff;padding-left:5px;padding-right:5px;">Requires Improvement</span></p> -->
             <p style="margin-bottom:0px;">CQC Rating <img src="{{assetPath}}images/cqc_req_{{ clinic.cqc_rating }}.svg" /></p>
           </div>
         </div>
 
-        <!--FILTER SORT MAP BUTTONS START-->
+        <!--FILTER BUTTON START-->
         <div class="container-fluid" style="padding:15px 0 15px 0;">
           <div class="row-fluid" style="padding:0 0 0 0;">
             <div >
@@ -43,161 +42,137 @@
             </div>
           </div>
         </div>
-        <!--FILTER SORT MAP BUTTONS END-->
+        <!--FILTER BUTTON END-->
 
         <table class="table table-striped">
           <tbody>
+            {% for appointment in clinic.appointments %}
             <tr class='clickable-row' data-href='/book-an-appointment/review-appointment'>
-              <td> <p style="margin: 0rem 0rem 0rem 0rem;">Wednesday <strong>25 November</strong> 2015</p></td>
+              <td> <p style="margin: 0rem 0rem 0rem 0rem;">{{ appointment.date|date('l') }} <strong>{{ appointment.date|date('jS F') }}</strong> {{ appointment.date|date('Y') }}</p></td>
               <td> <p>9.00am</p></td>
               <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
               </tr>
-              <tr>
-                <td> <p style="margin: 0rem 0rem 0rem 0rem;">Thursday  <strong>3 December</strong> 2015</p></td>
-                <td> <p>12.00pm</p></td>
-                <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-                </tr>
-                <tr>
-                  <td> <p style="margin: 0rem 0rem 0rem 0rem;">Friday  <strong>18 December</strong> 2015</p></td>
-                  <td> <p>9.00am</p></td>
-                  <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-                  </tr>
-                  <tr>
-                    <td> <p style="margin: 0rem 0rem 0rem 0rem;">Friday  <strong>18 December</strong> 2015</p></td>
-                    <td> <p>10.00am</p></td>
-                    <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-                    </tr>
-                    <tr>
-                      <td> <p style="margin: 0rem 0rem 0rem 0rem;">Wednesday  <strong>6 January </strong> 2016</p></td>
-                      <td> <p>9.00am</p></td>
-                      <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-                      </tr>
-                      <tr>
-                        <td> <p style="margin: 0rem 0rem 0rem 0rem;">Wednesday  <strong>6 January </strong> 2016</p></td>
-                        <td> <p>10.00am</p></td>
-                        <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-                        </tr>
-                      </tbody>
-                    </table>
+              {% endfor %}
+            </tbody>
+          </table>
 
-                    <section style="visibility: hidden;">
-                      <button id="showLeft">Show/Hide Left Slide Menu</button>
-                      <button id="showRight">Show/Hide Right Slide Menu</button>
-                      <button id="showTop">Show/Hide Top Slide Menu</button>
-                      <button id="showBottom">Show/Hide Bottom Slide Menu</button>
-                    </section>
-                  </div>
+          <section style="visibility: hidden;">
+            <button id="showLeft">Show/Hide Left Slide Menu</button>
+            <button id="showRight">Show/Hide Right Slide Menu</button>
+            <button id="showTop">Show/Hide Top Slide Menu</button>
+            <button id="showBottom">Show/Hide Bottom Slide Menu</button>
+          </section>
+        </div>
+      </div>
+
+      <!-- Modal START -->
+      <div class="container">
+        <!-- Modal CHANGE POSTCODE START -->
+        <div class="modal fade" id="postcode" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit home postcode</h4>
+              </div>
+              <div class=" " style="padding:20px;">
+                <div class="form-group" style="margin-bottom: 2rem;">
+                  <input type="postcode" class="form-control" id="postcode" placeholder="Postcode">
                 </div>
+              </div>
+              <div class="modal-footer" style="border-top:0px;">
+                <button type="button" class="button button-book" data-dismiss="modal">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal CHANGE POSTCODE END -->
+      </div>
+      <!-- Modal End-->
+    </main>
 
-                <!-- Modal START -->
-                <div class="container">
-                  <!-- Modal CHANGE POSTCODE START -->
-                  <div class="modal fade" id="postcode" role="dialog">
-                    <div class="modal-dialog">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Edit home postcode</h4>
-                        </div>
-                        <div class=" " style="padding:20px;">
-                          <div class="form-group" style="margin-bottom: 2rem;">
-                            <input type="postcode" class="form-control" id="postcode" placeholder="Postcode">
-                          </div>
-                        </div>
-                        <div class="modal-footer" style="border-top:0px;">
-                          <button type="button" class="button button-book" data-dismiss="modal">Save</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Modal CHANGE POSTCODE END -->
-                </div>
-                <!-- Modal End-->
-              </main>
+    <script src="/public/javascripts/vendor/modernizr.custom.js"></script>
+    <script src="/public/javascripts/vendor/classie.js"></script>
+    <script>
+    var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+    menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+    menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+    menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+    showLeft = document.getElementById( 'showLeft' ),
+    showRight = document.getElementById( 'showRight' ),
+    showTop = document.getElementById( 'showTop' ),
+    showBottom = document.getElementById( 'showBottom' ),
+    showLeftPush = document.getElementById( 'showLeftPush' ),
+    showRightPush = document.getElementById( 'showRightPush' ),
+    body = document.body;
 
-              <script src="/public/javascripts/vendor/modernizr.custom.js"></script>
-              <script src="/public/javascripts/vendor/classie.js"></script>
-              <script>
-              var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-              menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-              menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-              menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-              showLeft = document.getElementById( 'showLeft' ),
-              showRight = document.getElementById( 'showRight' ),
-              showTop = document.getElementById( 'showTop' ),
-              showBottom = document.getElementById( 'showBottom' ),
-              showLeftPush = document.getElementById( 'showLeftPush' ),
-              showRightPush = document.getElementById( 'showRightPush' ),
-              body = document.body;
+    showLeft.onclick = function() {
+      classie.toggle( this, 'active' );
+      classie.toggle( menuLeft, 'cbp-spmenu-open' );
+      disableOther( 'showLeft' );
+    };
+    showRight.onclick = function() {
+      classie.toggle( this, 'active' );
+      classie.toggle( menuRight, 'cbp-spmenu-open' );
+      disableOther( 'showRight' );
+    };
+    showTop.onclick = function() {
+      classie.toggle( this, 'active' );
+      classie.toggle( menuTop, 'cbp-spmenu-open' );
+      disableOther( 'showTop' );
+    };
+    showBottom.onclick = function() {
+      classie.toggle( this, 'active' );
+      classie.toggle( menuBottom, 'cbp-spmenu-open' );
+      disableOther( 'showBottom' );
+    };
+    showLeftPush.onclick = function() {
+      classie.toggle( this, 'active' );
+      classie.toggle( body, 'cbp-spmenu-push-toright' );
+      classie.toggle( menuLeft, 'cbp-spmenu-open' );
+      disableOther( 'showLeftPush' );
+    };
+    showRightPush.onclick = function() {
+      classie.toggle( this, 'active' );
+      classie.toggle( body, 'cbp-spmenu-push-toleft' );
+      classie.toggle( menuRight, 'cbp-spmenu-open' );
+      disableOther( 'showRightPush' );
+    };
 
-              showLeft.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuLeft, 'cbp-spmenu-open' );
-                disableOther( 'showLeft' );
-              };
-              showRight.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuRight, 'cbp-spmenu-open' );
-                disableOther( 'showRight' );
-              };
-              showTop.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuTop, 'cbp-spmenu-open' );
-                disableOther( 'showTop' );
-              };
-              showBottom.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuBottom, 'cbp-spmenu-open' );
-                disableOther( 'showBottom' );
-              };
-              showLeftPush.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( body, 'cbp-spmenu-push-toright' );
-                classie.toggle( menuLeft, 'cbp-spmenu-open' );
-                disableOther( 'showLeftPush' );
-              };
-              showRightPush.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( body, 'cbp-spmenu-push-toleft' );
-                classie.toggle( menuRight, 'cbp-spmenu-open' );
-                disableOther( 'showRightPush' );
-              };
+    function disableOther( button ) {
+      if( button !== 'showLeft' ) {
+        classie.toggle( showLeft, 'disabled' );
+      }
+      if( button !== 'showRight' ) {
+        classie.toggle( showRight, 'disabled' );
+      }
+      if( button !== 'showTop' ) {
+        classie.toggle( showTop, 'disabled' );
+      }
+      if( button !== 'showBottom' ) {
+        classie.toggle( showBottom, 'disabled' );
+      }
+      if( button !== 'showLeftPush' ) {
+        classie.toggle( showLeftPush, 'disabled' );
+      }
+      if( button !== 'showRightPush' ) {
+        classie.toggle( showRightPush, 'disabled' );
+      }
+    }
+    </script>
 
-              function disableOther( button ) {
-                if( button !== 'showLeft' ) {
-                  classie.toggle( showLeft, 'disabled' );
-                }
-                if( button !== 'showRight' ) {
-                  classie.toggle( showRight, 'disabled' );
-                }
-                if( button !== 'showTop' ) {
-                  classie.toggle( showTop, 'disabled' );
-                }
-                if( button !== 'showBottom' ) {
-                  classie.toggle( showBottom, 'disabled' );
-                }
-                if( button !== 'showLeftPush' ) {
-                  classie.toggle( showLeftPush, 'disabled' );
-                }
-                if( button !== 'showRightPush' ) {
-                  classie.toggle( showRightPush, 'disabled' );
-                }
-              }
-              </script>
+    <script>
+    $(document).ready(function() {
+      $('.accordion > dd').hide();
+      $('.accordion > dt > a').click(function(){
+        $(this).parent().next().slideToggle()
+        .siblings('.hide').slideUp();
+        return false;
+      });
+      $('.close').click(function(){
+        $('.accordion .hide').slideUp();
+      });
+    });
+    </script>
 
-              <script>
-              $(document).ready(function() {
-                $('.accordion > dd').hide();
-                $('.accordion > dt > a').click(function(){
-                  $(this).parent().next().slideToggle()
-                  .siblings('.hide').slideUp();
-                  return false;
-                });
-                $('.close').click(function(){
-                  $('.accordion .hide').slideUp();
-                });
-              });
-              </script>
-
-              {% endblock %}
+    {% endblock %}
