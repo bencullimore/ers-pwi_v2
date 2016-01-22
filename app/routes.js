@@ -6,6 +6,16 @@ module.exports = {
       res.render('index');
     });
 
+    function getClinicById(clinic_id) {
+      if (!parseInt(clinic_id)) {
+        clinic_id = '1';
+      }
+      var clinic = app.locals.clinics.filter(function(item) {
+        return item.id === clinic_id;
+      })[0];
+      return addDateToAppointments(clinic);
+    }
+
     app.get('/book-an-appointment/home-screen', function(req, res) {
       var referralViewModel,
           ref = req.query.reference;
@@ -62,20 +72,33 @@ module.exports = {
     });
 
     app.get('/book-an-appointment/:clinic_id/select-appointment', function(req, res) {
-      // Based on the clinic_id, get all of the appointments and plonk them into the page
-      var clinic = app.locals.clinics.filter(function(item) {
-        // add date to each appointment for the view
-        var millis_in_day = 86400000,
-                      now = Date.now();
-        item.appointments.forEach(function(element) {
-          element.date = new Date(now + element.days_in_future * millis_in_day);
-        });
-        return item.id === req.params.clinic_id;
-      })[0];
+      var clinic = getClinicById(req.params.clinic_id);
       res.render('book-an-appointment/select-appointment',
       {
         clinic: clinic
       });
+    });
+
+    app.get('/book-an-appointment/:clinic_id/review-appointment/:appointment_id', function(req, res) {
+      var appointment_id = req.params.appointment_id,
+                  clinic = getClinicById(req.params.clinic_id);
+             appointment = getAppointmentById(clinic, appointment_id);
+      res.render('book-an-appointment/review-appointment',
+      {
+        clinic: clinic,
+        appointment: appointment
+      });
+    });
+
+    app.get('/book-an-appointment/:clinic_id/confirmation/:appointment_id', function(req, res) {
+      var appointment_id = req.params.appointment_id,
+                  clinic = getClinicById(req.params.clinic_id);
+             appointment = getAppointmentById(clinic, appointment_id);
+      res.render('book-an-appointment/confirmation',
+        {
+          clinic: clinic,
+          appointment: appointment
+        });
     });
 
     app.get(/^\/(book-an-appointment\/[^.]+)$/, function (req, res) {
@@ -98,3 +121,23 @@ module.exports = {
     });
   }
 };
+
+function addDateToAppointments(clinic) {
+  clinic.appointments.forEach(function(appointment) {
+    addDateToAppointment(appointment);
+  });
+  return clinic;
+}
+
+function addDateToAppointment(appointment) {
+  var millis_in_day = 86400000,
+                now = Date.now();
+  appointment.date = new Date(now + appointment.days_in_future * millis_in_day);
+  return appointment;
+}
+
+function getAppointmentById(clinic, appointmentId) {
+  return clinic.appointments.filter(function (appointment) {
+    return appointment.id == appointmentId;
+  })[0];
+}
