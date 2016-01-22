@@ -27,66 +27,68 @@
         {% include "book-an-appointment/clinic-filter-buttons.html" %}
 
         <!--DISPLAY CLINICS START-->
+        <div class="sortable">
         {% for clinic in clinics %}
-        <div class="clinicresult clickable-row" data-href='/book-an-appointment/{{clinic.id}}/select-appointment' >
-          <h1 style="font-size:20px;line-height:25px;color:#231f20;">{{ clinic.name }}</h1>
-          <p>{{ clinic.location }}</p>
-          {% if !clinic.booking_instructions %}
-          <div class="container-fluid" style="padding: 0px;">
-            <div class="row-fluid clinictextcentre">
-              <div class="span4 clinicdiarybox">
-                <p style="font-size:12px;line-height:14px;margin-bottom:5px;"> Next Appointment</p>
-                <div class="clinicdiaryboxinner">
-                  <h2 style="font-size:22px;">{{ clinic.next_appointment.days_in_future }}</h2> Days
+          <div class="clinicresult clickable-row" data-href='/book-an-appointment/{{clinic.id}}/select-appointment' data-sort='["{{ clinic.next_appointment.days_in_future }}","{{ clinic.distance_away }}","{{ clinic.cqc_rating_number }}"]'>
+            <h1 style="font-size:20px;line-height:25px;color:#231f20;">{{ clinic.name }}</h1>
+            <p>{{ clinic.location }}</p>
+            {% if !clinic.booking_instructions %}
+            <div class="container-fluid" style="padding: 0px;">
+              <div class="row-fluid clinictextcentre">
+                <div class="span4 clinicdiarybox">
+                  <p style="font-size:12px;line-height:14px;margin-bottom:5px;"> Next Appointment</p>
+                  <div class="clinicdiaryboxinner">
+                    <h2 style="font-size:22px;">{{ clinic.next_appointment.days_in_future }}</h2> Days
+                  </div>
+                </div>
+
+                {% if clinic.telephone_appointment %}
+                <div class="span3" style="padding-top:40px;">
+                  <h2 style="font-size:2.3rem;"><img src="/public/images/noun_127.svg" height="40px" />
+                  </h2>
+                </div>
+                {% else %}
+                <div class="span3" style="padding-top:20px;">
+                  <p><strong>{{ clinic.distance_away }} Miles</strong><br />
+                    from<br />
+                    LS2 4GH
+                  </p>
+                </div>
+                {% endif %}
+
+                <div class="span3" style="padding-top:20px;line-height: 1.7rem;">
+                  <p style="margin-bottom:0px;">CQC Rating</p>
+                  <img src="{{assetPath}}images/cqc_req_{{ clinic.cqc_rating }}.svg" />
+                </div>
+                <div class="span1" >
+                  <p style="text-align:right;">
+                    <img src="/public/images/arrow-line-forward.svg" height="120px" width="30px">
+                  </p>
                 </div>
               </div>
-
-              {% if clinic.telephone_appointment %}
-              <div class="span3" style="padding-top:40px;">
-                <h2 style="font-size:2.3rem;"><img src="/public/images/noun_127.svg" height="40px" />
-                </h2>
-              </div>
-              {% else %}
-              <div class="span3" style="padding-top:20px;">
-                <p><strong>{{ clinic.distance_away }} Miles</strong><br />
-                  from<br />
-                  LS2 4GH
-                </p>
-              </div>
-              {% endif %}
-
-              <div class="span3" style="padding-top:20px;line-height: 1.7rem;">
-                <p style="margin-bottom:0px;">CQC Rating</p>
-                <img src="{{assetPath}}images/cqc_req_{{ clinic.cqc_rating }}.svg" />
-              </div>
-              <div class="span1" >
-                <p style="text-align:right;">
-                  <img src="/public/images/arrow-line-forward.svg" height="120px" width="30px">
-                </p>
+            </div>
+            {% else %}
+            <div style="background-color:#dee0e2;padding:10px 10px 5px 10px;margin-bottom:20px;">
+              <p><strong>Booking instructions:</strong> {{ clinic.booking_instructions }}</p>
+            </div>
+            <div class="container-fluid" style="padding: 0px;">
+              <div class="row-fluid clinictextcentre">
+                <div class="span4" style="padding-top: 10px;">
+                  <h2 style="font-size:2.3rem;"><img src="/public/images/noun_127.svg" height="40px" /></h2>
+                </div>
+                <div class="span3" style="padding-top:10px;" >
+                  <p style="padding-top:0px;"><strong>Tel.</strong> {{ clinic.phone_number }}</p>
+                </div>
+                <div class="span4" >
+                  <p style="margin-bottom:0px;">CQC Rating</p>
+                  <img src="{{assetPath}}images/cqc_req_{{ clinic.cqc_rating }}.svg" />
+                </div>
               </div>
             </div>
+            {% endif %}
           </div>
-          {% else %}
-          <div style="background-color:#dee0e2;padding:10px 10px 5px 10px;margin-bottom:20px;">
-            <p><strong>Booking instructions:</strong> {{ clinic.booking_instructions }}</p>
-          </div>
-          <div class="container-fluid" style="padding: 0px;">
-            <div class="row-fluid clinictextcentre">
-              <div class="span4" style="padding-top: 10px;">
-                <h2 style="font-size:2.3rem;"><img src="/public/images/noun_127.svg" height="40px" /></h2>
-              </div>
-              <div class="span3" style="padding-top:10px;" >
-                <p style="padding-top:0px;"><strong>Tel.</strong> {{ clinic.phone_number }}</p>
-              </div>
-              <div class="span4" >
-                <p style="margin-bottom:0px;">CQC Rating</p>
-                <img src="{{assetPath}}images/cqc_req_{{ clinic.cqc_rating }}.svg" />
-              </div>
-            </div>
-          </div>
-          {% endif %}
-        </div>
         {% endfor %}
+        </div>
         <!--CLINICS END-->
 
         <section style="visibility: hidden;">
