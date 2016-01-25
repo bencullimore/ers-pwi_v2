@@ -18,11 +18,16 @@ module.exports = {
       return addDateToAppointments(clinic);
     }
 
+    function getUserById(id) {
+      return app.locals.users.filter(function(item) {
+        return item.id === id;
+      })[0];
+    }
+
     app.get('/book-an-appointment/home-screen', function(req, res) {
       var referralViewModel,
           ref = req.query.reference;
-      // get the referral based on the ref id otherwise choose the first one
-      // for each ref, check the value of the key
+
       app.locals.referrals.forEach(function(referral) {
         if (referral.reference === ref) {
           referralViewModel = referral;
@@ -30,18 +35,21 @@ module.exports = {
       });
 
       if (!referralViewModel) {
-        console.log('Using first referral as no reference has been supplied.');
         referralViewModel = app.locals.referrals[0];
       }
 
       res.render('book-an-appointment/home-screen',
       {
-        referral: referralViewModel
+        referral: referralViewModel,
+        user: getUserById(referralViewModel.user_id)
       });
     });
 
-    app.get('/book-an-appointment/:service_slug?/check-details', function(req, res) {
-      res.render('book-an-appointment/check-details');
+    app.get('/book-an-appointment/:service_slug?/check-details/:user_id', function(req, res) {
+      res.render('book-an-appointment/check-details',
+      {
+        user: getUserById(req.params.user_id)
+      });
     });
 
     app.get('/book-an-appointment/:service_slug?/select-your-clinic', function(req, res) {

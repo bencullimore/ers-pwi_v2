@@ -2,8 +2,10 @@
   "referrals":
   [
     {
-      "reference" : "ref123",
-      "tobook" : [
+      "reference": "ref123",
+      "user_id": "1",
+      "tobook":
+      [
         {
           "service": "Respiratory",
           "consultant": "Dr V Smith"
@@ -17,7 +19,8 @@
           "consultant": "Dr Superman"
         }
       ],
-      "booked" : [
+      "booked":
+      [
         {
           "service": "Musculoskeletal",
           "datetime": "2015-11-25 14:00",
@@ -26,8 +29,10 @@
       ]
     },
     {
-      "reference" : "ref456",
-      "tobook" : [
+      "reference": "ref456",
+      "user_id": "2",
+      "tobook":
+      [
         {
           "service": "Respiratory",
           "consultant": "Dr A Bethany"
@@ -37,7 +42,8 @@
           "consultant": "Dr C Davis"
         }
       ],
-      "booked" : [
+      "booked":
+      [
         {
           "service": "Heart",
           "datetime": "2016-02-14 12:00",
