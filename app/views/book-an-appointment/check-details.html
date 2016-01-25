@@ -32,16 +32,16 @@
               <div style="border-bottom:1px #dee0e2 solid;padding-top: 20px !important;">
                 <h1 style="font-size: 20px;color:#000;">Phone</h1>
                 <div style="border-bottom:1px #dee0e2 solid;">
-                  <p>Home: 01484 123456&nbsp;&nbsp;&nbsp;<button type="button" class="button-postcode" data-toggle="modal" data-target="#telhome_modal">[edit]</button></p>
+                  <p>Home: <span id="phone_home">01484 123456</span>&nbsp;&nbsp;&nbsp;<button type="button" class="button-postcode" data-toggle="modal" data-target="#telhome_modal">[edit]</button></p>
                 </div>
                 <div style="padding-top:1rem;">
-                  <p>Mobile: 07805 876543&nbsp;&nbsp;&nbsp;<button type="button" class="button-postcode" data-toggle="modal" data-target="#telmob_modal">[edit]</button></p>
+                  <p>Mobile: <span id="phone_mobile">07805 876543</span>&nbsp;&nbsp;&nbsp;<button type="button" class="button-postcode" data-toggle="modal" data-target="#telmob_modal">[edit]</button></p>
                 </div>
               </div>
               <div style="border-bottom:1px #dee0e2 solid;padding-top: 20px !important;">
                 <h1 style="font-size: 20px;color:#000;">Email Address</h1>
                 <div>
-                  <p style="word-wrap: break-word;">{{ user.email }}&nbsp;&nbsp;&nbsp;<button type="button" class="button-postcode" data-toggle="modal" data-target="#email_modal">[edit]</button></p>
+                  <p style="word-wrap: break-word;"><span id="email">{{ user.email }}</span>&nbsp;&nbsp;&nbsp;<button type="button" class="button-postcode" data-toggle="modal" data-target="#email_modal">[edit]</button></p>
                 </div>
               </div>
               <div style="border-bottom:1px #dee0e2 solid;padding-top: 20px !important;">
@@ -91,11 +91,11 @@
             </div>
             <div class=" " style="padding:20px;">
               <div class="form-group" style="margin-bottom: 2rem;">
-                <input type="Home telephone number" class="form-control" id="telhome" placeholder="Home telephone number">
+                <input type="Home telephone number" class="form-control" id="phone_home_edit" placeholder="Home telephone number">
               </div>
             </div>
             <div class="modal-footer" style="border-top:0px;">
-              <button type="button" class="button button-book" data-dismiss="modal">Save</button>
+              <button type="button" class="edit button button-book" data-dismiss="modal">Save</button>
             </div>
           </div>
         </div>
@@ -112,11 +112,11 @@
             </div>
             <div class=" " style="padding:20px;">
               <div class="form-group" style="margin-bottom: 2rem;">
-                <input type="mobile telephone number" class="form-control" id="telmob" placeholder="Mobile telephone number">
+                <input type="mobile telephone number" class="form-control" id="phone_mobile_edit" placeholder="Mobile telephone number">
               </div>
             </div>
             <div class="modal-footer" style="border-top:0px;">
-              <button type="button" class="button button-book" data-dismiss="modal">Save</button>
+              <button type="button" class="edit button button-book" data-dismiss="modal">Save</button>
             </div>
           </div>
         </div>
@@ -133,11 +133,11 @@
             </div>
             <div class=" " style="padding:20px;">
               <div class="form-group" style="margin-bottom: 2rem;">
-                <input type="email address" class="form-control" id="email" placeholder="Email address">
+                <input type="email address" class="form-control" id="email_edit" placeholder="Email address">
               </div>
             </div>
             <div class="modal-footer" style="border-top:0px;">
-              <button type="button" class="button button-book" data-dismiss="modal">Save</button>
+              <button type="button" class="edit button button-book" data-dismiss="modal">Save</button>
             </div>
           </div>
         </div>
