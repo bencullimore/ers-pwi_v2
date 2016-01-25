@@ -23,7 +23,7 @@
           <a href="#" class="icomoon icomoon-calendar">Add to your calendar</a>
         </li>
         <li style="padding-left: 0px !important;">
-          <a href="#" class="icomoon icomoon-location">Show a map</a>
+          <a href="#" class="icomoon icomoon-location" data-toggle="modal" data-target="#map">Show a map</a>
         </li>
         <li style="padding-left: 0px !important;">
           <a href="#" class="icomoon icomoon-phone">Set Text Reminders</a>
@@ -37,5 +37,30 @@
       </p>
     </div>
   </div>
+
+  <!-- MODALS -->
+  <div class="container">
+    <!-- Modal CHANGE POSTCODE START -->
+    <div class="modal fade" id="map" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">See on a map</h4>
+          </div>
+          <div class=" " style="padding:20px;">
+            <iframe
+            width="450"
+            height="250"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key={{gmap_key}}&q={{clinic.location|url_encode}}&zoom=14" allowfullscreen>
+          </iframe>
+        </div>
+        <div class="modal-footer" style="border-top:0px;"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal CHANGE POSTCODE END -->
+</div>
 </main>
 {% endblock %}

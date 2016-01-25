@@ -2,6 +2,8 @@ var querystring = require('querystring');
 
 module.exports = {
   bind : function (app) {
+    app.locals.gmap_key = 'AIzaSyAgqbgwoLuAoQQjpGbRyE3vLnFtIb7wZ9M';
+
     app.get('/', function (req, res) {
       res.render('index');
     });
@@ -97,7 +99,8 @@ module.exports = {
       res.render('book-an-appointment/confirmation',
         {
           clinic: clinic,
-          appointment: appointment
+          appointment: appointment,
+          gmap_key: app.locals.gmap_key
         });
     });
 
