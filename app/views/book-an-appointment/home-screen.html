@@ -5,7 +5,7 @@
 {% block content %}
 
 <main id="content" role="main">
-  <h1 class="heading-xlarge">Hello Matthew Smith</h1>
+  <h1 class="heading-xlarge">Hello {{ user.name }}</h1>
   <div class="text">
     <p class="lede">Referrals to Book</p>
     <!---Referral START--->
@@ -23,7 +23,7 @@
               </p>
             </div>
             <div class="span6">
-              <p><a class="button button-book" href="{{ tobook.service }}/check-details" style="color:#fff">Book Appointment</a>
+              <p><a class="button button-book" href="{{ tobook.service }}/check-details/{{ user.id }}" style="color:#fff">Book Appointment</a>
               </p>
             </div>
           </div>

@@ -1,0 +1,15 @@
+{
+  "users":
+  [
+    {
+      "id": "1",
+      "name": "Fred E Ric",
+      "email": "fred@e.ric"
+    },
+    {
+      "id": "2",
+      "name": "Jason Marshall",
+      "email": "json@marshall.com"
+    }
+  ]
+}
