@@ -5,12 +5,8 @@ jQuery.expr[':'].contains = function(a, i, m) {
 };
 
 $(document).ready(function(){
-
   GOVUK.toggle.init();
-
-  // Initialise auto-suggest fields
-  //$('.auto-suggest').selectToAutocomplete();
-
+  checkDetailsEditing();
 
   // Uses radio buttons to emulate a more usable select box
   $( ".js-form-select label" ).click(function() {
@@ -46,7 +42,6 @@ $(document).ready(function(){
   $('.cbp-spmenu-left p > a.button-book').on('click', function(){
     $('#showRightPush').trigger("click");
   });
-
 
   // Clinic Day
   $('dl.accordion dd:eq(1) input[type="checkbox"]').change(function(){
@@ -118,46 +113,12 @@ $(document).ready(function(){
   });
   // END: Filter Appointment
 
-  // load the page, check the session storage. if it isn't there, get it from the page and load it into the storage
-
-  // Get the value from the sessionStorage otherwise use the default inpage value
-  var phone_mobile = sessionStorage['phone_mobile'] || $('#phone_mobile').text(),
-        phone_home = sessionStorage['phone_home'] || $('#phone_home').text(),
-             email = sessionStorage['email'] || $('#email').text();
-
-  // Set the values
-  if (phone_mobile) {
-    $('#phone_mobile').text(phone_mobile);
-    $('#phone_mobile_edit').val(phone_mobile);
-  }
-  if (phone_home) {
-    $('#phone_home').text(phone_home);
-    $('#phone_home_edit').val(phone_home);
-  }
-  if (email) {
-    $('#email').text(email);
-    $('#email_edit').val(email);
-  }
-
-  // set up listeners on the edit buttons
-  $('.edit').on('click', function(e) {
-    console.log('hi there');
-    // save the 'new' value into sessionStorage and update the fields on the page
-    var input = $($(this).parent().siblings()[1]).find('input'),
-           id = input.attr('id'),
-          val = input.val(),
-          idForStorage = id.substring(0, id.lastIndexOf('_'));
-
-    sessionStorage[idForStorage] = val;
-    $('#' + idForStorage).text(val);
-  });
-
   $('.checkdetailsbox > div:eq(5) > div a').click(function(e){
     e.preventDefault();
     $(this).parent().parent().fadeOut('fast',function(){
       $(this).remove();
-    })
-  })
+    });
+  });
   // END: Edit the patients data
 
   // Accordion Arrow
@@ -169,19 +130,19 @@ $(document).ready(function(){
     $(this).hasClass('down')?
       $(this).css('background-image','url(/public/images/acc-arrow-down-'+color+'.png)').removeClass('down'):
       $(this).css('background-image','url(/public/images/acc-arrow-up-'+color+'.png)').addClass('down');
-  })
+  });
   // END: Accordion Arrow
 
   // Sort Clinics
   $('.sort input').click(function(){
-    index = $(this).parents('.form-item-wrapper').index()
+    index = $(this).parents('.form-item-wrapper').index();
     console.log(index);
     $('.clinicresult').sort(function (a, b) {
       return $(a).data('sort')[index] - $(b).data('sort')[index];
     }).each(function (_, container) {
       $(container).parent().append(container);
     });
-  })
+  });
 });
 
 jQuery(document).ready(function($) {
@@ -191,5 +152,41 @@ jQuery(document).ready(function($) {
 });
 
 function goBack() {
-    window.history.back()
+    window.history.back();
+}
+
+function checkDetailsEditing() {
+    // Get the value from the sessionStorage otherwise use the default inpage value
+    var mobId = '#phone_mobile',
+       homeId = '#phone_home',
+      emailId = '#email',
+ phone_mobile = sessionStorage.phone_mobile || $(mobId).text(),
+   phone_home = sessionStorage.phone_home || $(homeId).text(),
+        email = sessionStorage.email || $(emailId).text();
+
+    // Set the values
+    if (phone_mobile) {
+      $(mobId).text(phone_mobile);
+      $(mobId + '_edit').val(phone_mobile);
+    }
+    if (phone_home) {
+      $(homeId).text(phone_home);
+      $(homeId + '_edit').val(phone_home);
+    }
+    if (email) {
+      $(emailId).text(email);
+      $(emailId + '_edit').val(email);
+    }
+
+    // set up listeners on the edit buttons
+    $('.edit').on('click', function(e) {
+      // save the 'new' value into sessionStorage and update the fields on the page
+      var input = $($(this).parent().siblings()[1]).find('input'),
+             id = input.attr('id'),
+            val = input.val(),
+            idForStorage = id.substring(0, id.lastIndexOf('_'));
+
+      sessionStorage[idForStorage] = val;
+      $('#' + idForStorage).text(val);
+    });
 }
