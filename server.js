@@ -50,11 +50,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-// set up sessions
-app.use(session({
-  secret: 'this is actually public'
-}));
-
 // give views/layouts direct access to session data
 app.use(function(req, res, next){
   res.locals.session = req.session;
