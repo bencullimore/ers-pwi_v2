@@ -7,7 +7,7 @@
       "name": "Heart Failure - Cardiology - Leeds TH (Leeds Gen Inf) - RR8",
       "location": "Leeds General Infirmary, Leeds, LS1 3EX",
       "phone_number": "",
-      "distance_away": "5",
+      "distance_away": "15",
       "cqc_rating_number": "3",
       "cqc_rating": "imp",
       "appointments":
@@ -41,6 +41,12 @@
           "days_in_future": "28",
           "time": "18:00",
           "referral_for": "Heart failure"
+        },
+        {
+          "id": "6",
+          "days_in_future": "56",
+          "time": "09:00",
+          "referral_for": "Death"
         }
       ]
     },

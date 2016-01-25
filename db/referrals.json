@@ -11,6 +11,10 @@
         {
           "service": "Cardiology",
           "consultant": "Dr S Mills"
+        },
+        {
+          "service": "Cardiology",
+          "consultant": "Dr Superman"
         }
       ],
       "booked" : [
