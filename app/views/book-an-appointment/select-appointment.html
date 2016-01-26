@@ -2,14 +2,24 @@
 {% import 'includes/form_macros.html' as form_macros %}
 
 {% block afterHeader %}
-  {% include "includes/service-headers/book-an-appointment.html" %}
+{% include "includes/service-headers/book-an-appointment.html" %}
 {% endblock %}
 
 {% block content %}
 <main role="main">
   <body class="cbp-spmenu-push">
 
-    {% include "book-an-appointment/clinic-filters.html" %}
+    {% include "book-an-appointment/clinic-filters.html" with
+    {
+      hide_waiting_times: true,
+      hide_distance: true,
+      hide_accessibility: true,
+      hide_facilities: true,
+      hide_cqc_rating: true,
+      hide_choices_rating: true,
+      hide_parking: true
+    }
+    %}
 
     {% include "book-an-appointment/clinic-map.html" %}
 
