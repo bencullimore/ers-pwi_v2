@@ -63,7 +63,7 @@
   transition: all 0.5s ease;
   width: 0;
   z-index: 1000;
-    
+
 }
 #sidebar-wrapper::-webkit-scrollbar {
  display: none;
@@ -291,11 +291,11 @@ height: 100%;
 <main id="content" role="main">
 <div id="wrapper">
   <div class="overlay"></div>
-  
+
   <!-- Sidebar -->
   <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
       <div style="background-color:#00A19B;padding:10px;color:#fff;">Filter Clinics  <a type="button" class="is-closed animated fadeInLeft" data-toggle="offcanvas" style="color:#fff">X</a></div>
-      
+
     <div class="container-fluid">
       <div class="row-fluid" style="padding:0 0 0 0;">
         <div class="span6">
@@ -311,9 +311,9 @@ height: 100%;
 
       </div>
 </div>
-      
-      
-      
+
+
+
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel ">
     <div class="panel-heading" role="tab" id="headingTwo">
@@ -359,19 +359,19 @@ height: 100%;
   </div>
 </div>
   </nav>
-  <!-- /#sidebar-wrapper --> 
-  
+  <!-- /#sidebar-wrapper -->
+
   <!-- Page Content -->
   <div id="page-content-wrapper" style="padding-top:0px;">
 
       <h1 class="heading-large">
     Select your Clinic
   </h1>
-    
-      <p class="lede">You have been referred for <strong>Knee Pain</strong> 
+
+      <p class="lede">You have been referred for <strong>Knee Pain</strong>
 and have <strong>3 clinics</strong> to choose from below.</p>
-    
-    
+
+
     <div class="container-fluid">
         <div class="row-fluid" style="padding:0 0 0 0;">
             <div class="span4">
@@ -392,19 +392,19 @@ and have <strong>3 clinics</strong> to choose from below.</p>
 
         </div>
     </div>
-    
-           
-                
-                
+
+
+
+
         <div class="clinicresult clickable-row" data-href='/book-an-appointment/select-appointment'>
-            
+
                     <h1 style="font-size:20px;color:#231f20;">LGI Knee Clinic</h1>
                     <p>Leeds General Infirmary, Leeds, LS1 3EX</p>
-            
+
                         <div class="container-fluid" style="">
                             <div class="row-fluid clinictextcentre">
                                 <div class="span4 clinicdiarybox">
-                    
+
                                     <p style="font-size:12px;line-height:14px;margin-bottom:5px;"> Next Appointment</p>
                                         <div class="clinicdiaryboxinner">
                                             <h2 style="font-size:22px;">10</h2> Days
@@ -434,11 +434,10 @@ and have <strong>3 clinics</strong> to choose from below.</p>
         </div>
 
   </div>
-  <!-- /#page-content-wrapper --> 
-  
+  <!-- /#page-content-wrapper -->
+
 </div>
-<!-- /#wrapper --> 
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> 
+<!-- /#wrapper -->
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
 <script>
 $(document).ready(function () {
@@ -447,27 +446,27 @@ $(document).ready(function () {
      isClosed = false;
 
     trigger.click(function () {
-      hamburger_cross();      
+      hamburger_cross();
     });
 
     function hamburger_cross() {
 
-      if (isClosed == true) {          
+      if (isClosed == true) {
         overlay.hide();
         trigger.removeClass('is-open');
         trigger.addClass('is-closed');
         isClosed = false;
-      } else {   
+      } else {
         overlay.show();
         trigger.removeClass('is-closed');
         trigger.addClass('is-open');
         isClosed = true;
       }
   }
-  
+
   $('[data-toggle="offcanvas"]').click(function () {
         $('#wrapper').toggleClass('toggled');
-  });  
+  });
 });
 </script>
 </main>

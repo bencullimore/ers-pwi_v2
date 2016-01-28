@@ -29,7 +29,17 @@
         <!--DISPLAY CLINICS START-->
         <div class="sortable">
         {% for clinic in clinics %}
-          <div class="clinicresult clickable-row" data-href='/book-an-appointment/{{clinic.id}}/select-appointment' data-sort='["{{ clinic.next_appointment.days_in_future }}","{{ clinic.distance_away }}","{{ clinic.cqc_rating_number }}"]'>
+          <div class="clinicresult clickable-row" data-href='/book-an-appointment/{{clinic.id}}/select-appointment'
+               data-filter-waiting-time="{{ clinic.next_appointment.days_in_future }}"
+               data-filter-clinic-day="{{ clinic.next_appointment.date|date('l')|lower }}"
+               data-filter-clinic-slot="{{ clinic.next_appointment.slot }}"
+               data-filter-distance="{{ clinic.distance_bucket }}"
+               data-filter-accessibility={{ clinic.accessibility|default('""') }}
+               data-filter-facilities={{ clinic.facilities|default('""') }}
+               data-filter-parking={{ clinic.parking|default('""') }}
+               data-filter-cqc-rating="{{ clinic.cqc_rating_number }}"
+               data-filter-choices-rating="{{ clinic.choices_rating }}"
+               data-sort='["{{ clinic.next_appointment.days_in_future }}","{{ clinic.distance_away }}","{{ clinic.cqc_rating_number }}"]'>
             <h1 style="font-size:20px;line-height:25px;color:#231f20;">{{ clinic.name }}</h1>
             <p>{{ clinic.location }}</p>
             {% if !clinic.booking_instructions %}

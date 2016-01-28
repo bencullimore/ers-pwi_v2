@@ -68,6 +68,7 @@ module.exports = {
                         return 0;
                       })[0];
                       item.next_appointment = next_appointment;
+                      addDateToNextAppointment(item);
                       return item.type.toLowerCase() === service;
                     })
                     // sort the clinics on the next available appointment
@@ -140,15 +141,21 @@ function addDateToAppointments(clinic) {
   return clinic;
 }
 
+function addDateToNextAppointment(clinic) {
+  addDateToAppointment(clinic.next_appointment);
+}
+
 function addDateToAppointment(appointment) {
   var millis_in_day = 86400000,
                 now = Date.now();
                date = new Date(now + appointment.days_in_future * millis_in_day),
-               time = appointment.time.split(':');
+               time = appointment.time.split(':'),
+               hour = time[0];
 
-    date.setHours(time[0]);
+    date.setHours(hour);
     date.setMinutes(time[1]);
     appointment.date = date;
+    appointment.slot = getSlot(hour);
   return appointment;
 }
 
@@ -156,4 +163,14 @@ function getAppointmentById(clinic, appointmentId) {
   return clinic.appointments.filter(function (appointment) {
     return appointment.id == appointmentId;
   })[0];
+}
+
+function getSlot(hour) {
+  var time = parseInt(hour);
+  if (hour < 12) {
+    return 'morning';
+  } else if (time > 15) {
+    return 'evening';
+  }
+  return 'afternoon';
 }

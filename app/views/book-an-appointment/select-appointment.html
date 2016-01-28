@@ -1,27 +1,15 @@
 {% extends 'templates/nhs_transaction_layout.html' %}
 {% import 'includes/form_macros.html' as form_macros %}
-
 {% block afterHeader %}
-{% include "includes/service-headers/book-an-appointment.html" %}
+  {% include "includes/service-headers/book-an-appointment.html" %}
 {% endblock %}
-
 {% block content %}
 <main role="main">
+
   <body class="cbp-spmenu-push">
 
-    {% include "book-an-appointment/clinic-filters.html" with
-    {
-      hide_waiting_times: true,
-      hide_distance: true,
-      hide_accessibility: true,
-      hide_facilities: true,
-      hide_cqc_rating: true,
-      hide_choices_rating: true,
-      hide_parking: true
-    }
+    {% include "book-an-appointment/clinic-filters.html" with { hide_waiting_times: true, hide_distance: true, hide_accessibility: true, hide_facilities: true, hide_cqc_rating: true, hide_choices_rating: true, hide_parking: true } %} {% include "book-an-appointment/clinic-map.html"
     %}
-
-    {% include "book-an-appointment/clinic-map.html" %}
 
     <div class="container">
       <header class="clearfix">
@@ -45,7 +33,7 @@
         <!--FILTER BUTTON START-->
         <div class="container-fluid" style="padding:15px 0 15px 0;">
           <div class="row-fluid" style="padding:0 0 0 0;">
-            <div >
+            <div>
               <p>
                 <a class="button button-filter" id="showLeft" style="color:#fff">Filter</a>
               </p>
@@ -58,106 +46,111 @@
           <tbody>
             {% for appointment in clinic.appointments %}
             <tr class='clickable-row' data-href='/book-an-appointment/{{ clinic.id }}/review-appointment/{{ appointment.id }}'>
-              <td> <p style="margin: 0rem 0rem 0rem 0rem;">{{ appointment.date|date('l') }} <strong>{{ appointment.date|date('jS F') }}</strong> {{ appointment.date|date('Y') }}</p></td>
-              <td> <p>{{ appointment.date|date('g:iA') }}</p></td>
-              <td> <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+              <td>
+                <p style="margin: 0rem 0rem 0rem 0rem;">{{ appointment.date|date('l') }} <strong>{{ appointment.date|date('jS F') }}</strong> {{ appointment.date|date('Y') }}</p>
+              </td>
+              <td>
+                <p>{{ appointment.date|date('g:iA') }}</p>
+              </td>
+              <td>
+                <p style="color:#0072C6;font-weight:700;font-size:2rem;">></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
 
-          <section style="visibility: hidden;">
-            <button id="showLeft">Show/Hide Left Slide Menu</button>
-            <button id="showRight">Show/Hide Right Slide Menu</button>
-            <button id="showTop">Show/Hide Top Slide Menu</button>
-            <button id="showBottom">Show/Hide Bottom Slide Menu</button>
-          </section>
-        </div>
+        <section style="visibility: hidden;">
+          <button id="showLeft">Show/Hide Left Slide Menu</button>
+          <button id="showRight">Show/Hide Right Slide Menu</button>
+          <button id="showTop">Show/Hide Top Slide Menu</button>
+          <button id="showBottom">Show/Hide Bottom Slide Menu</button>
+        </section>
       </div>
-    </main>
+    </div>
+</main>
 
-    <script src="/public/javascripts/vendor/modernizr.custom.js"></script>
-    <script src="/public/javascripts/vendor/classie.js"></script>
-    <script>
-    var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-    menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-    menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-    menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-    showLeft = document.getElementById( 'showLeft' ),
-    showRight = document.getElementById( 'showRight' ),
-    showTop = document.getElementById( 'showTop' ),
-    showBottom = document.getElementById( 'showBottom' ),
-    showLeftPush = document.getElementById( 'showLeftPush' ),
-    showRightPush = document.getElementById( 'showRightPush' ),
+<script src="/public/javascripts/vendor/modernizr.custom.js"></script>
+<script src="/public/javascripts/vendor/classie.js"></script>
+<script>
+  var menuLeft = document.getElementById('cbp-spmenu-s1'),
+    menuRight = document.getElementById('cbp-spmenu-s2'),
+    menuTop = document.getElementById('cbp-spmenu-s3'),
+    menuBottom = document.getElementById('cbp-spmenu-s4'),
+    showLeft = document.getElementById('showLeft'),
+    showRight = document.getElementById('showRight'),
+    showTop = document.getElementById('showTop'),
+    showBottom = document.getElementById('showBottom'),
+    showLeftPush = document.getElementById('showLeftPush'),
+    showRightPush = document.getElementById('showRightPush'),
     body = document.body;
 
-    showLeft.onclick = function() {
-      classie.toggle( this, 'active' );
-      classie.toggle( menuLeft, 'cbp-spmenu-open' );
-      disableOther( 'showLeft' );
-    };
-    showRight.onclick = function() {
-      classie.toggle( this, 'active' );
-      classie.toggle( menuRight, 'cbp-spmenu-open' );
-      disableOther( 'showRight' );
-    };
-    showTop.onclick = function() {
-      classie.toggle( this, 'active' );
-      classie.toggle( menuTop, 'cbp-spmenu-open' );
-      disableOther( 'showTop' );
-    };
-    showBottom.onclick = function() {
-      classie.toggle( this, 'active' );
-      classie.toggle( menuBottom, 'cbp-spmenu-open' );
-      disableOther( 'showBottom' );
-    };
-    showLeftPush.onclick = function() {
-      classie.toggle( this, 'active' );
-      classie.toggle( body, 'cbp-spmenu-push-toright' );
-      classie.toggle( menuLeft, 'cbp-spmenu-open' );
-      disableOther( 'showLeftPush' );
-    };
-    showRightPush.onclick = function() {
-      classie.toggle( this, 'active' );
-      classie.toggle( body, 'cbp-spmenu-push-toleft' );
-      classie.toggle( menuRight, 'cbp-spmenu-open' );
-      disableOther( 'showRightPush' );
-    };
+  showLeft.onclick = function() {
+    classie.toggle(this, 'active');
+    classie.toggle(menuLeft, 'cbp-spmenu-open');
+    disableOther('showLeft');
+  };
+  showRight.onclick = function() {
+    classie.toggle(this, 'active');
+    classie.toggle(menuRight, 'cbp-spmenu-open');
+    disableOther('showRight');
+  };
+  showTop.onclick = function() {
+    classie.toggle(this, 'active');
+    classie.toggle(menuTop, 'cbp-spmenu-open');
+    disableOther('showTop');
+  };
+  showBottom.onclick = function() {
+    classie.toggle(this, 'active');
+    classie.toggle(menuBottom, 'cbp-spmenu-open');
+    disableOther('showBottom');
+  };
+  showLeftPush.onclick = function() {
+    classie.toggle(this, 'active');
+    classie.toggle(body, 'cbp-spmenu-push-toright');
+    classie.toggle(menuLeft, 'cbp-spmenu-open');
+    disableOther('showLeftPush');
+  };
+  showRightPush.onclick = function() {
+    classie.toggle(this, 'active');
+    classie.toggle(body, 'cbp-spmenu-push-toleft');
+    classie.toggle(menuRight, 'cbp-spmenu-open');
+    disableOther('showRightPush');
+  };
 
-    function disableOther( button ) {
-      if( button !== 'showLeft' ) {
-        classie.toggle( showLeft, 'disabled' );
-      }
-      if( button !== 'showRight' ) {
-        classie.toggle( showRight, 'disabled' );
-      }
-      if( button !== 'showTop' ) {
-        classie.toggle( showTop, 'disabled' );
-      }
-      if( button !== 'showBottom' ) {
-        classie.toggle( showBottom, 'disabled' );
-      }
-      if( button !== 'showLeftPush' ) {
-        classie.toggle( showLeftPush, 'disabled' );
-      }
-      if( button !== 'showRightPush' ) {
-        classie.toggle( showRightPush, 'disabled' );
-      }
+  function disableOther(button) {
+    if (button !== 'showLeft') {
+      classie.toggle(showLeft, 'disabled');
     }
-    </script>
+    if (button !== 'showRight') {
+      classie.toggle(showRight, 'disabled');
+    }
+    if (button !== 'showTop') {
+      classie.toggle(showTop, 'disabled');
+    }
+    if (button !== 'showBottom') {
+      classie.toggle(showBottom, 'disabled');
+    }
+    if (button !== 'showLeftPush') {
+      classie.toggle(showLeftPush, 'disabled');
+    }
+    if (button !== 'showRightPush') {
+      classie.toggle(showRightPush, 'disabled');
+    }
+  }
+</script>
 
-    <script>
-    $(document).ready(function() {
-      $('.accordion > dd').hide();
-      $('.accordion > dt > a').click(function(){
-        $(this).parent().next().slideToggle()
+<script>
+  $(document).ready(function() {
+    $('.accordion > dd').hide();
+    $('.accordion > dt > a').click(function() {
+      $(this).parent().next().slideToggle()
         .siblings('.hide').slideUp();
-        return false;
-      });
-      $('.close').click(function(){
-        $('.accordion .hide').slideUp();
-      });
+      return false;
     });
-    </script>
+    $('.close').click(function() {
+      $('.accordion .hide').slideUp();
+    });
+  });
+</script>
 
-    {% endblock %}
+{% endblock %}
