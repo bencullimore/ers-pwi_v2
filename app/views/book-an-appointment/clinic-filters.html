@@ -21,16 +21,16 @@
     <!--RESET APPLY BUTTONS START-->
     <div class="container-fluid" style="padding:10px;">
       <div class="row-fluid" style="padding:0 0 0 0;">
-        <div class="span6">
-          <p class="close" >
+        <div class="span12">
+          <p class="reset-filters" >
             <a class="button button-cancel" style="color:#fff;padding-top:1rem;">Reset filters</a>
           </p>
         </div>
-        <div class="span6">
+        <!-- <div class="span6">
           <p>
             <a class="button button-book" style="color:#fff;padding-top:1rem;" >Apply filters</a>
           </p>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -42,11 +42,11 @@
       <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <a style="text-decoration:none;color:#000;" class="acc-arrow acc-arrow_blue">Waiting Time</a>
       </dt>
-      <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
+      <dd class="filter-waiting-time" style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="any" name="minor">
+              <input type="radio" data-filter-val="any" id="any" name="minor">
               <label class="form-control-radio minor" for="any">
                 Any
               </label>
@@ -54,7 +54,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="30days" name="minor">
+              <input type="radio" data-filter-val="30" id="30days" name="minor">
               <label class="form-control-radio minor" for="30days" style="font-weight: normal;">
                 Up to 30 days
               </label>
@@ -62,7 +62,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="60days" name="minor">
+              <input type="radio" data-filter-val="60" id="60days" name="minor">
               <label class="form-control-radio minor" for="60days" style="font-weight: normal;">
                 Up to 60 days
               </label>
@@ -70,7 +70,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="100days" name="minor">
+              <input type="radio" data-filter-val="100" id="100days" name="minor">
               <label class="form-control-radio minor" for="100days" style="font-weight: normal;">
                 Up to 100 days
               </label>
@@ -78,7 +78,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="150days" name="minor">
+              <input type="radio" data-filter-val="150" id="150days" name="minor">
               <label class="form-control-radio minor" for="150days" style="font-weight: normal;">
                 Up to 150+ days
               </label>
@@ -93,11 +93,11 @@
       <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <a style="text-decoration:none;color:#000;" class="acc-arrow acc-arrow_blue">Clinic Day</a>
       </dt>
-      <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
+      <dd class="filter-clinic-day" style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="anyday" name="minor" checked="checked">
+              <input type="checkbox" data-filter-val="any" id="anyday" name="minor">
               <label class="form-control-checkbox minor" for="anyday">
                 Any
               </label>
@@ -105,7 +105,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="monday" name="minor">
+              <input type="checkbox" data-filter-val="monday" id="monday" name="minor">
               <label class="form-control-checkbox minor" for="monday" style="font-weight: normal;">
                 Monday
               </label>
@@ -113,7 +113,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="tuesday" name="minor">
+              <input type="checkbox" data-filter-val="tuesday" id="tuesday" name="minor">
               <label class="form-control-checkbox minor" for="tuesday" style="font-weight: normal;">
                 Tuesday
               </label>
@@ -121,7 +121,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="wednesday" name="minor">
+              <input type="checkbox" data-filter-val="wednesday" id="wednesday" name="minor">
               <label class="form-control-checkbox minor" for="wednesday" style="font-weight: normal;">
                 Wednesday
               </label>
@@ -129,7 +129,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="thursday" name="minor">
+              <input type="checkbox" data-filter-val="thursday" id="thursday" name="minor">
               <label class="form-control-checkbox minor" for="thursday" style="font-weight: normal;">
                 Thursday
               </label>
@@ -137,7 +137,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="friday" name="minor">
+              <input type="checkbox" data-filter-val="friday" id="friday" name="minor">
               <label class="form-control-checkbox minor" for="friday" style="font-weight: normal;">
                 Friday
               </label>
@@ -145,7 +145,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="saturday" name="minor">
+              <input type="checkbox" data-filter-val="saturday" id="saturday" name="minor">
               <label class="form-control-checkbox minor" for="saturday" style="font-weight: normal;">
                 Saturday
               </label>
@@ -153,7 +153,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="sunday" name="minor">
+              <input type="checkbox" data-filter-val="sunday" id="sunday" name="minor">
               <label class="form-control-checkbox minor" for="sunday" style="font-weight: normal;">
                 Sunday
               </label>
@@ -167,11 +167,11 @@
       <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <a style="text-decoration:none;color:#000;" class="acc-arrow acc-arrow_blue">Clinic Time</a>
       </dt>
-      <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
+      <dd class="filter-clinic-slot" style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="morning" name="minor">
+              <input type="checkbox" data-filter-val="morning" id="morning" name="minor">
               <label class="form-control-checkbox minor" for="morning" style="font-weight: normal;">
                 Morning (8.00am - 11.59am)
               </label>
@@ -179,7 +179,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="aft" name="minor">
+              <input type="checkbox" data-filter-val="afternoon" id="aft" name="minor">
               <label class="form-control-checkbox minor" for="aft" style="font-weight: normal;">
                 Afternoon (12.00pm - 3.59pm)
               </label>
@@ -187,7 +187,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="eve" name="minor">
+              <input type="checkbox" data-filter-val="evening" id="eve" name="minor">
               <label class="form-control-checkbox minor" for="eve" style="font-weight: normal;">
                 Evening (4.00pm - 8.00pm)
               </label>
@@ -201,19 +201,19 @@
       <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <a style="text-decoration:none;color:#000;" class="acc-arrow acc-arrow_blue">Distance from LS2 4GH</a>
       </dt>
-      <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
+      <dd class="filter-distance-bucket" style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="anydist" name="minor">
-              <label class="form-control-radio minor" for="anydist" checked="checked">
+              <input type="radio" data-filter-val="any" id="anydist" name="minor">
+              <label class="form-control-radio minor" for="anydist">
                 Any
               </label>
             </div>
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="2miles" name="minor">
+              <input type="radio" data-filter-val="2" id="2miles" name="minor">
               <label class="form-control-radio minor" for="2miles" style="font-weight: normal;">
                 Up to 2 miles
               </label>
@@ -221,7 +221,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="5miles" name="minor">
+              <input type="radio" data-filter-val="5" id="5miles" name="minor">
               <label class="form-control-radio minor" for="5miles" style="font-weight: normal;">
                 Up to 5 miles
               </label>
@@ -229,7 +229,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="10miles" name="minor">
+              <input type="radio" data-filter-val="10" id="10miles" name="minor">
               <label class="form-control-radio minor" for="10miles" style="font-weight: normal;">
                 Up to 10 miles
               </label>
@@ -237,7 +237,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="25miles" name="minor">
+              <input type="radio" data-filter-val="25" id="25miles" name="minor">
               <label class="form-control-radio minor" for="25miles" style="font-weight: normal;">
                 Up to 25 miles
               </label>
@@ -245,7 +245,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="50miles" name="minor">
+              <input type="radio" data-filter-val="50" id="50miles" name="minor">
               <label class="form-control-radio minor" for="50miles" style="font-weight: normal;">
                 Up to 50 miles
               </label>
@@ -253,7 +253,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="radio" id="100miles" name="minor">
+              <input type="radio" data-filter-val="100" id="100miles" name="minor">
               <label class="form-control-radio minor" for="100miles" style="font-weight: normal;">
                 Up to 100+ miles
               </label>
@@ -268,11 +268,11 @@
       <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <a style="text-decoration:none;color:#000;" class="acc-arrow acc-arrow_blue">Accessibility</a>
       </dt>
-      <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
+      <dd class="filter-accessibility" style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="Braille" name="minor">
+              <input type="checkbox" data-filter-val="braille" id="Braille" name="minor">
               <label class="form-control-checkbox minor" for="Braille" style="font-weight: normal;">
                 Braille translation service
               </label>
@@ -280,7 +280,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="disabledparking" name="minor">
+              <input type="checkbox" data-filter-val="disabled-parking" id="disabledparking" name="minor">
               <label class="form-control-checkbox minor" for="disabledparking" style="font-weight: normal;">
                 Disabled parking
               </label>
@@ -288,7 +288,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="disabledwc" name="minor">
+              <input type="checkbox" data-filter-val="disabled-wc" id="disabledwc" name="minor">
               <label class="form-control-checkbox minor" for="disabledwc" style="font-weight: normal;">
                 Disabled WC
               </label>
@@ -296,7 +296,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="inductionloop" name="minor">
+              <input type="checkbox" data-filter-val="induction-loop" id="inductionloop" name="minor">
               <label class="form-control-checkbox minor" for="inductionloop" style="font-weight: normal;">
                 Induction loop
               </label>
@@ -304,7 +304,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="rnid" name="minor">
+              <input type="checkbox" data-filter-val="rnid" id="rnid" name="minor">
               <label class="form-control-checkbox minor" for="rnid" style="font-weight: normal;">
                 RNID typetalk
               </label>
@@ -312,7 +312,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="signingservice" name="minor">
+              <input type="checkbox" data-filter-val="signing" id="signingservice" name="minor">
               <label class="form-control-checkbox minor" for="signingservice" style="font-weight: normal;">
                 Signing service available
               </label>
@@ -320,7 +320,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="wheelchairaccess" name="minor">
+              <input type="checkbox" data-filter-val="wheelchair-access" id="wheelchairaccess" name="minor">
               <label class="form-control-checkbox minor" for="wheelchairaccess" style="font-weight: normal;">
                 Wheelchair access
               </label>
@@ -328,7 +328,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="stepfree" name="minor">
+              <input type="checkbox" data-filter-val="step-free-access" id="stepfree" name="minor">
               <label class="form-control-checkbox minor" for="stepfree" style="font-weight: normal;">
                 Step free access
               </label>
@@ -343,11 +343,11 @@
       <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <a style="text-decoration:none;color:#000;" class="acc-arrow acc-arrow_blue">Facilities &amp; Amenities</a>
       </dt>
-      <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
+      <dd class="filter-facilities" style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="Cafe" name="minor">
+              <input type="checkbox" data-filter-val="cafe" id="Cafe" name="minor">
               <label class="form-control-checkbox minor" for="Cafe" style="font-weight: normal;">
                 Cafe
               </label>
@@ -355,7 +355,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="library" name="minor">
+              <input type="checkbox" data-filter-val="library" id="library" name="minor">
               <label class="form-control-checkbox minor" for="library" style="font-weight: normal;">
                 Patient library
               </label>
@@ -363,7 +363,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="Pharmacy" name="minor">
+              <input type="checkbox" data-filter-val="pharmacy" id="Pharmacy" name="minor">
               <label class="form-control-checkbox minor" for="Pharmacy" style="font-weight: normal;">
                 Pharmacy
               </label>
@@ -371,7 +371,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="Shop" name="minor">
+              <input type="checkbox" data-filter-val="shop" id="Shop" name="minor">
               <label class="form-control-checkbox minor" for="Shop" style="font-weight: normal;">
                 Shop
               </label>
@@ -386,11 +386,11 @@
       <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <a style="text-decoration:none;color:#000;" class="acc-arrow acc-arrow_blue">CQC Rating</a>
       </dt>
-      <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
+      <dd class="filter-cqc-rating" style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="anycqc" name="minor">
+              <input type="checkbox" data-filter-val="any" id="anycqc" name="minor">
               <label class="form-control-checkbox minor" for="anycqc">
                 Any
               </label>
@@ -398,7 +398,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="Outstanding" name="minor">
+              <input type="checkbox" data-filter-val="1" id="Outstanding" name="minor">
               <label class="form-control-checkbox minor" for="Outstanding" style="font-weight: normal;">
                 Outstanding
               </label>
@@ -406,7 +406,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="Good" name="minor">
+              <input type="checkbox" data-filter-val="2" id="Good" name="minor">
               <label class="form-control-checkbox minor" for="Good" style="font-weight: normal;">
                 Good
               </label>
@@ -414,7 +414,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="Requiresimprovement" name="minor">
+              <input type="checkbox" data-filter-val="3" id="Requiresimprovement" name="minor">
               <label class="form-control-checkbox minor" for="Requiresimprovement" style="font-weight: normal;">
                 Requires improvement
               </label>
@@ -422,7 +422,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="Inadequate" name="minor">
+              <input type="checkbox" data-filter-val="4" id="Inadequate" name="minor">
               <label class="form-control-checkbox minor" for="Inadequate" style="font-weight: normal;">
                 Inadequate
               </label>
@@ -430,7 +430,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="notrated" name="minor">
+              <input type="checkbox" data-filter-val="5" id="notrated" name="minor">
               <label class="form-control-checkbox minor" for="notrated" style="font-weight: normal;">
                 Services not yet rated
               </label>
@@ -445,11 +445,11 @@
       <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <a style="text-decoration:none;color:#000;" class="acc-arrow acc-arrow_blue">NHS Choices Rating</a>
       </dt>
-      <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
+      <dd class="filter-choices-rating" style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="anychoices" name="minor">
+              <input type="checkbox" data-filter-val="any" id="anychoices" name="minor">
               <label class="form-control-checkbox minor" for="anychoices">
                 Any
               </label>
@@ -457,7 +457,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="5stars" name="minor">
+              <input type="checkbox" data-filter-val="5" id="5stars" name="minor">
               <label class="form-control-checkbox minor" for="5stars" style="font-weight: normal;">
                 5 Stars
               </label>
@@ -465,7 +465,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="4stars" name="minor">
+              <input type="checkbox" data-filter-val="4" id="4stars" name="minor">
               <label class="form-control-checkbox minor" for="4stars" style="font-weight: normal;">
                 4 Stars
               </label>
@@ -473,7 +473,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="3stars" name="minor">
+              <input type="checkbox" data-filter-val="3" id="3stars" name="minor">
               <label class="form-control-checkbox minor" for="3stars" style="font-weight: normal;">
                 3 Stars
               </label>
@@ -481,7 +481,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="2stars" name="minor">
+              <input type="checkbox" data-filter-val="2" id="2stars" name="minor">
               <label class="form-control-checkbox minor" for="2stars" style="font-weight: normal;">
                 2 Stars
               </label>
@@ -489,7 +489,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="1stars" name="minor">
+              <input type="checkbox" data-filter-val="1" id="1stars" name="minor">
               <label class="form-control-checkbox minor" for="1stars" style="font-weight: normal;">
                 1 Star
               </label>
@@ -497,7 +497,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="Unrated" name="minor">
+              <input type="checkbox" data-filter-val="0" id="Unrated" name="minor">
               <label class="form-control-checkbox minor" for="Unrated" style="font-weight: normal;">
                 Unrated
               </label>
@@ -512,11 +512,11 @@
       <dt style="border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <a style="text-decoration:none;color:#000;" class="acc-arrow acc-arrow_blue">Parking</a>
       </dt>
-      <dd style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
+      <dd class="filter-parking" style="background-color:#fff;border-bottom:1px solid #000;margin:0;padding:2rem 1rem 2rem 1rem;">
         <div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="carparking" name="minor">
+              <input type="checkbox" data-filter-val="car" id="carparking" name="minor">
               <label class="form-control-checkbox minor" for="carparking" style="font-weight: normal;">
                 Car parking
               </label>
@@ -524,7 +524,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="cycleparking" name="minor">
+              <input type="checkbox" data-filter-val="cycle" id="cycleparking" name="minor">
               <label class="form-control-checkbox minor" for="cycleparking" style="font-weight: normal;">
                 Cycle parking
               </label>
@@ -532,7 +532,7 @@
           </div>
           <div class="form-item-wrapper">
             <div class="form-group">
-              <input type="checkbox" id="disabledparking2" name="minor">
+              <input type="checkbox" data-filter-val="disabled" id="disabledparking2" name="minor">
               <label class="form-control-checkbox minor" for="disabledparking2" style="font-weight: normal;">
                 Disabled parking
               </label>
