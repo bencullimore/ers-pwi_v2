@@ -12,7 +12,7 @@
       "cqc_rating_number": "3",
       "cqc_rating": "imp",
       "accessibility": ["braille", "disabled-parking", "disabled-wc", "induction-loop", "rnid", "signing", "wheelchair-access", "step-free-access"],
-      "facilities": ["cafe", "pharmacy", "library"],
+      "facilities": ["cafe", "pharmacy", "library", "shop"],
       "choices_rating": "4",
       "parking": ["car", "cycle", "disabled"],
       "appointments":
@@ -65,6 +65,10 @@
       "distance_bucket": "25",
       "cqc_rating_number": "2",
       "cqc_rating": "good",
+      "accessibility": ["braille", "disabled-parking", "disabled-wc", "induction-loop", "rnid", "signing", "wheelchair-access", "step-free-access"],
+      "facilities": ["cafe", "shop"],
+      "choices_rating": "3",
+      "parking": ["car", "disabled"],
       "appointments":
       [
         {
@@ -109,6 +113,10 @@
       "distance_bucket": "50",
       "cqc_rating_number": "2",
       "cqc_rating": "good",
+      "accessibility": ["braille", "disabled-parking", "disabled-wc", "induction-loop", "rnid", "signing", "wheelchair-access", "step-free-access"],
+      "facilities": ["cafe", "pharmacy", "library", "shop"],
+      "choices_rating": "4",
+      "parking": ["car", "cycle", "disabled"],
       "appointments":
       [
         {
@@ -153,6 +161,10 @@
       "distance_bucket": "50",
       "cqc_rating_number": "2",
       "cqc_rating": "good",
+      "accessibility": ["braille", "disabled-parking", "disabled-wc", "induction-loop", "rnid", "signing", "wheelchair-access", "step-free-access"],
+      "facilities": ["cafe", "pharmacy", "library", "shop"],
+      "choices_rating": "4",
+      "parking": ["car", "cycle", "disabled"],
       "appointments":
       [
         {
@@ -198,6 +210,14 @@
       "telephone_appointment": "true",
       "cqc_rating_number": "2",
       "cqc_rating": "good",
+      "accessibility": ["braille", "disabled-parking", "disabled-wc", "induction-loop", "rnid", "signing", "wheelchair-access", "step-free-access"],
+      "facilities": ["cafe", "pharmacy", "library", "shop"],
+      "choices_rating": "4",
+      "parking": ["car", "cycle", "disabled"],
+      "accessibility": ["braille", "disabled-parking", "disabled-wc", "induction-loop", "rnid", "signing", "wheelchair-access", "step-free-access"],
+      "facilities": ["cafe", "pharmacy", "library", "shop"],
+      "choices_rating": "4",
+      "parking": ["car", "cycle", "disabled"],
       "appointments":
       [
         {
@@ -242,6 +262,10 @@
       "distance_bucket": "2",
       "cqc_rating_number": "5",
       "cqc_rating": "unknown",
+      "accessibility": ["braille", "disabled-parking", "disabled-wc", "induction-loop", "rnid", "signing", "wheelchair-access", "step-free-access"],
+      "facilities": ["cafe", "pharmacy", "library", "shop"],
+      "choices_rating": "4",
+      "parking": ["car", "cycle", "disabled"],
       "appointments":
       [
         {
@@ -287,6 +311,10 @@
       "distance_bucket": "5",
       "cqc_rating_number": "3",
       "cqc_rating": "imp",
+      "accessibility": ["braille", "disabled-parking", "disabled-wc", "induction-loop", "rnid", "signing", "wheelchair-access", "step-free-access"],
+      "facilities": ["cafe", "pharmacy", "library", "shop"],
+      "choices_rating": "4",
+      "parking": ["car", "cycle", "disabled"],
       "appointments":
       [
         {
@@ -337,6 +365,10 @@
       "distance_bucket": "2",
       "cqc_rating_number": "2",
       "cqc_rating": "good",
+      "accessibility": ["braille", "disabled-parking", "disabled-wc", "induction-loop", "rnid", "signing", "wheelchair-access", "step-free-access"],
+      "facilities": ["cafe", "pharmacy", "library", "shop"],
+      "choices_rating": "4",
+      "parking": ["car", "cycle", "disabled"],
       "appointments":
       [
         {
@@ -381,6 +413,10 @@
       "distance_bucket": "50",
       "cqc_rating_number": "1",
       "cqc_rating": "outstanding",
+      "accessibility": ["braille", "disabled-parking", "disabled-wc", "induction-loop", "rnid", "signing", "wheelchair-access", "step-free-access"],
+      "facilities": ["cafe", "pharmacy", "library", "shop"],
+      "choices_rating": "4",
+      "parking": ["car", "cycle", "disabled"],
       "appointments":
       [
         {

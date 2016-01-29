@@ -113,19 +113,22 @@ function filter(event) {
   // Hide all of the rows that haven't met the criteria
   // TODO: Ensure this different filters work together
   $('.clinicresult').each(function() {
-    var showClinic = false;
+    var clinicCriteria,
+        showClinic = false;
 
     if (filtersToApply.length === 0 || filtersToApply.indexOf('any') !== -1) {
       // Nothing to filter by or any selected - show everything
       showClinic = true;
     } else {
-      var clinicCriteria = $(this).attr('data-filter-' + filter).split(',');
+      clinicCriteria = $(this).attr('data-filter-' + filter).split(',');
 
       // if radio button
       if (filterType === 'radio') {
-        if (clinicCriteria <= filtersToApply[0]) {
-          showClinic = true;
-        }
+        clinicCriteria.forEach(function(criteria) {
+          if (parseInt(criteria) <= parseInt(filtersToApply[0])) {
+            showClinic = true;
+          }
+        });
       } else {
         // TODO: need to know if the filter is inclusive or exclusive!
         // Assume it is an AND
