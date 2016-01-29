@@ -33,7 +33,8 @@
                data-filter-waiting-time="{{ clinic.next_appointment.days_in_future }}"
                data-filter-clinic-day="{{ clinic.next_appointment.date|date('l')|lower }}"
                data-filter-clinic-slot="{{ clinic.next_appointment.slot }}"
-               data-filter-distance="{{ clinic.distance_bucket }}"
+               data-filter-distance-away="{{ clinic.distance_away }}"
+               data-filter-distance-bucket="{{ clinic.distance_bucket }}"
                data-filter-accessibility={{ clinic.accessibility|default('""') }}
                data-filter-facilities={{ clinic.facilities|default('""') }}
                data-filter-parking={{ clinic.parking|default('""') }}

@@ -9,98 +9,17 @@ $(document).ready(function() {
   checkDetailsEditing();
   setUpFilters();
   setUpResetFilters();
+  setUpSort();
 
   // Uses radio buttons to emulate a more usable select box
   $(".js-form-select label").click(function() {
     $(this).closest('.js-form-select').toggleClass("open");
   });
 
-  // Filter Appointment
-
-  // Make Reset Filters button active
-  // $('dl.accordion dd input[type="checkbox"]').not('#anyday').change(function() {
-  //   $('dl.accordion dd input[type="checkbox"]').not(':checked').length > 0 ?
-  //     $('.cbp-spmenu-left .span6 .close').removeClass('close').addClass('reset-filters') :
-  //     $('.cbp-spmenu-left .span6 .reset-filters').removeClass('reset-filters').addClass('close');
-  // });
-
-  // Reset filter button
-  // $('.cbp-spmenu-left p > a.button-cancel').on('click', function() {
-  //   $('dl.accordion dd:eq(1) input#anyday').trigger("click");
-  // });
-
   // Apply filter button
   $('.cbp-spmenu-left p > a.button-book').on('click', function() {
     $('#showRightPush').trigger("click");
   });
-
-
-  //
-  // // Clinic Day
-  // $('dl.accordion dd:eq(1) input[type="checkbox"]').change(function() {
-  //   var dayOfWeek = $(this).attr('id');
-  //   if (dayOfWeek == 'anyday') {
-  //     if ($(this).is(':checked')) {
-  //       $('dl.accordion dd:eq(1) input').not('#anyday').removeAttr("checked");
-  //       $('.main table tr').show().removeClass('day-hide');
-  //       $('.cbp-spmenu-left .span6 .reset-filters').removeClass('reset-filters').addClass('close');
-  //     } else {
-  //       $('.main table tr').hide();
-  //       $('.cbp-spmenu-left .span6 .close').removeClass('close').addClass('reset-filters');
-  //     }
-  //   } else {
-  //     $('dl.accordion dd:eq(1) input#anyday').removeAttr("checked");
-  //     //$('.main table tr').not('.day-hide').hide();
-  //     this.checked ?
-  //       $('.main table tr td p:contains(' + dayOfWeek + ')').parents('tr').addClass('day-hide').show() :
-  //       $('.main table tr td p:contains(' + dayOfWeek + ')').parents('tr').removeClass('day-hide').not('.time-hide');
-  //
-  //     $('.main table tr').not('.day-hide').hide();
-  //   }
-  //
-  //   //$('.main table tr').not('.day-hide').hide();
-  //   $('.main table tr:visible:odd, .main table tr:visible:odd td').css('background-color', 'transparent');
-  //   $('.main table tr:visible:even, .main table tr:visible:even td').css('background-color', '#eff3f5');
-  // });
-  //
-  // // Clinic Time
-  // $('dl.accordion dd:eq(2) div:eq(0) input[type="checkbox"]').change(function() {
-  //   $('.main table tr:odd').not(':hidden').css('background-color', '#f9f9f9');
-  //   $('.main table tr:even').not(':hidden').css('background-color', 'transparent');
-  //   var timeOfDay = $(this).attr('id');
-  //   var afternoon = ['12', '1', '2', '3'];
-  //   var evening = ['4', '5', '6', '7', '8'];
-  //   var thisCheckbox = $(this);
-  //
-  //   if (timeOfDay == 'morning') { // Morning (All AM)
-  //     console.log('am');
-  //     this.checked ?
-  //       $('.main table tr td p:contains("am")').parents('tr').removeClass('time-hide').not('.day-hide').show() :
-  //       $('.main table tr td p:contains("am")').parents('tr').addClass('time-hide').hide();
-  //   } else {
-  //     $('.main table tr td:nth-child(2) p').each(function() {
-  //       var hour = $(this).text().split('.');
-  //       var thisPara = $(this);
-  //
-  //       if (timeOfDay == 'aft') { // Afternoon (12-3)
-  //         if ($.inArray(hour[0], afternoon) > -1) {
-  //           $(thisCheckbox).is(':checked') ?
-  //             $(thisPara).parents('tr').removeClass('time-hide').not('.day-hide').show() :
-  //             $(thisPara).parents('tr').addClass('time-hide').hide();
-  //         }
-  //       } else { // Evening (4-8)
-  //         if ($.inArray(hour[0], evening) > -1) {
-  //           $(thisCheckbox).is(':checked') ?
-  //             $(thisPara).parents('tr').not('.day-hide').removeClass('time-hide').show() :
-  //             $(thisPara).parents('tr').addClass('time-hide').hide();
-  //         }
-  //       }
-  //     });
-  //   }
-  //   $('.main table tr:visible:odd, .main table tr:visible:odd td').css('background-color', 'transparent');
-  //   $('.main table tr:visible:even, .main table tr:visible:even td').css('background-color', '#eff3f5');
-  // });
-  // END: Filter Appointment
 
   $('.checkdetailsbox > div:eq(5) > div a').click(function(e) {
     e.preventDefault();
@@ -121,16 +40,6 @@ $(document).ready(function() {
       $(this).css('background-image', 'url(/public/images/acc-arrow-up-' + color + '.png)').addClass('down');
   });
   // END: Accordion Arrow
-
-  // Sort Clinics
-  $('.sort input').click(function() {
-    index = $(this).parents('.form-item-wrapper').index();
-    $('.clinicresult').sort(function(a, b) {
-      return $(a).data('sort')[index] - $(b).data('sort')[index];
-    }).each(function(_, container) {
-      $(container).parent().append(container);
-    });
-  });
 });
 
 jQuery(document).ready(function($) {
@@ -243,11 +152,23 @@ function setUpFilters() {
 }
 
 function resetFilters() {
-  // Uncheck all filters and show all results
   $('[class*=filter-] div.form-group input').removeAttr('checked');
   $('.clinicresult').show();
 }
 
 function setUpResetFilters() {
   $('.reset-filters').on('click', resetFilters);
+}
+
+function sort() {
+  var sortCriteria = $(this).data('sort-val'),
+  sorted = $('.clinicresult').sort(function(a, b) {
+    return $(a).data('filter-' + sortCriteria) - $(b).data('filter-' + sortCriteria);
+  });
+  $('.clinicresult').remove();
+  $('.sortable').append(sorted);
+}
+
+function setUpSort() {
+  $('.sort input').on('click', sort);
 }

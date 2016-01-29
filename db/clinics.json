@@ -63,7 +63,7 @@
       "phone_number": "",
       "distance_away": "13",
       "distance_bucket": "25",
-      "cqc_rating_number": "4",
+      "cqc_rating_number": "2",
       "cqc_rating": "good",
       "appointments":
       [
@@ -107,7 +107,7 @@
       "phone_number": "",
       "distance_away": "28",
       "distance_bucket": "50",
-      "cqc_rating_number": "4",
+      "cqc_rating_number": "2",
       "cqc_rating": "good",
       "appointments":
       [
@@ -151,7 +151,7 @@
       "phone_number": "",
       "distance_away": "28",
       "distance_bucket": "50",
-      "cqc_rating_number": "4",
+      "cqc_rating_number": "2",
       "cqc_rating": "good",
       "appointments":
       [
@@ -196,7 +196,7 @@
       "distance_away": "30",
       "distance_bucket": "50",
       "telephone_appointment": "true",
-      "cqc_rating_number": "4",
+      "cqc_rating_number": "2",
       "cqc_rating": "good",
       "appointments":
       [
@@ -240,7 +240,7 @@
       "phone_number": "0113 2371603",
       "distance_away": "100",
       "distance_bucket": "2",
-      "cqc_rating_number": "1",
+      "cqc_rating_number": "5",
       "cqc_rating": "unknown",
       "appointments":
       [
@@ -335,7 +335,7 @@
       "phone_number": "",
       "distance_away": "2",
       "distance_bucket": "2",
-      "cqc_rating_number": "4",
+      "cqc_rating_number": "2",
       "cqc_rating": "good",
       "appointments":
       [
@@ -379,7 +379,7 @@
       "phone_number": "",
       "distance_away": "28",
       "distance_bucket": "50",
-      "cqc_rating_number": "5",
+      "cqc_rating_number": "1",
       "cqc_rating": "outstanding",
       "appointments":
       [
