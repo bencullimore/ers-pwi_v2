@@ -88,70 +88,9 @@ function checkDetailsEditing() {
   });
 }
 
-function filter(event) {
-  console.log('Filtering...');
-  var $currentInput = $(event.currentTarget).first('input'),
-  parentFilterClass = $(event.delegateTarget).parents('dd').first().attr('class'),
-      splitLocation = parentFilterClass.indexOf('-') + 1,
-             filter = parentFilterClass.substring(splitLocation),
-         filterType = $currentInput.attr('type'),
-            checked = $currentInput.attr('checked'),
-     filtersToApply = [];
-
-  if (checked) {
-    $currentInput.removeAttr('checked');
-  } else {
-    $currentInput.attr('checked', 'checked');
-  }
-
-  // Get all of the filters that are checked and dig out the values
-  $('.' + parentFilterClass).find('input:checked').each(function() {
-    var val = $(this).attr('data-filter-val').toLowerCase();
-    filtersToApply.push(val);
-  });
-
-  // Hide all of the rows that haven't met the criteria
-  // TODO: Ensure this different filters work together
-  $('.filterable').each(function() {
-    var clinicCriteria,
-        showClinic = false;
-
-    if (filtersToApply.length === 0 || filtersToApply.indexOf('any') !== -1) {
-      // Nothing to filter by or any selected - show everything
-      showClinic = true;
-    } else {
-      clinicCriteria = $(this).attr('data-filter-' + filter).split(',');
-
-      // if radio button
-      if (filterType === 'radio') {
-        clinicCriteria.forEach(function(criteria) {
-          if (parseInt(criteria) <= parseInt(filtersToApply[0])) {
-            showClinic = true;
-          }
-        });
-      } else {
-        // TODO: need to know if the filter is inclusive or exclusive!
-        // Currently it is an OR
-
-        // if the list of filters to apply doesn't have what the clinic does - hide it
-        clinicCriteria.forEach(function(criteria) {
-          if (filtersToApply.indexOf(criteria) !== -1) {
-            console.log('At least one of the appointments is for the day(s) selected.');
-            console.log('Show the clinic.');
-            showClinic = true;
-            // the loop can be exited now, the clinic is going to be shown
-          }
-        });
-      }
-    }
-
-    showClinic ? $(this).show() : $(this).hide();
-  });
-}
-
 function setUpFilters() {
   console.log('setUpFilters...');
-  $('[class*=filter-] div.form-group input').on('click', filter);
+  $('[class*=filter-] div.form-group input').on('click', buildFilterMap);
 }
 
 function resetFilters() {
@@ -163,15 +102,93 @@ function setUpResetFilters() {
   $('.reset-filters').on('click', resetFilters);
 }
 
+function setUpSort() {
+  $('.sort input').on('click', sort);
+}
+
 function sort() {
   var sortCriteria = $(this).data('sort-val'),
-  sorted = $('.clinicresult').sort(function(a, b) {
-    return $(a).data('filter-' + sortCriteria) - $(b).data('filter-' + sortCriteria);
-  });
+    sorted = $('.clinicresult').sort(function(a, b) {
+      return $(a).data('filter-' + sortCriteria) - $(b).data('filter-' + sortCriteria);
+    });
   $('.clinicresult').remove();
   $('.sortable').append(sorted);
 }
+// Filtering
+// get all of the filters that have been applied
+// create a map, keyed on the filter
+function buildFilterMap(event) {
+  var $currentInput = $(event.currentTarget).first('input'),
+            checked = $currentInput.attr('checked'),
+         allFilters = $('[class*=filter-]'),
+          filterMap = {};
 
-function setUpSort() {
-  $('.sort input').on('click', sort);
+  if (checked) {
+    $currentInput.removeAttr('checked');
+  } else {
+    $currentInput.attr('checked', 'checked');
+  }
+
+  // for all filters, get what has been set
+  allFilters.each(function(idx, filter) {
+    // trim the class up to get the actual filter key
+    var filterName = $(filter).attr('class').replace('-', ''),
+              vals = [];
+
+    $(filter).find('input:checked').each(function(_, f) {
+      var val = $(this).attr('data-filter-val');
+      vals.push(val);
+    });
+
+    filterMap[filterName] = vals;
+  });
+  doTheFilter(filterMap);
+}
+
+// based on the set of filters, hide or show the results
+function doTheFilter(filterMap) {
+  $('.filterable').each(function() {
+    var resultData = $(this).data(),
+      showClinic = true,
+      filters,
+      filterKey;
+
+    for (filterKey in filterMap) {
+      filters = filterMap[filterKey];
+      if (filters.length > 0) {
+        // check if the result has the correct criteria
+        resultData[filterKey].forEach(function(criteria) {
+          // check if the any option is set, if it is, no need to check any further
+          // and only need to check if there are some filters set
+          if (filters.indexOf('any') === -1 && filters.length > 0) {
+            // if the applied filters do not have what the clinic has, hide the result
+            if (filterKey === 'filterWaitingTime' || filterKey === 'filterDistanceBucket') {
+              // assume this is going to be a single value as it a clinic property
+              if (parseInt(filters[0]) < parseInt(criteria)) {
+                showClinic = false;
+              }
+            } else if (filterKey === 'filterAccessibility' ||
+              filterKey === 'filterParking' ||
+              filterKey === 'filterFacilities') {
+              // if (true) {
+              //   showClinic = false;
+              // }
+              console.log('TODO: Handle this case.');
+            } else {
+              // this works for single value things like the time
+              if (typeof(criteria) === 'number') {
+                criteria = criteria.toString();
+              }
+              if (filters.indexOf(criteria) === -1) {
+                console.log('Hide the clinic.');
+                showClinic = false;
+              }
+            }
+          }
+        });
+      }
+    }
+
+    showClinic ? $(this).show() : $(this).hide();
+  });
 }
