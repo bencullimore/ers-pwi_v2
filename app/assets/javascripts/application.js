@@ -156,36 +156,40 @@ function doTheFilter(filterMap) {
     for (filterKey in filterMap) {
       filters = filterMap[filterKey];
       if (filters.length > 0) {
-        // check if the result has the correct criteria
-        resultData[filterKey].forEach(function(criteria) {
-          // check if the any option is set, if it is, no need to check any further
-          // and only need to check if there are some filters set
-          if (filters.indexOf('any') === -1 && filters.length > 0) {
-            // if the applied filters do not have what the clinic has, hide the result
-            if (filterKey === 'filterWaitingTime' || filterKey === 'filterDistanceBucket') {
-              // assume this is going to be a single value as it a clinic property
-              if (parseInt(filters[0]) < parseInt(criteria)) {
-                showClinic = false;
-              }
-            } else if (filterKey === 'filterAccessibility' ||
-              filterKey === 'filterParking' ||
-              filterKey === 'filterFacilities') {
-              // if (true) {
-              //   showClinic = false;
-              // }
-              console.log('TODO: Handle this case.');
-            } else {
-              // this works for single value things like the time
-              if (typeof(criteria) === 'number') {
-                criteria = criteria.toString();
-              }
-              if (filters.indexOf(criteria) === -1) {
-                console.log('Hide the clinic.');
-                showClinic = false;
+
+        if (filterKey === 'filterAccessibility' ||
+            filterKey === 'filterParking' ||
+            filterKey === 'filterFacilities') {
+          filters.forEach(function(fil) {
+            if (resultData[filterKey].indexOf(fil) === -1) {
+              showClinic = false;
+            }
+          });
+        } else {
+          // check if the result has the correct criteria
+          resultData[filterKey].forEach(function(criteria) {
+            // check if the any option is set, if it is, no need to check any further
+            // and only need to check if there are some filters set
+            if (filters.indexOf('any') === -1 && filters.length > 0) {
+              // if the applied filters do not have what the clinic has, hide the result
+              if (filterKey === 'filterWaitingTime' || filterKey === 'filterDistanceBucket') {
+                // assume this is going to be a single value as it a clinic property
+                if (parseInt(filters[0]) < parseInt(criteria)) {
+                  showClinic = false;
+                }
+              } else {
+                // this works for single value things like the time
+                if (typeof(criteria) === 'number') {
+                  criteria = criteria.toString();
+                }
+                if (filters.indexOf(criteria) === -1) {
+                  console.log('Hide the clinic.');
+                  showClinic = false;
+                }
               }
             }
-          }
-        });
+          });
+        }
       }
     }
 
