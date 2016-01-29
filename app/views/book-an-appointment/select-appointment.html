@@ -46,8 +46,8 @@
           <tbody>
             {% for appointment in clinic.appointments %}
             <tr class='filterable clickable-row' data-href='/book-an-appointment/{{ clinic.id }}/review-appointment/{{ appointment.id }}'
-                data-filter-clinic-slot="{{ appointment.slot }}"
-                data-filter-clinic-day="{{ appointment.date|date('l')|lower }}">
+                data-filter-clinic-day="[{{ appointment.date|date('l')|lower|json }}]"
+                data-filter-clinic-slot="[{{ appointment.slot|json }}]">
               <td>
                 <p style="margin: 0rem 0rem 0rem 0rem;">{{ appointment.date|date('l') }} <strong>{{ appointment.date|date('jS F') }}</strong> {{ appointment.date|date('Y') }}</p>
               </td>
