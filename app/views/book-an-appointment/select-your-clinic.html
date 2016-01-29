@@ -29,7 +29,7 @@
         <!--DISPLAY CLINICS START-->
         <div class="sortable">
         {% for clinic in clinics %}
-          <div class="clinicresult clickable-row" data-href='/book-an-appointment/{{clinic.id}}/select-appointment'
+          <div class="filterable clinicresult clickable-row" data-href='/book-an-appointment/{{clinic.id}}/select-appointment'
                data-filter-waiting-time="{{ clinic.next_appointment.days_in_future }}"
                data-filter-clinic-day="{{ clinic.next_appointment.date|date('l')|lower }}"
                data-filter-clinic-slot="{{ clinic.next_appointment.slot }}"

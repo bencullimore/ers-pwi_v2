@@ -112,7 +112,7 @@ function filter(event) {
 
   // Hide all of the rows that haven't met the criteria
   // TODO: Ensure this different filters work together
-  $('.clinicresult').each(function() {
+  $('.filterable').each(function() {
     var clinicCriteria,
         showClinic = false;
 
@@ -131,7 +131,7 @@ function filter(event) {
         });
       } else {
         // TODO: need to know if the filter is inclusive or exclusive!
-        // Assume it is an AND
+        // Currently it is an OR
 
         // if the list of filters to apply doesn't have what the clinic does - hide it
         clinicCriteria.forEach(function(criteria) {
@@ -156,7 +156,7 @@ function setUpFilters() {
 
 function resetFilters() {
   $('[class*=filter-] div.form-group input').removeAttr('checked');
-  $('.clinicresult').show();
+  $('.filterable').show();
 }
 
 function setUpResetFilters() {

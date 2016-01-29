@@ -45,7 +45,9 @@
         <table class="table table-striped">
           <tbody>
             {% for appointment in clinic.appointments %}
-            <tr class='clickable-row' data-href='/book-an-appointment/{{ clinic.id }}/review-appointment/{{ appointment.id }}'>
+            <tr class='filterable clickable-row' data-href='/book-an-appointment/{{ clinic.id }}/review-appointment/{{ appointment.id }}'
+                data-filter-clinic-slot="{{ appointment.slot }}"
+                data-filter-clinic-day="{{ appointment.date|date('l')|lower }}">
               <td>
                 <p style="margin: 0rem 0rem 0rem 0rem;">{{ appointment.date|date('l') }} <strong>{{ appointment.date|date('jS F') }}</strong> {{ appointment.date|date('Y') }}</p>
               </td>
