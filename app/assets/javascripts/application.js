@@ -10,6 +10,9 @@ $(document).ready(function() {
   setUpFilters();
   setUpResetFilters();
   setUpSort();
+  $('#back').on('click', function() {
+    history.back();
+  });
 
   // Uses radio buttons to emulate a more usable select box
   $(".js-form-select label").click(function() {
@@ -47,10 +50,6 @@ jQuery(document).ready(function($) {
     window.document.location = $(this).data("href");
   });
 });
-
-function goBack() {
-  window.history.back();
-}
 
 function checkDetailsEditing() {
   // Get the value from the sessionStorage otherwise use the default inpage value
