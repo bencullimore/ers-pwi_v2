@@ -27,7 +27,7 @@
         {% include "book-an-appointment/clinic-filter-buttons.html" %}
 
         <!--DISPLAY CLINICS START-->
-        <div class="sortable">
+        <div class="sortable results">
         {% for clinic in clinics %}
           <div class="filterable clinicresult clickable-row" data-href='/book-an-appointment/{{clinic.id}}/select-appointment'
                data-filter-waiting-time="[{{ clinic.next_appointment.days_in_future|json }}]"

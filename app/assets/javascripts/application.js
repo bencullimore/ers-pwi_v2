@@ -43,14 +43,10 @@ $(document).ready(function() {
 });
 
 jQuery(document).ready(function($) {
-  $('.sortable').on('click', '.clickable-row', function() {
+  $('.results').on('click', '.clickable-row', function() {
     window.document.location = $(this).data("href");
   });
 });
-
-function goBack() {
-  window.history.back();
-}
 
 function checkDetailsEditing() {
   // Get the value from the sessionStorage otherwise use the default inpage value

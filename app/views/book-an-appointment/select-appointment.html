@@ -43,7 +43,7 @@
         <!--FILTER BUTTON END-->
 
         <table class="table table-striped">
-          <tbody>
+          <tbody class="results">
             {% for appointment in clinic.appointments %}
             <tr class='filterable clickable-row' data-href='/book-an-appointment/{{ clinic.id }}/review-appointment/{{ appointment.id }}'
                 data-filter-clinic-day="[{{ appointment.date|date('l')|lower|json }}]"
