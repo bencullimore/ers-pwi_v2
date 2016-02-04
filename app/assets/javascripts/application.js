@@ -10,9 +10,6 @@ $(document).ready(function() {
   setUpFilters();
   setUpResetFilters();
   setUpSort();
-  $('#back').on('click', function() {
-    history.back();
-  });
 
   // Uses radio buttons to emulate a more usable select box
   $(".js-form-select label").click(function() {
@@ -46,7 +43,7 @@ $(document).ready(function() {
 });
 
 jQuery(document).ready(function($) {
-  $('.sortable').on('click', '.clickable-row', function() {
+  $('.results').on('click', '.clickable-row', function() {
     window.document.location = $(this).data("href");
   });
 });
