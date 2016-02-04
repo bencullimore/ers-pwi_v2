@@ -1,6 +1,11 @@
-# NHS e-Referral Service Prototyping Kit
+# NHS e-Referral Service Prototype
 
-This kit is adapted from the [GOV.UK prototyping kit.](https://github.com/alphagov/govuk_prototype_kit).
+* [Integration site](https://ers-proto-staging.herokuapp.com/)
+* [User research site](https://ers-proto.herokuapp.com/)
+
+## Additional info
+
+The site is built using an adapted version of [GOV.UK prototyping kit.](https://github.com/alphagov/govuk_prototype_kit).
 
 The kit provides a simple way to make interactive prototypes for NHS e-Referral Service. These prototypes can be used to show ideas to people you work with, and to do user research.
 
@@ -68,4 +73,3 @@ Find out how to work with the prototyping application.
 * [Deploying (getting your work online)](docs/deploying.md)
 
 This project is built on top of Express, the idea is that it is straightforward to create simple static pages out of the box. However, you're not limited to that - more dynamic sites can be built with more understanding of Express. Here's a good [Express tutorial.](http://code.tutsplus.com/tutorials/introduction-to-express--net-33367)
-
