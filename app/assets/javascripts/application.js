@@ -191,4 +191,9 @@ function doTheFilter(filterMap) {
 
     showClinic ? $(this).show() : $(this).hide();
   });
+
+  // no results displayed, turn on the no results message
+  $('.filterable').is(':visible') ?
+    $('.no-results').addClass('hidden') :
+    $('.no-results').removeClass('hidden');
 }
