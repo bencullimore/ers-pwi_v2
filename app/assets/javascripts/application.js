@@ -86,10 +86,29 @@ function checkDetailsEditing() {
 
 function setUpFilters() {
   console.log('setUpFilters...');
+  prepopulateFilters();
   $('[class*=filter-] div.form-group input').on('click', buildFilterMap);
 }
 
+function prepopulateFilters() {
+  var filters,
+      filterMap = loadTheFilters();
+
+  for (var filterKey in filterMap) {
+    filters = filterMap[filterKey];
+    if (filters.length) {
+      // find the filters and mark them all as checked
+      var inputFilterSelector = '.filter-' + filterKey.slice(6);
+      filters.forEach(function(fil) {
+        $(inputFilterSelector + ' [data-filter-val="'+ fil +'"]').attr('checked', 'checked');
+      });
+    }
+  }
+  doTheFilter(filterMap);
+}
+
 function resetFilters() {
+  sessionStorage['Filters'] = JSON.stringify({});
   $('[class*=filter-] div.form-group input').removeAttr('checked');
   $('.filterable').show();
 }
@@ -117,7 +136,7 @@ function buildFilterMap(event) {
   var $currentInput = $(event.currentTarget).first('input'),
             checked = $currentInput.attr('checked'),
          allFilters = $('[class*=filter-]'),
-          filterMap = {};
+          filterMap = loadTheFilters();
 
   if (checked) {
     $currentInput.removeAttr('checked');
@@ -138,7 +157,19 @@ function buildFilterMap(event) {
 
     filterMap[filterName] = vals;
   });
+  saveTheFilters(filterMap);
   doTheFilter(filterMap);
+}
+
+function loadTheFilters() {
+  var filters = sessionStorage['Filters'];
+  return filters ?
+         JSON.parse(filters) :
+         {};
+}
+
+function saveTheFilters(filterMap) {
+  sessionStorage['Filters'] = JSON.stringify(filterMap);
 }
 
 // based on the set of filters, hide or show the results
@@ -163,28 +194,30 @@ function doTheFilter(filterMap) {
           });
         } else {
           // check if the result has the correct criteria
-          resultData[filterKey].forEach(function(criteria) {
-            // check if the any option is set, if it is, no need to check any further
-            // and only need to check if there are some filters set
-            if (filters.indexOf('any') === -1 && filters.length > 0) {
-              // if the applied filters do not have what the clinic has, hide the result
-              if (filterKey === 'filterWaitingTime' || filterKey === 'filterDistanceBucket') {
-                // assume this is going to be a single value as it a clinic property
-                if (parseInt(filters[0]) < parseInt(criteria)) {
-                  showClinic = false;
-                }
-              } else {
-                // this works for single value things like the time
-                if (typeof(criteria) === 'number') {
-                  criteria = criteria.toString();
-                }
-                if (filters.indexOf(criteria) === -1) {
-                  console.log('Hide the clinic.');
-                  showClinic = false;
+          if (resultData[filterKey]) {
+            resultData[filterKey].forEach(function(criteria) {
+              // check if the any option is set, if it is, no need to check any further
+              // and only need to check if there are some filters set
+              if (filters.indexOf('any') === -1 && filters.length > 0) {
+                // if the applied filters do not have what the clinic has, hide the result
+                if (filterKey === 'filterWaitingTime' || filterKey === 'filterDistanceBucket') {
+                  // assume this is going to be a single value as it a clinic property
+                  if (parseInt(filters[0]) < parseInt(criteria)) {
+                    showClinic = false;
+                  }
+                } else {
+                  // this works for single value things like the time
+                  if (typeof(criteria) === 'number') {
+                    criteria = criteria.toString();
+                  }
+                  if (filters.indexOf(criteria) === -1) {
+                    console.log('Hide the clinic.');
+                    showClinic = false;
+                  }
                 }
               }
-            }
-          });
+            });
+          }
         }
       }
     }
