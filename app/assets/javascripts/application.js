@@ -110,6 +110,7 @@ function prepopulateFilters() {
 function resetFilters() {
   sessionStorage['Filters'] = JSON.stringify({});
   $('[class*=filter-] div.form-group input').removeAttr('checked');
+  $('.no-results').addClass('hidden')
   $('.filterable').show();
 }
 
