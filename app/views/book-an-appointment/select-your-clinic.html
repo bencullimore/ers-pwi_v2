@@ -29,10 +29,11 @@
         <!--DISPLAY CLINICS START-->
         <div class="sortable results">
         {% for clinic in clinics %}
+
           <div class="filterable clinicresult clickable-row" data-href='/book-an-appointment/{{clinic.id}}/select-appointment'
                data-filter-waiting-time="[{{ clinic.next_appointment.days_in_future|json }}]"
-               data-filter-clinic-day="[{{ clinic.next_appointment.date|date('l')|lower|json }}]"
-               data-filter-clinic-slot="[{{ clinic.next_appointment.slot|json }}]"
+               data-filter-clinic-day="{{ clinic.dates|json }}"
+               data-filter-clinic-slot="{{ clinic.slots|json }}"
                data-filter-distance-away="[{{ clinic.distance_away|json }}]"
                data-filter-distance-bucket="[{{ clinic.distance_bucket|json }}]"
                data-filter-accessibility="{{ clinic.accessibility|json }}"

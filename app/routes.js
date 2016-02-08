@@ -1,4 +1,5 @@
-var querystring = require('querystring');
+var querystring = require('querystring'),
+     dateFormat = require('dateformat');
 
 module.exports = {
   bind : function (app) {
@@ -68,13 +69,27 @@ module.exports = {
                         return 0;
                       })[0];
                       item.next_appointment = next_appointment;
-                      addDateToNextAppointment(item);
+                      addDateToAppointments(item);
                       return item.type.toLowerCase() === service;
                     })
                     // sort the clinics on the next available appointment
                     .sort(function(a, b) {
                       return parseInt(a.next_appointment.days_in_future) > parseInt(b.next_appointment.days_in_future);
                     });
+
+      clinics.forEach(function(clinic) {
+        var slotSet = new Set(),
+            dateSet = new Set();
+
+        clinic.appointments.forEach(function(apt) {
+          slotSet.add(apt.slot);
+          dateSet.add(dateFormat(apt.date, 'dddd').toLowerCase());
+        });
+
+        clinic.slots = Array.from(slotSet);
+        clinic.dates = Array.from(dateSet);
+        clinic.a = "NEW";
+      });
 
       res.render('book-an-appointment/select-your-clinic',
       {
@@ -139,10 +154,6 @@ function addDateToAppointments(clinic) {
     addDateToAppointment(appointment);
   });
   return clinic;
-}
-
-function addDateToNextAppointment(clinic) {
-  addDateToAppointment(clinic.next_appointment);
 }
 
 function addDateToAppointment(appointment) {
