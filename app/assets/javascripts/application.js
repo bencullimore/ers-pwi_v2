@@ -10,6 +10,7 @@ $(document).ready(function() {
   setUpFilters();
   setUpResetFilters();
   setUpSort();
+  hideMenusWhenClickingAwayFromThem();
 
   // Uses radio buttons to emulate a more usable select box
   $(".js-form-select label").click(function() {
@@ -237,4 +238,12 @@ function doTheFilter(filterMap) {
   $('.filterable').is(':visible') ?
     $('.no-results').addClass('hidden') :
     $('.no-results').removeClass('hidden');
+}
+
+function hideMenusWhenClickingAwayFromThem() {
+  $('.container').on('click', function(event) {
+    if (event.target.id !== 'showLeft' && event.target.id !== 'showRight') {
+      $('.cbp-spmenu-open').removeClass('cbp-spmenu-open');
+    }
+  });
 }
