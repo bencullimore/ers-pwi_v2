@@ -130,9 +130,8 @@ function sort() {
   $('.clinicresult').remove();
   $('.sortable').append(sorted);
 }
-// Filtering
-// get all of the filters that have been applied
-// create a map, keyed on the filter
+
+// Create map, keyed on filter of all filters
 function buildFilterMap(event) {
   var $currentInput = $(event.currentTarget).first('input'),
             checked = $currentInput.attr('checked'),
@@ -173,7 +172,6 @@ function saveTheFilters(filterMap) {
   sessionStorage['Filters'] = JSON.stringify(filterMap);
 }
 
-// based on the set of filters, hide or show the results
 function doTheFilter(filterMap) {
   $('.filterable').each(function() {
     var resultData = $(this).data(),
@@ -196,28 +194,37 @@ function doTheFilter(filterMap) {
         } else {
           // check if the result has the correct criteria
           if (resultData[filterKey]) {
-            resultData[filterKey].forEach(function(criteria) {
-              // check if the any option is set, if it is, no need to check any further
-              // and only need to check if there are some filters set
-              if (filters.indexOf('any') === -1 && filters.length > 0) {
-                // if the applied filters do not have what the clinic has, hide the result
-                if (filterKey === 'filterWaitingTime' || filterKey === 'filterDistanceBucket') {
-                  // assume this is going to be a single value as it a clinic property
-                  if (parseInt(filters[0]) < parseInt(criteria)) {
-                    showClinic = false;
+            // if there are some filters applied that are not any do some filtering
+            if (filters.indexOf('any') === -1 && filters.length > 0) {
+              // if the filter is for appointment criteria
+              if (filterKey === 'filterClinicSlot' || filterKey === 'filterClinicDay') {
+                // if none of the filters are found, hide it
+                showClinic = false;
+                filters.forEach(function(fil) {
+                  if (resultData[filterKey].includes(fil)) {
+                    showClinic = true;
                   }
-                } else {
-                  // this works for single value things like the time
-                  if (typeof(criteria) === 'number') {
-                    criteria = criteria.toString();
-                  }
-                  if (filters.indexOf(criteria) === -1) {
-                    console.log('Hide the clinic.');
-                    showClinic = false;
-                  }
-                }
+                });
+              } else {
+                resultData[filterKey].forEach(function(filterCriteria) {
+                    if (filterKey === 'filterWaitingTime' || filterKey === 'filterDistanceBucket') {
+                      // assume this is going to be a single value as it a clinic property
+                      if (parseInt(filters[0]) < parseInt(filterCriteria)) {
+                        showClinic = false;
+                      }
+                    } else {
+                      // this works for single value things like the time
+                      if (typeof(filterCriteria) === 'number') {
+                        filterCriteria = filterCriteria.toString();
+                      }
+                      if (filters.indexOf(filterCriteria) === -1) {
+                        console.log('Hide the clinic.');
+                        showClinic = false;
+                      }
+                    }
+                });
               }
-            });
+            }
           }
         }
       }
