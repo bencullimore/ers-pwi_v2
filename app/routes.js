@@ -93,7 +93,8 @@ module.exports = {
 
       res.render('book-an-appointment/select-your-clinic',
       {
-        clinics: clinics
+        clinics: clinics,
+        gmap_key: app.locals.gmap_key
       });
     });
 
@@ -101,7 +102,8 @@ module.exports = {
       var clinic = getClinicById(req.params.clinic_id);
       res.render('book-an-appointment/select-appointment',
       {
-        clinic: clinic
+        clinic: clinic,
+        clinics: [clinic]
       });
     });
 
