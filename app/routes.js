@@ -88,12 +88,12 @@ module.exports = {
 
         clinic.slots = Array.from(slotSet);
         clinic.dates = Array.from(dateSet);
-        clinic.a = "NEW";
       });
 
       res.render('book-an-appointment/select-your-clinic',
       {
-        clinics: clinics
+        clinics: clinics,
+        gmap_key: app.locals.gmap_key
       });
     });
 
@@ -101,7 +101,7 @@ module.exports = {
       var clinic = getClinicById(req.params.clinic_id);
       res.render('book-an-appointment/select-appointment',
       {
-        clinic: clinic
+        clinics: [clinic]
       });
     });
 
