@@ -52,22 +52,23 @@
 
     <!--GOOGLE MAPS START-->
     <script type="text/javascript">
-      var map;
+      var map,
+      homePos = {
+        lat: 53.805536,
+        lng: -1.555182
+      };
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {
-            lat: 53.805536,
-            lng: -1.555182
-          },
-          zoom: 8
+          center: homePos,
+          zoom: 8,
+          disableDefaultUI: true,
+          zoomControl: true,
+          scrollwheel: false
         });
 
         var homeMarker = new google.maps.Marker({
-          position: {
-            lat: 53.805536,
-            lng: -1.555182
-          },
+          position: homePos,
           map: map,
           title: 'Home',
           icon: '/public/images/home.png'
