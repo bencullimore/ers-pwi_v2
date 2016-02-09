@@ -1,0 +1,66 @@
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2" style="overflow:auto;-webkit-box-shadow: -17px 1px 23px -16px rgba(0,0,0,0.49);-moz-box-shadow: -17px 1px 23px -16px rgba(0,0,0,0.49);box-shadow: -17px 1px 23px -16px rgba(0,0,0,0.49);">
+  <header role="banner" id="global-header" style="background-color:#0072C6;padding-top: 10px !important; padding-bottom: 10px !important;margin-left: 0px !important; margin-right: 0px !important;">
+    <div class="header-container">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span8">
+            <h2 style="color:#fff;font-size:18px;padding-top:15px;">Clinic Information</h2>
+          </div>
+          <div class="span4">
+            <button id="showRightPush" style="background-color:#0072C6;border:0px;"><img src="{{assetPath}}images/x_37x37.svg" width="37px" height="37px" alt=""></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <iframe
+    width="240"
+    height="200"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key={{gmap_key}}&q={{clinics|first.location|url_encode}}&zoom=14" allowfullscreen>
+  </iframe>
+
+  <div style="padding:10px;">
+    <h2>{{ clinics|first.name }}</h2>
+    <p style="margin-bottom: 0px !important; padding-bottom: 10px !important;">{{ clinics|first.location }}</p>
+
+    <p><strong>Telephone:</strong> {{ clinics|first.phone_number|default('01234 567 890') }}
+      <br />
+      <strong>Address:</strong> {{ clinics|first.location }}
+      <br />
+      <strong>Website:</strong> <a style="font-size:1.5rem;" href="{{ clinics|first.url|default('http://www.nhs.uk') }}">{{ clinics|first.url|default('www.nhs.uk') }}</a> </p>
+
+    <h2>Quality of service at {{ clinics|first.name }}</h2>
+
+    <p>CQC Rating <img src="{{assetPath}}images/cqc_req_{{ clinics|first.cqc_rating }}.svg" />
+      <br />
+      <a style="font-size:1.5rem;" href="http://www.cqc.org.uk/location/RR801">Read the full report here</a>
+      <br /> NHS Choices user rating: <img src="http://www.nhs.uk/img/find-services/four-star.gif" />
+      <br />
+      <a style="font-size:1.5rem;" href="http://www.nhs.uk/services/hospitals/overview/defaultview.aspx?id=2205">Read review here</a></p>
+
+    <h2>Accessibility</h2>
+
+    <p>Induction loop
+      <br /> Disabled parking
+      <br /> Signing service available
+      <br /> Wheelchair access
+    </p>
+
+    <h2>Food &amp; Amenities</h2>
+    <p>Cafe
+      <br /> Shop
+      <br /> Parking
+      <br /> Car Parking
+      <br /> Disabled Parking
+    </p>
+
+    <h2>PALS (Patient advice and liaison service)</h2>
+
+    <p><strong>Tel:</strong> (0113) 2067168
+      <br />
+      <strong>Email:</strong> <a style="font-size:1.5rem;" href="mailto:patient.relations@leedsth.nhs.uk">patient.relations@leedsth.nhs.uk</a>
+    </p>
+</div>
+</nav>

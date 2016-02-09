@@ -9,7 +9,7 @@
   <body class="cbp-spmenu-push">
 
     {% include "book-an-appointment/clinic-filters.html" with { hide_waiting_times: true, hide_distance: true, hide_accessibility: true, hide_facilities: true, hide_cqc_rating: true, hide_choices_rating: true, hide_parking: true } %}
-    {% include "book-an-appointment/clinic-map.html" %}
+    {% include "book-an-appointment/clinic-info.html" %}
 
     <div class="container">
       <header class="clearfix">
@@ -20,7 +20,7 @@
           Select your Appointment
         </h1>
         <div class="bookbox">
-          <h2 style="padding-bottom:0px;font-weight: bold;line-height:28px;"><a style="color:#0072C6;" id="showRight">{{ clinics|first.name }}</a></h2>
+          <h2 style="padding-bottom:0px;font-weight: bold;line-height:28px;"><a href="#" style="color:#0072C6;" id="showRight">{{ clinics|first.name }}</a></h2>
           <p>{{ clinics|first.location }}</p>
           <div class="checkdetailsbox" style="padding-bottom: 2px !important; padding-top: 10px !important;">
             <p><strong>{{ clinics|first.distance_away }} Miles</strong> from <strong>LS2 4GH</strong></p>
@@ -69,6 +69,9 @@
         </section>
       </div>
     </div>
+
+
+
 </main>
 
 <script src="/public/javascripts/vendor/modernizr.custom.js"></script>
