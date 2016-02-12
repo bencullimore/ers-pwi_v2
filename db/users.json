@@ -3,13 +3,13 @@
   [
     {
       "id": "1",
-      "name": "Fred E Ric",
-      "email": "fred@e.ric"
+      "name": "Fred Ric",
+      "email": "frederic@holmail.co.uk"
     },
     {
       "id": "2",
-      "name": "Jason Marshall",
-      "email": "json@marshall.com"
+      "name": "Mary Marshall",
+      "email": "marym1952@toogle.com"
     }
   ]
 }

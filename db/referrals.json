@@ -15,8 +15,8 @@
           "consultant": "Dr S Mills"
         },
         {
-          "service": "Cardiology",
-          "consultant": "Dr Superman"
+          "service": "Asthma",
+          "consultant": "Dr Goldman"
         }
       ],
       "booked":
@@ -45,9 +45,9 @@
       "booked":
       [
         {
-          "service": "Heart",
-          "datetime": "2016-02-14 12:00",
-          "location": "Somewhere over the rainbow"
+          "service": "Physiotherapy",
+          "datetime": "2016-07-14 12:00",
+          "location": "Nuffield Leeds"
         }
       ]
     }

@@ -3,11 +3,31 @@
 {% import 'includes/ui_element_macros.html' as ui_element_macros %}
 
 {% block afterHeader %}
-  {% include "includes/service-headers/book-an-appointment.html" %}
+
 {% endblock %}
 
 {% block content %}
+
+
+
+            <div class="service-header" type="button" value="Back">
+                <div class="service-name" style="padding:2px 0 0px 0;">
+                    <p style="margin-bottom:0px;">
+                      <a data-href='/book-an-appointment/{{clinic.id}}/select-appointment' id="back" type="button" value="Back" onclick="window.history.back()"><img src="/public/images/back-chevron_blue.svg" height="11px"> Back</a>
+                    </p>
+	           </div>
+          </div>
+
+
+
+
 <main id="content" role="main" >
+    
+    
+
+    
+    
+    
   <h1 class="heading-large" style="padding-top:0px;padding-bottom:10px;">Review your Appointment</h1>
   <div class="text">
     <div class="bookbox">
@@ -16,7 +36,7 @@
       {% include 'book-an-appointment/appointment-summary.html' %}
     </div>
   </div>
-  <div style="text-align:center;">
+  <div style="text-align:center;" class="text">
     <div class="container-fluid" style="padding-top:15px;padding-left:0px;padding-right:0px;">
       <div class="row-fluid" style="padding:0 0 0 0;">
         <div class="span6">
@@ -26,7 +46,7 @@
         </div>
         <div class="span6">
           <p>
-            <a class="button button-book" href="/book-an-appointment/{{ clinic.id }}/confirmation/{{ appointment.id }}" style="color:#fff">Book Appointment</a>
+            <a class="button button-book" href="/book-an-appointment/{{ clinic.id }}/confirmation/{{ appointment.id }}" style="color:#fff;padding-left:20px;padding-right:20px;">Book Appointment</a>
           </p>
         </div>
       </div>

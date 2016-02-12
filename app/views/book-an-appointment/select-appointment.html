@@ -1,10 +1,19 @@
 {% extends 'templates/nhs_transaction_layout.html' %}
 {% import 'includes/form_macros.html' as form_macros %}
 {% block afterHeader %}
-  {% include "includes/service-headers/book-an-appointment.html" %}
+
 {% endblock %}
 {% block content %}
 <main role="main">
+    
+        <div class="service-header" type="button" value="Back">
+                <div class="service-name" style="padding:2px 0 0px 0;">
+                    <p style="margin-bottom:0px;">
+                      <a data-href='/book-an-appointment/{{clinic.id}}/select-your-clinic' id="back" type="button" value="Back" onclick="window.history.back()"><img src="/public/images/back-chevron_blue.svg" height="11px"> Back</a>
+                    </p>
+	           </div>
+          </div>
+    
 
   <body class="cbp-spmenu-push">
 
@@ -20,13 +29,13 @@
           Select your Appointment
         </h1>
         <div class="bookbox">
-          <h2 style="padding-bottom:0px;font-weight: bold;line-height:28px;"><a href="#" style="color:#0072C6;" id="showRight">{{ clinics|first.name }}</a></h2>
+          <h1 class="heading-large" style="padding-bottom:10px;font-weight: bold;line-height:28px;"><a href="#" style="color:#231f20;" id="showRight">{{ clinics|first.name }}</a></h1>
           <p>{{ clinics|first.location }}</p>
           <div class="checkdetailsbox" style="padding-bottom: 2px !important; padding-top: 10px !important;">
             <p><strong>{{ clinics|first.distance_away }} Miles</strong> from <strong>LS2 4GH</strong></p>
           </div>
           <div class="checkdetailsbox" style="padding-bottom: 5px !important; padding-top: 10px !important;">
-            <p style="margin-bottom:0px;">CQC Rating <img src="{{assetPath}}images/cqc_req_{{ clinics|first.cqc_rating }}.svg" /></p>
+            <p style="margin-bottom:0px;">CQC Rating <img width="63" src="{{assetPath}}images/cqc_req_{{ clinics|first.cqc_rating }}.svg" /></p>
           </div>
         </div>
 

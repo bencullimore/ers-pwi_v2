@@ -3,21 +3,38 @@
 {% import 'includes/ui_element_macros.html' as ui_element_macros %}
 
 {% block afterHeader %}
-{% include "includes/service-headers/book-an-appointment.html" %}
+
 {% endblock %}
 
 {% block content %}
-<main role="main" style="padding-left:0px;">
+
+              <div class="service-header" type="button" value="Back">
+                <div class="service-name" style="padding:2px 0 0px 0;">
+                    <p style="margin-bottom:0px;">
+                      <a data-href='/book-an-appointment/{{clinic.id}}/check-details' id="back" type="button" value="Back" onclick="window.history.back()"><img src="/public/images/back-chevron_blue.svg" height="11px"> Back</a>
+                    </p>
+	           </div>
+          </div>
+
+
+
+<main id="content" role="main" style="padding-left:0px;">
+
+    
   <body class="cbp-spmenu-push">
 
     {% include "book-an-appointment/clinic-filters.html" %}
 
     {% include "book-an-appointment/clinic-map.html" %}
 
-    <div class="container">
+    <div >
       <header class="clearfix">
+          
+
+          
       </header>
-      <div class="main" style="padding-top: 20px !important;">
+
+      <div class="main" >
         <!--MAIN CONTENT STARTS HERRRRREEEE-->
         <h1 class="heading-large" style="padding-top: 0px !important;">
           Select your Clinic
@@ -70,7 +87,7 @@
 
                 <div class="span3" style="padding-top:20px;line-height: 1.7rem;">
                   <p style="margin-bottom:0px;">CQC Rating</p>
-                  <img src="{{assetPath}}images/cqc_req_{{ clinic.cqc_rating }}.svg" />
+                  <img width="63px" src="{{assetPath}}images/cqc_req_{{ clinic.cqc_rating }}.svg" />
                 </div>
                 <div class="span1" >
                   <p style="text-align:right;">
@@ -93,7 +110,7 @@
                 </div>
                 <div class="span4" >
                   <p style="margin-bottom:0px;">CQC Rating</p>
-                  <img src="{{assetPath}}images/cqc_req_{{ clinic.cqc_rating }}.svg" />
+                  <img style="width: 63px !important;" src="{{assetPath}}images/cqc_req_{{ clinic.cqc_rating }}.svg" />
                 </div>
               </div>
             </div>
@@ -122,8 +139,10 @@
           <button id="showBottom">Show/Hide Bottom Slide Menu</button>
         </section>
       </div>
+
     </div>
-  </main>
+    </body>
+              </main>
 
   <script src="/public/javascripts/vendor/modernizr.custom.js"></script>
   <script src="/public/javascripts/vendor/classie.js"></script>
@@ -208,5 +227,11 @@
     });
   });
   </script>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 
   {% endblock %}
