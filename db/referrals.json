@@ -13,10 +13,6 @@
         {
           "service": "Cardiology",
           "consultant": "Dr S Mills"
-        },
-        {
-          "service": "Asthma",
-          "consultant": "Dr Goldman"
         }
       ],
       "booked":

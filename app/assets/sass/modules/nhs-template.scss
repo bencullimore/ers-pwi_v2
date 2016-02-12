@@ -534,6 +534,13 @@ html,
 	z-index: 1000;
 }
 
+.cbp-spmenu-vertical-test {
+	width: 100%;
+	//height: 100%;
+	top: 0;
+	z-index: 1000;
+}
+
 .cbp-spmenu-vertical a {
 	//border-bottom: 1px solid #258ecd;
 	//padding: 1em;
@@ -673,3 +680,25 @@ html,
     display: none;
 }
 
+#overlay-back { 
+    position   : absolute; 
+    top        : 0; 
+    left       : 0; 
+    width      : 100%; 
+    height     : 100%; 
+    background : #000; 
+    opacity    : 0.6; 
+    filter     : alpha(opacity=60); 
+    z-index    : 5;
+    display    : none;
+} 
+ 
+#overlay { 
+    position : absolute; 
+    top      : 0; 
+    left     : 0; 
+    width    : 100%; 
+    height   : 100%; 
+    z-index  : 10;
+    display  : none;
+}
