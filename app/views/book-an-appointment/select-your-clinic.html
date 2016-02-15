@@ -37,7 +37,7 @@
         
                 <div id="overlay-back"></div>
                     <div id="overlay">
- 						<a href="#" id="goaway">
+ 						<a href="#" id="goaway" onclick="clickAndDisable(this);">
                     		<div style="width:100%;height:100%;"></div>
                 		</a>
                     </div>   
@@ -178,6 +178,7 @@
   showRight.onclick = function() {
     classie.toggle(this, 'active');
     classie.toggle(menuRight, 'cbp-spmenu-open');
+       $('#overlay, #overlay-back').fadeIn(500);
     disableOther('showRight');
   };
   showTop.onclick = function() {
@@ -195,12 +196,14 @@
     classie.toggle( body, 'cbp-spmenu-push-toright' );
     classie.toggle( menuLeft, 'cbp-spmenu-open' );
     disableOther( 'showLeftPush' );
+             $('#overlay, #overlay-back').fadeOut(500);
   };
   showRightPush.onclick = function() {
     classie.toggle( this, 'active' );
     classie.toggle( body, 'cbp-spmenu-push-toleft' );
     classie.toggle( menuRight, 'cbp-spmenu-open' );
     disableOther( 'showRightPush' );
+             $('#overlay, #overlay-back').fadeOut(500);
   };
 
   function disableOther( button ) {
@@ -236,6 +239,7 @@
     });
     $('.close').click(function(){
       $('.accordion .hide').slideUp();
+        
     });
   });
   </script>
@@ -250,13 +254,26 @@
           }
     </script>
 
+      <script>
+      goaway.onclick = function() {
+    classie.toggle(this, 'active');
+    classie.toggle(body, 'cbp-spmenu-push-toleft');
+    classie.toggle(menuLeft, 'cbp-spmenu-open');
+       $('#overlay, #overlay-back').fadeOut(500);
+    disableOther('showRightPush');
+          }
+    </script>
 
 
 
-<script>
-function goBack() {
-    window.history.back();
-}
+
+<script> 
+   function clickAndDisable(link) {
+     // disable subsequent clicks
+     link.onclick = function(event) {
+        event.preventDefault();
+     }
+   }   
 </script>
 
   {% endblock %}
