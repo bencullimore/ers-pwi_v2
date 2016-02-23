@@ -702,3 +702,27 @@ html,
     z-index  : 10;
     display  : none;
 }
+
+
+#overlay-back2 { 
+    position   : absolute; 
+    top        : 0; 
+    left       : 0; 
+    width      : 100%; 
+    height     : 8000px; 
+    background : red; 
+    opacity    : 0.6; 
+    filter     : alpha(opacity=60); 
+    z-index    : 5;
+    display    : none;
+} 
+ 
+#overlay2 { 
+    position : absolute; 
+    top      : 0; 
+    left     : 0; 
+    width    : 100%; 
+    height   : 100%; 
+    z-index  : 10;
+    display  : none;
+}

@@ -34,13 +34,23 @@
           
       </header>
         
-        
+<!----OVERLAY ONE---->
                 <div id="overlay-back"></div>
                     <div id="overlay">
  						<a href="#" id="goaway" onclick="clickAndDisable(this);">
                     		<div style="width:100%;height:100%;"></div>
                 		</a>
-                    </div>   
+                    </div>  
+<!----OVERLAY ONE END---->
+        
+<!----OVERLAY TWO---->
+                <div id="overlay-back2"></div>
+                    <div id="overlay2">
+ 						<a href="#" id="goaway2" onclick="clickAndDisable(this);">
+                    		<div style="width:100%;height:100%;"></div>
+                		</a>
+                    </div>  
+<!----OVERLAY TWO END---->
       
 
 
@@ -57,7 +67,7 @@
         <div class="sortable results">
         {% for clinic in clinics %}
 
-          <div class="filterable clinicresult clickable-row" data-href='/book-an-appointment/{{clinic.id}}/select-appointment'
+            <div class="filterable clinicresult{% if !clinic.booking_instructions %} clickable-row{% endif %}" data-href='/book-an-appointment/{{clinic.id}}/select-appointment'
                data-filter-waiting-time="[{{ clinic.next_appointment.days_in_future|json }}]"
                data-filter-clinic-day="{{ clinic.dates|json }}"
                data-filter-clinic-slot="{{ clinic.slots|json }}"
@@ -178,7 +188,7 @@
   showRight.onclick = function() {
     classie.toggle(this, 'active');
     classie.toggle(menuRight, 'cbp-spmenu-open');
-       $('#overlay, #overlay-back').fadeIn(500);
+       $('#overlay2, #overlay-back2').fadeIn(500);
     disableOther('showRight');
   };
   showTop.onclick = function() {
@@ -203,7 +213,7 @@
     classie.toggle( body, 'cbp-spmenu-push-toleft' );
     classie.toggle( menuRight, 'cbp-spmenu-open' );
     disableOther( 'showRightPush' );
-             $('#overlay, #overlay-back').fadeOut(500);
+             $('#overlay2, #overlay-back2').fadeOut(500);
   };
 
   function disableOther( button ) {
@@ -255,11 +265,11 @@
     </script>
 
       <script>
-      goaway.onclick = function() {
+      goaway2.onclick = function() {
     classie.toggle(this, 'active');
     classie.toggle(body, 'cbp-spmenu-push-toleft');
-    classie.toggle(menuLeft, 'cbp-spmenu-open');
-       $('#overlay, #overlay-back').fadeOut(500);
+    classie.toggle(menuRight, 'cbp-spmenu-open');
+       $('#overlay2, #overlay-back2').fadeOut(500);
     disableOther('showRightPush');
           }
     </script>

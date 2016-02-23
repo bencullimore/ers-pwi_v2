@@ -9,10 +9,6 @@
         {
           "service": "Respiratory",
           "consultant": "Dr V Smith"
-        },
-        {
-          "service": "Cardiology",
-          "consultant": "Dr S Mills"
         }
       ],
       "booked":
