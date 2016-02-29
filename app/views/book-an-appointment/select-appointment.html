@@ -83,15 +83,15 @@
             {% for appointment in clinics|first.appointments %}
             <tr class='filterable clickable-row' data-href='/book-an-appointment/{{ clinics|first.id }}/review-appointment/{{ appointment.id }}'
                 data-filter-clinic-day="[{{ appointment.date|date('l')|lower|json }}]"
-                 data-filter-clinic-slot="[{{ appointment.slot|json }}]"
-                 data-filter-waiting-time="[{{ clinics|first.next_appointment.days_in_future|json }}]"
-                 data-filter-distance-away="[{{ clinics|first.distance_away|json }}]"
-                 data-filter-distance-bucket="[{{ clinics|first.distance_bucket|json }}]"
-                 data-filter-accessibility="{{ clinics|first.accessibility|json }}"
-                 data-filter-facilities="{{ clinics|first.facilities|json }}"
-                 data-filter-parking="{{ clinics|first.parking|json }}"
-                 data-filter-cqc-rating="[{{ clinics|first.cqc_rating_number }}]"
-                 data-filter-choices-rating="[{{ clinics|first.choices_rating }}]">
+                data-filter-clinic-slot="[{{ appointment.slot|json }}]"
+                data-filter-waiting-time="[{{ clinics|first.next_appointment.days_in_future|json }}]"
+                data-filter-distance-away="[{{ clinics|first.distance_away|json }}]"
+                data-filter-distance-bucket="[{{ clinics|first.distance_bucket|json }}]"
+                data-filter-accessibility="{{ clinics|first.accessibility|json }}"
+                data-filter-facilities="{{ clinics|first.facilities|json }}"
+                data-filter-parking="{{ clinics|first.parking|json }}"
+                data-filter-cqc-rating="[{{ clinics|first.cqc_rating_number }}]"
+                data-filter-choices-rating="[{{ clinics|first.choices_rating }}]">
               <td>
                 <p style="margin: 0rem 0rem 0rem 0rem;">{{ appointment.date|date('l') }} <strong>{{ appointment.date|date('jS F') }}</strong> {{ appointment.date|date('Y') }}</p>
               </td>
